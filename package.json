@@ -1,0 +1,19 @@
+{
+  "name": "ms2builder",
+  "version": "1.0.0",
+  "description": "Builder for Module Store v2.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GooseMod/MS2Builder.git"
+  },
+  "author": "GooseMod",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GooseMod/MS2Builder/issues"
+  },
+  "homepage": "https://github.com/GooseMod/MS2Builder#readme"
+}
