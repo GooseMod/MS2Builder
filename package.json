@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/GooseMod/MS2Builder/issues"
   },
-  "homepage": "https://github.com/GooseMod/MS2Builder#readme"
+  "homepage": "https://github.com/GooseMod/MS2Builder#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "type": "module"
 }
