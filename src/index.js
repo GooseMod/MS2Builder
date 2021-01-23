@@ -26,7 +26,8 @@ const parcelOptions = {
   minify: true,
   watch: false,
   sourceMaps: false,
-  outDir: modulesDir
+  outDir: modulesDir,
+  logLevel: 0
 };
 
 let moduleJson = [];
@@ -41,19 +42,23 @@ for (const repo of ModuleRepos) {
 
   const cloneDir = `${clonesDir}/${name}`;
 
-  console.log('Cloning...');
-
   await new Promise((res) => exec(`git clone ${url} ${cloneDir}`, res));
 
-  console.log('Checkout...');
-
   process.chdir(cloneDir);
+
+  const lastHash = await new Promise((res) => exec(`git rev-parse HEAD`, (err, stdout) => res(stdout.trim())));
+
+  console.log(lastHash);
+
+  if (lastHash !== commitHash) {
+    console.log('[Warning] Commit hash in modules does not match latest commit in repo');
+  }
 
   await new Promise((res) => exec(`git checkout ${commitHash}`, res))
 
   const manifest = JSON.parse(readFileSync(`${cloneDir}/goosemodModule.json`));
 
-  console.log(manifest);
+  // console.log(manifest);
 
   const outFile = `${manifest.name.replace(/ /g, '_').toLowerCase()}.js`;
 
@@ -68,7 +73,7 @@ for (const repo of ModuleRepos) {
 
   jsCode = `${jsCode};parcelRequire('${manifest.main.split('/').pop()}').default`; // Make eval return the index module's default export
 
-  console.log(jsCode);
+  // console.log(jsCode);
 
   writeFileSync(outPath, jsCode);
 
@@ -79,4 +84,6 @@ for (const repo of ModuleRepos) {
     tags: manifest.tags,
     authors: manifest.authors
   });
+
+  console.log();
 }
