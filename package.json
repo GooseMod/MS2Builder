@@ -19,5 +19,11 @@
   "dependencies": {
     "parcel-bundler": "^1.12.4"
   },
+  "alias": {
+    "@goosemod/patcher": "./moduleWrappers/patcher.js",
+    "@goosemod/webpack": "./moduleWrappers/webpack.js",
+    "@goosemod/logger": "./moduleWrappers/logger.js",
+    "@goosemod/reactUtils": "./moduleWrappers/reactUtils.js"
+  },
   "type": "module"
 }
