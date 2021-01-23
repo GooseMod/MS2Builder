@@ -3,6 +3,7 @@ import ModuleRepos from './modules.js';
 import Parcel from 'parcel-bundler';
 
 import { rmSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { createHash } from 'crypto';
 
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -13,7 +14,7 @@ const clonesDir = `${__dirname.replace('/src', '')}/clones`;
 
 const distDir = `${__dirname.replace('/src', '')}/dist`;
 
-const modulesDir = `${distDir}/modules`;
+const modulesDir = `${distDir}/module`;
 
 const resetDir = (dir) => {
   rmSync(dir, { recursive: true, force: true });
@@ -62,22 +63,29 @@ for (const repo of ModuleRepos) {
 
   // console.log(manifest);
 
-  const outFile = `${manifest.name}.js`;
+  const outDir = `${modulesDir}/${manifest.name}`;
+  const outFile = `js`;
 
   const bundler = new Parcel(`${cloneDir}${moduleDir}/${manifest.main}`, Object.assign(parcelOptions, {
+    outDir,
     outFile
   }));
 
   const bundle = await bundler.bundle();
 
-  const outPath = `${modulesDir}/${outFile}`;
-  let jsCode = readFileSync(outPath, 'utf8');
+  const outPath = `${outDir}/${outFile}`;
+  let jsCode = readFileSync(`${outPath}.js`, 'utf8');
 
   jsCode = `${jsCode};parcelRequire('${bundle.entryAsset.basename}').default`; // Make eval return the index module's default export
 
   // console.log(jsCode);
 
   writeFileSync(outPath, jsCode);
+  rmSync(`${outDir}/${outFile}.js`);
+
+  const jsHash = createHash('sha512').update(jsCode).digest('hex');
+
+  writeFileSync(`${outDir}/hash`, jsHash);
 
   moduleJson.push({
     name: manifest.name,
@@ -96,4 +104,4 @@ for (const repo of ModuleRepos) {
   }
 }
 
-writeFileSync(`${distDir}/modules.json`, JSON.stringify(moduleJson));
+writeFileSync(`${distDir}/modules`, JSON.stringify(moduleJson));
