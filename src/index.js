@@ -62,7 +62,7 @@ for (const repo of ModuleRepos) {
 
   // console.log(manifest);
 
-  const outFile = `${manifest.name.replace(/ /g, '_').toLowerCase()}.js`;
+  const outFile = `${manifest.name}.js`;
 
   const bundler = new Parcel(`${cloneDir}${moduleDir}/${manifest.main}`, Object.assign(parcelOptions, {
     outFile
