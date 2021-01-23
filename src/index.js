@@ -10,7 +10,10 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const clonesDir = `${__dirname.replace('/src', '')}/clones`;
-const modulesDir = `${__dirname.replace('/src', '')}/modules`;
+
+const distDir = `${__dirname.replace('/src', '')}/dist`;
+
+const modulesDir = `${distDir}/modules`;
 
 const resetDir = (dir) => {
   rmSync(dir, { recursive: true, force: true });
@@ -18,6 +21,7 @@ const resetDir = (dir) => {
 };
 
 resetDir(clonesDir);
+resetDir(distDir);
 resetDir(modulesDir);
 
 import { exec } from 'child_process';
