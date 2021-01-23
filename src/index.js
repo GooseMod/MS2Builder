@@ -2,7 +2,7 @@ import ModuleRepos from './modules.js';
 
 import Parcel from 'parcel-bundler';
 
-import { rmSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { rmSync, mkdirSync, readFileSync, writeFileSync, copyFileSync } from 'fs';
 import { createHash } from 'crypto';
 
 import { dirname } from 'path';
@@ -101,3 +101,4 @@ for (const repo of ModuleRepos) {
 }
 
 writeFileSync(`${distDir}/modules.json`, JSON.stringify(moduleJson));
+copyFileSync(`${__dirname.replace('/src', '')}/_headers`, `${distDir}/_headers`);
