@@ -39,7 +39,7 @@ let moduleJson = [];
 
 for (const repo of ModuleRepos) {
   // console.log(repo);
-  console.time(repo.slice(0, 2).join('@'));
+  console.time(repo.slice(0, 2).join(' @ ')+`${repo[2] ? ` ${repo[2]}` : ''}`);
 
   const url = `https://github.com/${repo[0]}.git`;
   const commitHash = repo[1];
@@ -56,7 +56,7 @@ for (const repo of ModuleRepos) {
 
   const lastHash = await new Promise((res) => exec(`git rev-parse HEAD`, (err, stdout) => res(stdout.trim())));
 
-  await new Promise((res) => exec(`git checkout ${commitHash}`, res))
+  await new Promise((res) => exec(`git checkout ${commitHash}`, res));
 
   const manifest = JSON.parse(readFileSync(`${cloneDir}${moduleDir}/goosemodModule.json`));
 
@@ -87,7 +87,7 @@ for (const repo of ModuleRepos) {
     authors: manifest.authors
   });
 
-  console.timeEnd(repo.slice(0, 2).join('@'));
+  console.timeEnd(repo.slice(0, 2).join(' @ ')+`${repo[2] ? ` ${repo[2]}` : ''}`);
 
   // console.log(lastHash);
 
