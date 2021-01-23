@@ -33,7 +33,8 @@ const parcelOptions = {
 let moduleJson = [];
 
 for (const repo of ModuleRepos) {
-  console.log(repo);
+  // console.log(repo);
+  console.time(repo);
 
   const url = `https://github.com/${repo.split('@')[0]}.git`;
   const commitHash = repo.split('@')[1];
@@ -47,12 +48,6 @@ for (const repo of ModuleRepos) {
   process.chdir(cloneDir);
 
   const lastHash = await new Promise((res) => exec(`git rev-parse HEAD`, (err, stdout) => res(stdout.trim())));
-
-  console.log(lastHash);
-
-  if (lastHash !== commitHash) {
-    console.log('[Warning] Commit hash in modules does not match latest commit in repo');
-  }
 
   await new Promise((res) => exec(`git checkout ${commitHash}`, res))
 
@@ -85,5 +80,11 @@ for (const repo of ModuleRepos) {
     authors: manifest.authors
   });
 
-  console.log();
+  console.timeEnd(repo);
+
+  // console.log(lastHash);
+
+  if (lastHash !== commitHash) {
+    console.log('[Warning] Commit hash in modules does not match latest commit in repo');
+  }
 }
