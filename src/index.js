@@ -21,6 +21,7 @@ const resetDir = (dir) => {
 };
 
 resetDir(clonesDir);
+
 resetDir(distDir);
 resetDir(modulesDir);
 
@@ -92,3 +93,5 @@ for (const repo of ModuleRepos) {
     console.log('[Warning] Commit hash in modules does not match latest commit in repo');
   }
 }
+
+writeFileSync(`${distDir}/modules.json`, JSON.stringify(moduleJson));
