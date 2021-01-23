@@ -39,12 +39,14 @@ let moduleJson = [];
 
 for (const repo of ModuleRepos) {
   // console.log(repo);
-  console.time(repo);
+  console.time(repo.slice(0, 2).join('@'));
 
-  const url = `https://github.com/${repo.split('@')[0]}.git`;
-  const commitHash = repo.split('@')[1];
+  const url = `https://github.com/${repo[0]}.git`;
+  const commitHash = repo[1];
 
-  const name = repo.split('@')[0];
+  const name = repo[0];
+
+  const moduleDir = repo[2] || '';
 
   const cloneDir = `${clonesDir}/${name}`;
 
@@ -56,13 +58,13 @@ for (const repo of ModuleRepos) {
 
   await new Promise((res) => exec(`git checkout ${commitHash}`, res))
 
-  const manifest = JSON.parse(readFileSync(`${cloneDir}/goosemodModule.json`));
+  const manifest = JSON.parse(readFileSync(`${cloneDir}${moduleDir}/goosemodModule.json`));
 
   // console.log(manifest);
 
   const outFile = `${manifest.name.replace(/ /g, '_').toLowerCase()}.js`;
 
-  const bundler = new Parcel(`${cloneDir}/${manifest.main}`, Object.assign(parcelOptions, {
+  const bundler = new Parcel(`${cloneDir}${moduleDir}/${manifest.main}`, Object.assign(parcelOptions, {
     outFile
   }));
 
@@ -71,7 +73,7 @@ for (const repo of ModuleRepos) {
   const outPath = `${modulesDir}/${outFile}`;
   let jsCode = readFileSync(outPath, 'utf8');
 
-  jsCode = `${jsCode};parcelRequire('${manifest.main.split('/').pop()}').default`; // Make eval return the index module's default export
+  jsCode = `${jsCode};parcelRequire('${bundle.entryAsset.basename}').default`; // Make eval return the index module's default export
 
   // console.log(jsCode);
 
@@ -85,7 +87,7 @@ for (const repo of ModuleRepos) {
     authors: manifest.authors
   });
 
-  console.timeEnd(repo);
+  console.timeEnd(repo.slice(0, 2).join('@'));
 
   // console.log(lastHash);
 
