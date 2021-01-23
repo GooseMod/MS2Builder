@@ -63,36 +63,32 @@ for (const repo of ModuleRepos) {
 
   // console.log(manifest);
 
-  const outDir = `${modulesDir}/${manifest.name}`;
-  const outFile = `js`;
+  const outFile = `${manifest.name}.js`;
 
   const bundler = new Parcel(`${cloneDir}${moduleDir}/${manifest.main}`, Object.assign(parcelOptions, {
-    outDir,
     outFile
   }));
 
   const bundle = await bundler.bundle();
 
-  const outPath = `${outDir}/${outFile}`;
-  let jsCode = readFileSync(`${outPath}.js`, 'utf8');
+  const outPath = `${modulesDir}/${outFile}`;
+  let jsCode = readFileSync(outPath, 'utf8');
 
   jsCode = `${jsCode};parcelRequire('${bundle.entryAsset.basename}').default`; // Make eval return the index module's default export
 
   // console.log(jsCode);
 
   writeFileSync(outPath, jsCode);
-  rmSync(`${outDir}/${outFile}.js`);
 
   const jsHash = createHash('sha512').update(jsCode).digest('hex');
-
-  writeFileSync(`${outDir}/hash`, jsHash);
 
   moduleJson.push({
     name: manifest.name,
     description: manifest.description,
     version: manifest.version,
     tags: manifest.tags,
-    authors: manifest.authors
+    authors: manifest.authors,
+    hash: jsHash
   });
 
   console.timeEnd(repo.slice(0, 2).join(' @ ')+`${repo[2] ? ` ${repo[2]}` : ''}`);
@@ -104,4 +100,4 @@ for (const repo of ModuleRepos) {
   }
 }
 
-writeFileSync(`${distDir}/modules`, JSON.stringify(moduleJson));
+writeFileSync(`${distDir}/modules.json`, JSON.stringify(moduleJson));
