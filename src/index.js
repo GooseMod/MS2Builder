@@ -1,12 +1,15 @@
 import ModuleRepos from './modules.js';
 
 import Parcel from 'parcel-bundler';
+import axios from 'axios';
 
 import { rmSync, mkdirSync, readFileSync, writeFileSync, copyFileSync } from 'fs';
 import { createHash } from 'crypto';
 
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+
+import githubPAT from './gh_pat.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -38,9 +41,26 @@ const parcelOptions = {
 
 let moduleJson = [];
 
+const githubCache = {};
+
+const getGithubInfo = async (repo) => {
+  if (githubCache[repo]) return githubCache[repo];
+
+  const info = (await axios.get(`https://api.github.com/repos/${repo}`, {
+    headers: {
+      'Authorization': `token ${githubPAT}`
+    }
+  })).data;
+
+  githubCache[repo] = info;
+  return info;
+};
+
 for (const repo of ModuleRepos) {
   // console.log(repo);
   console.time(repo.slice(0, 2).join(' @ ')+`${repo[2] ? ` ${repo[2]}` : ''}`);
+
+  const githubInfo = await getGithubInfo(repo[0]);
 
   const url = `https://github.com/${repo[0]}.git`;
   const commitHash = repo[1];
@@ -88,7 +108,12 @@ for (const repo of ModuleRepos) {
     version: manifest.version,
     tags: manifest.tags,
     authors: manifest.authors,
-    hash: jsHash
+    hash: jsHash,
+
+    github: {
+      stars: githubInfo.stargazers_count,
+      repo: repo[0]
+    }
   });
 
   console.timeEnd(repo.slice(0, 2).join(' @ ')+`${repo[2] ? ` ${repo[2]}` : ''}`);
