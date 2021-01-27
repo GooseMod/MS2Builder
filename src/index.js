@@ -1,4 +1,4 @@
-import ModuleRepos from './modules.js';
+import ModuleRepos from './modules/index.js';
 
 import Parcel from 'parcel-bundler';
 import axios from 'axios';
@@ -65,6 +65,8 @@ for (const repo of ModuleRepos) {
   const url = `https://github.com/${repo[0]}.git`;
   const commitHash = repo[1];
 
+  const preprocessor = repo[3];
+
   const name = repo[0];
 
   const moduleDir = repo[2] || '';
@@ -78,6 +80,10 @@ for (const repo of ModuleRepos) {
   const lastHash = await new Promise((res) => exec(`git rev-parse HEAD`, (err, stdout) => res(stdout.trim())));
 
   await new Promise((res) => exec(`git checkout ${commitHash}`, res));
+
+  if (preprocessor) {
+    (await import(`./preprocessors/${preprocessor}.js`)).default(`${cloneDir}${moduleDir}`, repo);
+  }
 
   const manifest = JSON.parse(readFileSync(`${cloneDir}${moduleDir}/goosemodModule.json`));
 
