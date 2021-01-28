@@ -2,8 +2,9 @@ import ModuleRepos from './modules/index.js';
 
 import Parcel from 'parcel-bundler';
 import axios from 'axios';
+import glob from 'glob';
 
-import { rmSync, mkdirSync, readFileSync, writeFileSync, copyFileSync } from 'fs';
+import { rmSync, mkdirSync, readFileSync, writeFileSync, copyFileSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
 
 import { dirname } from 'path';
@@ -24,10 +25,23 @@ const resetDir = (dir) => {
   mkdirSync(dir);
 };
 
-resetDir(clonesDir);
+let previous = [];
+if (existsSync(clonesDir)) {
+  for (const cloneDir of glob.sync(`${clonesDir}/*/*`)) {
+    process.chdir(cloneDir);
 
-resetDir(distDir);
-resetDir(modulesDir);
+    const currentHash = await new Promise((res) => exec(`git rev-parse HEAD`, (err, stdout) => res(stdout.trim())));
+
+    previous = previous.concat(ModuleRepos.filter((x) => x[0] === cloneDir.replace(`${clonesDir}/`, '') && x[1] === currentHash));
+  }
+}
+
+if (process.argv[2] === '-f') {
+  resetDir(clonesDir);
+
+  resetDir(distDir);
+  resetDir(modulesDir);
+}
 
 import { exec } from 'child_process';
 
@@ -57,22 +71,49 @@ const getGithubInfo = async (repo) => {
 };
 
 for (const repo of ModuleRepos) {
-  // console.log(repo);
   console.time(repo.slice(0, 2).join(' @ ')+`${repo[2] ? ` ${repo[2]}` : ''}`);
 
   const githubInfo = await getGithubInfo(repo[0]);
+
+  const name = repo[0];
+  const cloneDir = `${clonesDir}/${name}`;
+
+  const moduleDir = repo[2] || '';
+
+  if (previous.includes(repo)) {
+    const manifest = JSON.parse(readFileSync(`${cloneDir}${moduleDir}/goosemodModule.json`));
+
+    const jsHash = createHash('sha512').update(readFileSync(`${modulesDir}/${manifest.name}.js`)).digest('hex');
+
+    moduleJson.push({
+      name: manifest.name,
+      description: manifest.description,
+      version: manifest.version,
+      tags: manifest.tags,
+      authors: manifest.authors,
+      hash: jsHash,
+  
+      github: {
+        stars: githubInfo.stargazers_count,
+        repo: repo[0]
+      }
+    });
+
+    process.stdout.write('[SKIP] ');
+
+    console.timeEnd(repo.slice(0, 2).join(' @ ')+`${repo[2] ? ` ${repo[2]}` : ''}`);
+
+    continue;
+  }
+
+  // console.log(repo);
 
   const url = `https://github.com/${repo[0]}.git`;
   const commitHash = repo[1];
 
   const preprocessor = repo[3];
 
-  const name = repo[0];
-
-  const moduleDir = repo[2] || '';
-
-  const cloneDir = `${clonesDir}/${name}`;
-
+  resetDir(cloneDir);
   await new Promise((res) => exec(`git clone ${url} ${cloneDir}`, res));
 
   process.chdir(cloneDir);
