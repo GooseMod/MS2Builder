@@ -22,8 +22,15 @@ const modulesDir = `${distDir}/module`;
 
 const resetDir = (dir) => {
   rmSync(dir, { recursive: true, force: true });
-  mkdirSync(dir);
+  mkdirSync(dir, { recursive: true });
 };
+
+if (process.argv[2] === '-f') {
+  resetDir(clonesDir);
+
+  resetDir(distDir);
+  resetDir(modulesDir);
+}
 
 let previous = [];
 if (existsSync(clonesDir)) {
@@ -34,13 +41,6 @@ if (existsSync(clonesDir)) {
 
     previous = previous.concat(ModuleRepos.filter((x) => x[0] === cloneDir.replace(`${clonesDir}/`, '') && x[1] === currentHash));
   }
-}
-
-if (process.argv[2] === '-f') {
-  resetDir(clonesDir);
-
-  resetDir(distDir);
-  resetDir(modulesDir);
 }
 
 import { exec } from 'child_process';
@@ -113,7 +113,9 @@ for (const repo of ModuleRepos) {
 
   const preprocessor = repo[3];
 
-  resetDir(cloneDir);
+//  resetDir(cloneDir);
+//  rmSync(cloneDir, { recursive: true, force: true });
+
   await new Promise((res) => exec(`git clone ${url} ${cloneDir}`, res));
 
   process.chdir(cloneDir);
@@ -149,19 +151,27 @@ for (const repo of ModuleRepos) {
 
   const jsHash = createHash('sha512').update(jsCode).digest('hex');
 
-  moduleJson.push({
+  const manifestJson = {
     name: manifest.name,
     description: manifest.description,
+
     version: manifest.version,
+
     tags: manifest.tags,
+
     authors: manifest.authors,
+
     hash: jsHash,
 
     github: {
       stars: githubInfo.stargazers_count,
       repo: repo[0]
     }
-  });
+  };
+
+  if (manifest.images) manifestJson.images = manifest.images;
+
+  moduleJson.push(manifestJson);
 
   console.timeEnd(repo.slice(0, 2).join(' @ ')+`${repo[2] ? ` ${repo[2]}` : ''}`);
 
