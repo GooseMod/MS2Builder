@@ -170,6 +170,7 @@ for (const repo of ModuleRepos) {
   };
 
   if (manifest.images) manifestJson.images = manifest.images;
+  if (manifest.dependencies) manifestJson.dependencies = manifest.dependencies;
 
   moduleJson.push(manifestJson);
 
