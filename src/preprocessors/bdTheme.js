@@ -7,7 +7,9 @@ export default (themePath, repo) => {
 
   let manifest = {
     main: 'index.js',
-    tags: ['theme', 'port']
+    tags: ['theme', 'port'],
+
+    ...repo[4]
   };
 
   let match;
