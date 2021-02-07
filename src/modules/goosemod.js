@@ -9,5 +9,5 @@ export default
 
   ['TechnoJo4/GM-MessageClickActions', '9af8d898c23b9b762b87e0fc612a6af0021e383c'],
 
-  ['GooseMod-Modules/CopyAvatarURL', '25ac8bad8c8873710e7a020b31934be655844f09']
+  ['GooseMod-Modules/CopyAvatarURL', '8c02c9b5dabc04f8a41cbfa519e58c00b1895a23']
 ];
