@@ -7,9 +7,7 @@ export default (themePath, repo) => {
 
   let manifest = {
     main: 'index.js',
-    tags: ['theme', 'port'],
-
-    ...repo[4]
+    tags: ['theme', 'port']
   };
 
   let match;
@@ -41,6 +39,8 @@ export default (themePath, repo) => {
         break;
     }
   }
+
+  manifest = Object.assign(manifest, repo[4]);
 
   rmSync(themePath);
   mkdirSync(themePath);
