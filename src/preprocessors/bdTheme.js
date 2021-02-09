@@ -31,7 +31,11 @@ export default (themePath, repo) => {
       case 'version':
         manifest.version = value;
         break;
-      
+
+      case 'author':
+        manifest.authors = [ value ];
+        break;
+
       case 'authorId':
         manifest.authors = [ value ];
         break;
