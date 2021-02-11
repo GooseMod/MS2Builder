@@ -26,7 +26,7 @@ export default
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/gameActivityButton'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/macros'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/bloodyHellMate'],
-  ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/comfyTheme'],
+  // ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/comfyTheme'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/couveTheme'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/customTheme'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/darkerTheme'],
