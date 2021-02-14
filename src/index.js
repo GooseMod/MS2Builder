@@ -1,4 +1,5 @@
 import ModuleRepos from './modules/index.js';
+import AutoTag from './autoTag.js';
 
 import Parcel from 'parcel-bundler';
 import axios from 'axios';
@@ -161,7 +162,7 @@ for (const parentRepo of ModuleRepos) {
       
       version: manifest.version,
       
-      tags: manifest.tags,
+      tags: manifest.tags.concat(AutoTag(jsCode)),
       
       authors: manifest.authors,
       
@@ -182,7 +183,7 @@ for (const parentRepo of ModuleRepos) {
     
     // console.log(lastHash);
     
-    if (lastHash !== commitHash) {
+    if (commitHash !== '' && lastHash !== commitHash) {
       console.log('[Warning] Commit hash in modules does not match latest commit in repo');
     }
   }
