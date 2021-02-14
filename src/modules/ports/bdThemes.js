@@ -1,4 +1,23 @@
 export default [
-  ['LuckFire/Discord-Revamp', 'a42d833c5fb4bc798e3c41e5f4f1e39c34a18cc9', '/discordrevamp.theme.css', 'bdTheme'],
-  ['devinkid1/Pop', '86e2a5f9ccbbaa7151fa97a1b014cff42b756d9f', '/Pop.theme.css', 'bdTheme', { authors: ['418219211043897344'], images: ['https://media.discordapp.net/attachments/756146058924392545/808810958188314645/gm_pop.gif'] }]
+  /*
+    Notes for modules in this file:
+    - No hash is provided as ported themes have no risk of RCE / etc
+  */
+
+  ['LuckFire/Discord-Revamp', '', '/discordrevamp.theme.css', 'bdTheme', {
+    authors: ['399416615742996480']
+  }],
+
+  ['devinkid1/Pop', '', '/Pop.theme.css', 'bdTheme', {
+    authors: ['418219211043897344'],
+    images: ['https://media.discordapp.net/attachments/756146058924392545/808810958188314645/gm_pop.gif']
+  }],
+
+  ['Conjuringil/Splendid', '', '/BetterDiscord/Splendid.theme.css', 'bdTheme', {
+    authors: ['333310482482069514']
+  }],
+
+  ['Giangamerino/protoncord', '', '/protoncord.theme.css', 'bdTheme', {
+    authors: ['491262066813042698']
+  }]
 ];
