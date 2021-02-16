@@ -69,6 +69,8 @@ const getGithubInfo = async (repo) => {
   return info;
 };
 
+let oldTotalModulesJson = [];
+
 for (const parentRepo of ModuleRepos) {
   let moduleJson = {
     modules: [],
@@ -90,7 +92,7 @@ for (const parentRepo of ModuleRepos) {
       
       const jsHash = createHash('sha512').update(readFileSync(`${modulesDir}/${manifest.name}.js`)).digest('hex');
       
-      moduleJson.push({
+      moduleJson.modules.push({
         name: manifest.name,
         description: manifest.description,
         version: manifest.version,
@@ -189,6 +191,10 @@ for (const parentRepo of ModuleRepos) {
   }
 
   writeFileSync(`${distDir}/${parentRepo.filename}.json`, JSON.stringify(moduleJson));
+
+  oldTotalModulesJson = oldTotalModulesJson.concat(moduleJson.modules);
 }
+
+writeFileSync(`${distDir}/modules.json`, JSON.stringify(oldTotalModulesJson));
 
 copyFileSync(`${__dirname.replace('/src', '')}/_headers`, `${distDir}/_headers`);
