@@ -54,7 +54,7 @@ export default
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/nicknamePanel'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/noNotes'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/overlayUserPanel'],
-  ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/powerAnimations'],
+  // ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/powerAnimations'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/radialStatus'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/revampedUserArea'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/serverCount'],
