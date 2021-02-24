@@ -25,7 +25,8 @@
     "@goosemod/patcher": "./moduleWrappers/patcher.js",
     "@goosemod/webpack": "./moduleWrappers/webpack.js",
     "@goosemod/logger": "./moduleWrappers/logger.js",
-    "@goosemod/reactUtils": "./moduleWrappers/reactUtils.js"
+    "@goosemod/reactUtils": "./moduleWrappers/reactUtils.js",
+    "@goosemod/toast": "./moduleWrappers/toast.js"
   },
   "type": "module"
 }
