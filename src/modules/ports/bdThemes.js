@@ -19,5 +19,9 @@ export default [
 
   ['Giangamerino/protoncord', '', '/protoncord.theme.css', 'bdTheme', {
     authors: ['491262066813042698']
+  }],
+
+  ['SlippingGitty/SlideToUnlock', '', '/SlideToUnlock.theme.css', 'bdTheme', {
+    authors: ['359175647257690113']
   }]
 ];
