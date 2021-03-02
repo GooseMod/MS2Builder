@@ -4,7 +4,7 @@ import sass from 'sass';
 export default (manifestPath, repo) => {
   const pcManifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
 
-  const manifest = {
+  let manifest = {
     main: 'index.js',
     tags: ['theme', 'port'],
 
