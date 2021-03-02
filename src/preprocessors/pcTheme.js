@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'fs';
+import sass from 'sass';
 
 export default (manifestPath, repo) => {
   const pcManifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
@@ -16,6 +17,15 @@ export default (manifestPath, repo) => {
 
   rmSync(manifestPath);
   mkdirSync(manifestPath);
+
+  if (pcManifest.theme.split('.').pop() === 'scss') {
+    const cssPath = pcManifest.theme.split('.').slice(0, -1).concat('css').join('.');
+
+    const compiled = (sass.renderSync({ file: pcManifest.theme })).css;
+    writeFileSync(cssPath, compiled);
+
+    pcManifest.theme = cssPath;
+  }
 
   const content = readFileSync(pcManifest.theme, 'utf8');
 
