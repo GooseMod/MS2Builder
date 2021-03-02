@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'fs';
 
 export default (themePath, repo) => {
-  const content = readFileSync(themePath);
+  const content = readFileSync(themePath, 'utf8');
   
   const metaReg = /@([^ ]*) (.*)/g;
 
