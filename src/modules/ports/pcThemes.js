@@ -30,4 +30,25 @@ export default [
     authors: ['399416615742996480'],
     images: ['https://raw.githubusercontent.com/Discord-Theme-Addons/modern-channel-indicators/main/assets/recording.gif']
   }],
+
+  ['doggybootsy/NsfwSfwTags', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['515780151791976453'],
+    images: ['https://i.imgur.com/SCObryS.png']
+  }],
+
+  ['doggybootsy/bubblecord', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['515780151791976453'],
+    images: [
+      'https://raw.githubusercontent.com/doggybootsy/bubblecord/main/Preview/Screen%20Shot%202021-02-24%20at%2010.20.10%20PM.png',
+      'https://raw.githubusercontent.com/doggybootsy/bubblecord/main/Preview/Screen%20Shot%202021-02-24%20at%209.40.59%20PM.png',
+      'https://raw.githubusercontent.com/doggybootsy/bubblecord/main/Preview/Screen%20Shot%202021-02-24%20at%209.41.20%20PM.png',
+      'https://raw.githubusercontent.com/doggybootsy/bubblecord/main/Preview/Screen%20Shot%202021-02-24%20at%209.44.28%20PM.png',
+      'https://raw.githubusercontent.com/doggybootsy/bubblecord/main/Preview/Screen%20Shot%202021-02-24%20at%209.45.28%20PM.png'
+    ]
+  }],
+
+  ['doggybootsy/Mobile_Messages', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['515780151791976453'],
+    images: ['https://i.imgur.com/VBE49wL.png']
+  }]
 ];
