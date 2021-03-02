@@ -25,7 +25,7 @@ export default [
     authors: ['359175647257690113']
   }],
 
-  ['Pavui/Nebula', '', '/nebula.theme.css', 'bdTheme', {
+  /* ['Pavui/Nebula', '', '/nebula.theme.css', 'bdTheme', {
     images: ['https://i.imgur.com/4SzKqEG.png', 'https://i.imgur.com/ewD8NvI.png']
-  }]
+  }] */
 ];
