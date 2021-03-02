@@ -25,6 +25,14 @@ export default [
     authors: ['359175647257690113']
   }],
 
+  ['Discord-Theme-Addons/bottom-bar', '', '/src/support/BottomBar.theme.css', {
+    authors: ['399416615742996480']
+  }],
+
+  ['Discord-Theme-Addons/gradientbuttons-v2', '', '/src/support/GradientButtons.theme.css', {
+    authors: ['399416615742996480']
+  }],
+
   /* ['Pavui/Nebula', '', '/nebula.theme.css', 'bdTheme', {
     images: ['https://i.imgur.com/4SzKqEG.png', 'https://i.imgur.com/ewD8NvI.png']
   }] */
