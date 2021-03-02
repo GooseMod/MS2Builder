@@ -27,7 +27,8 @@
     "@goosemod/webpack": "./moduleWrappers/webpack.js",
     "@goosemod/logger": "./moduleWrappers/logger.js",
     "@goosemod/reactUtils": "./moduleWrappers/reactUtils.js",
-    "@goosemod/toast": "./moduleWrappers/toast.js"
+    "@goosemod/toast": "./moduleWrappers/toast.js",
+    "@goosemod/settings": "./moduleWrappers/settings.js"
   },
   "type": "module"
 }
