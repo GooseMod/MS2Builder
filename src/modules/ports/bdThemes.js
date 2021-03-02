@@ -25,11 +25,11 @@ export default [
     authors: ['359175647257690113']
   }],
 
-  ['Discord-Theme-Addons/bottom-bar', '', '/src/support/BottomBar.theme.css', {
+  ['Discord-Theme-Addons/bottom-bar', '', '/src/support/BottomBar.theme.css', 'bdTheme', {
     authors: ['399416615742996480']
   }],
 
-  ['Discord-Theme-Addons/gradientbuttons-v2', '', '/src/support/GradientButtons.theme.css', {
+  ['Discord-Theme-Addons/gradientbuttons-v2', '', '/src/support/GradientButtons.theme.css', 'bdTheme', {
     authors: ['399416615742996480']
   }],
 
