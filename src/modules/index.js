@@ -25,7 +25,7 @@ export default [
   {
     meta: {
       name: 'Store Core - BD Themes',
-      description: 'Auto-ported BD themes.'
+      description: 'Auto-ported BetterDiscord themes.'
     },
     filename: 'bdthemes',
     modules: bdThemes
@@ -34,7 +34,7 @@ export default [
   {
     meta: {
       name: 'Store Core - PC Themes',
-      description: 'Auto-ported PC themes.'
+      description: 'Auto-ported Powercord themes.'
     },
     filename: 'pcthemes',
     modules: pcThemes
