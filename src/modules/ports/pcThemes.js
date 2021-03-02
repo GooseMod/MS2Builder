@@ -13,11 +13,17 @@ export default [
   }],
 
   ['Discord-Theme-Addons/bottom-bar', '', '/powercord_manifest.json', 'pcTheme', {
-    authors: ['399416615742996480']
+    authors: ['399416615742996480'],
+    images: ['https://raw.githubusercontent.com/Discord-Theme-Addons/bottom-bar/default/assets/screenshot.png']
   }],
 
   ['Discord-Theme-Addons/gradientbuttons-v2', '', '/powercord_manifest.json', 'pcTheme', {
-    authors: ['399416615742996480']
+    authors: ['399416615742996480'],
+    images: [
+      'https://raw.githubusercontent.com/Discord-Theme-Addons/gradientbuttons-v2/main/assets/Message.gif',
+      'https://raw.githubusercontent.com/Discord-Theme-Addons/gradientbuttons-v2/main/assets/Server.gif',
+      'https://raw.githubusercontent.com/Discord-Theme-Addons/gradientbuttons-v2/main/assets/StatusPicker.gif'
+    ]
   }],
 
   ['Discord-Theme-Addons/modern-channel-indicators', '', '/powercord_manifest.json', 'pcTheme', {
