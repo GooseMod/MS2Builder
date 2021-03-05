@@ -3,25 +3,31 @@
   "version": "1.0.0",
   "description": "Builder for Module Store v2.",
   "main": "src/index.js",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GooseMod/MS2Builder.git"
   },
+
   "author": "GooseMod",
+
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/GooseMod/MS2Builder/issues"
   },
   "homepage": "https://github.com/GooseMod/MS2Builder#readme",
+
   "dependencies": {
     "axios": "^0.21.1",
     "glob": "^7.1.6",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.32.8"
   },
+
   "alias": {
     "@goosemod/patcher": "./moduleWrappers/patcher.js",
     "@goosemod/webpack": "./moduleWrappers/webpack.js",
@@ -30,5 +36,6 @@
     "@goosemod/toast": "./moduleWrappers/toast.js",
     "@goosemod/settings": "./moduleWrappers/settings.js"
   },
+
   "type": "module"
 }
