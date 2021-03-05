@@ -33,6 +33,11 @@ if (process.argv[2] === '-f') {
   resetDir(modulesDir);
 }
 
+if (process.argv[2] === '-d') {
+  import('./dev.js');
+  process.exit();
+}
+
 let previous = [];
 if (existsSync(clonesDir)) {
   for (const cloneDir of glob.sync(`${clonesDir}/*/*`)) {
