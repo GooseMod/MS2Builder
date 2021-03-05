@@ -50,5 +50,10 @@ export default [
   ['doggybootsy/Mobile_Messages', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['515780151791976453'],
     images: ['https://i.imgur.com/VBE49wL.png']
+  }],
+
+  ['Fahrenheit/Semi-Stock-Discord', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['239824092239233024'],
+    images: ['https://raw.githubusercontent.com/Fahrenheit/Semi-Stock-Discord/main/Preview%201.png']
   }]
 ];
