@@ -55,5 +55,10 @@ export default [
   ['Fahrenheit/Semi-Stock-Discord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['239824092239233024'],
     images: ['https://raw.githubusercontent.com/Fahrenheit/Semi-Stock-Discord/main/Preview%201.png']
+  }],
+
+  ['Freeplayg/Discord-TeardropMessages', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['158296466119458816'],
+    images: ['https://media.discordapp.net/attachments/755005710323941386/811325025025785886/2021-02-16_14-51.png']
   }]
 ];
