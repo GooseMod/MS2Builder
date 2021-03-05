@@ -13,7 +13,7 @@ export default
   ['Controlfreak707/GM-Better-Animations', '501ec6031ec2e559f1e3fce89237c043f6120c63'],
   ['Controlfreak707/GM-Comfy-Theme', '27102741d21f94896a9c7ce42614a68612132b8b'],
 
-  ['TechnoJo4/GM-MessageClickActions', '9af8d898c23b9b762b87e0fc612a6af0021e383c'],
+  ['TechnoJo4/GM-MessageClickActions', 'd2605cc4f364e627964616693ff254bb1b86e5aa'],
 
   ['GooseMod-Modules/CopyAvatarURL', '8c02c9b5dabc04f8a41cbfa519e58c00b1895a23']
 ];
