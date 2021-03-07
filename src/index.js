@@ -177,8 +177,6 @@ for (const parentRepo of ModuleRepos) {
 
       ...repo[4]
     };
-
-    console.log(manifestJson.tags);
     
     if (manifest.images) manifestJson.images = manifest.images;
     if (manifest.dependencies) manifestJson.dependencies = manifest.dependencies;
