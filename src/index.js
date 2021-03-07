@@ -5,7 +5,7 @@ import Parcel from 'parcel-bundler';
 import axios from 'axios';
 import glob from 'glob';
 
-import { rmSync, mkdirSync, readFileSync, writeFileSync, copyFileSync, existsSync } from 'fs';
+import { rmSync, mkdirSync, readFileSync, writeFileSync, copyFileSync, existsSync, rmdirSync } from 'fs';
 import { createHash } from 'crypto';
 
 import { dirname } from 'path';
@@ -120,6 +120,8 @@ for (const parentRepo of ModuleRepos) {
     
     //  resetDir(cloneDir);
     //  rmSync(cloneDir, { recursive: true, force: true });
+
+    if (existsSync(cloneDir)) rmSync(cloneDir, { recursive: true, force: true });
     
     await new Promise((res) => exec(`git clone ${url} ${cloneDir}`, res));
     
