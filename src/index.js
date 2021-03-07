@@ -40,7 +40,15 @@ if (existsSync(clonesDir)) {
     
     const currentHash = await new Promise((res) => exec(`git rev-parse HEAD`, (err, stdout) => res(stdout.trim())));
     
-    previous = previous.concat(ModuleRepos.filter((x) => x[0] === cloneDir.replace(`${clonesDir}/`, '') && x[1] === currentHash));
+    const moduleInRepos = ModuleRepos.map(
+      (x) => x.modules.filter(
+        (y) => y[0] === cloneDir.replace(`${clonesDir}/`, '') && (y[1] === currentHash || !y[1])
+      )
+    ).find((x) => x.length > 0);
+
+    if (moduleInRepos) {
+      previous = previous.concat(moduleInRepos);
+    }
   }
 }
 
@@ -77,34 +85,17 @@ for (const parentRepo of ModuleRepos) {
     meta: parentRepo.meta
   };
 
+  const repoJsonPath = `${distDir}/${parentRepo.filename}.json`;
+
+  const currentRepoJson = existsSync(repoJsonPath) ? JSON.parse(readFileSync(repoJsonPath, 'utf8')) : undefined;
+
   for (const repo of parentRepo.modules) {
     console.time(repo.slice(0, 2).join(' @ ')+`${repo[2] ? ` ${repo[2]}` : ''}`);
     
-    const githubInfo = await getGithubInfo(repo[0]);
-    
-    const name = repo[0];
-    const cloneDir = `${clonesDir}/${name}`;
-    
-    const moduleDir = repo[2] || '';
-    
     if (previous.includes(repo)) {
-      const manifest = JSON.parse(readFileSync(`${cloneDir}${moduleDir}/goosemodModule.json`));
-      
-      const jsHash = createHash('sha512').update(readFileSync(`${modulesDir}/${manifest.name}.js`)).digest('hex');
-      
-      moduleJson.modules.push({
-        name: manifest.name,
-        description: manifest.description,
-        version: manifest.version,
-        tags: manifest.tags,
-        authors: manifest.authors,
-        hash: jsHash,
-        
-        github: {
-          stars: githubInfo.stargazers_count,
-          repo: repo[0]
-        }
-      });
+      const currentModule = currentRepoJson.modules.find((x) => x.github.repo === repo[0])
+  
+      moduleJson.modules.push(currentModule);
       
       process.stdout.write('[SKIP] ');
       
@@ -112,6 +103,13 @@ for (const parentRepo of ModuleRepos) {
       
       continue;
     }
+  
+    const githubInfo = await getGithubInfo(repo[0]);
+    
+    const name = repo[0];
+    const cloneDir = `${clonesDir}/${name}`;
+    
+    const moduleDir = repo[2] || '';
     
     // console.log(repo);
     
@@ -192,7 +190,7 @@ for (const parentRepo of ModuleRepos) {
     }
   }
 
-  writeFileSync(`${distDir}/${parentRepo.filename}.json`, JSON.stringify(moduleJson));
+  writeFileSync(repoJsonPath, JSON.stringify(moduleJson));
 
   oldTotalModulesJson = oldTotalModulesJson.concat(moduleJson.modules);
 }
