@@ -33,9 +33,5 @@ export default [
   ['A-User-s-Discord-Themes/Couve', '', '/download/betterdiscord/couve.theme.css', 'bdTheme', {
     authors: ['264062457448759296'],
     images: ['https://cdn.discordapp.com/attachments/539180316447997974/725737819015872562/unknown.png']
-  }],
-
-  /* ['Pavui/Nebula', '', '/nebula.theme.css', 'bdTheme', {
-    images: ['https://i.imgur.com/4SzKqEG.png', 'https://i.imgur.com/ewD8NvI.png']
-  }] */
+  }]
 ];

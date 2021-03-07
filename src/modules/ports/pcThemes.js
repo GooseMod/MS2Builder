@@ -60,5 +60,10 @@ export default [
   ['Freeplayg/Discord-TeardropMessages', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['158296466119458816'],
     images: ['https://media.discordapp.net/attachments/755005710323941386/811325025025785886/2021-02-16_14-51.png']
+  }],
+
+  ['Pavui/Nebula', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['597072695875600385'],
+    images: ['https://i.imgur.com/4SzKqEG.png', 'https://i.imgur.com/ewD8NvI.png']
   }]
 ];
