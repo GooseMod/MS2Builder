@@ -92,8 +92,19 @@ for (const parentRepo of ModuleRepos) {
   for (const repo of parentRepo.modules) {
     console.time(repo.slice(0, 2).join(' @ ')+`${repo[2] ? ` ${repo[2]}` : ''}`);
     
+    const name = repo[0];
+    const cloneDir = `${clonesDir}/${name}`;
+    const moduleDir = repo[2] || '';
+
     if (previous.includes(repo)) {
-      const currentModule = currentRepoJson.modules.find((x) => x.github.repo === repo[0])
+      let currentModule = currentRepoJson.modules.filter((x) => x.github.repo === repo[0]);
+      if (currentModule.length > 1) {
+        const manifest = JSON.parse(readFileSync(`${cloneDir}${moduleDir}/goosemodModule.json`));
+
+        currentModule = currentModule.find((x) => x.name === manifest.name);
+      } else {
+        currentModule = currentModule[0];
+      }
   
       moduleJson.modules.push(currentModule);
       
@@ -106,11 +117,6 @@ for (const parentRepo of ModuleRepos) {
   
     const githubInfo = await getGithubInfo(repo[0]);
     
-    const name = repo[0];
-    const cloneDir = `${clonesDir}/${name}`;
-    
-    const moduleDir = repo[2] || '';
-    
     // console.log(repo);
     
     const url = `https://github.com/${repo[0]}.git`;
@@ -121,7 +127,7 @@ for (const parentRepo of ModuleRepos) {
     //  resetDir(cloneDir);
     //  rmSync(cloneDir, { recursive: true, force: true });
 
-    if (existsSync(cloneDir)) rmSync(cloneDir, { recursive: true, force: true });
+    // if (existsSync(cloneDir)) rmSync(cloneDir, { recursive: true, force: true });
     
     await new Promise((res) => exec(`git clone ${url} ${cloneDir}`, res));
     
