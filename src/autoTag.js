@@ -7,7 +7,7 @@ export default (bundleCode) => { // Scans final bundle JS to try and auto-detect
     basicIncludes(bundleCode, 'react'),
     basicIncludes(bundleCode, 'document', 'DOM'),
 
-    (bundleCode.includes('document.createTextNode') && /document\.createElement\(['"`]style['"`]\)/.test(bundleCode)) ? 'CSS' : '',
+    (bundleCode.includes('document.createTextNode') && /document\.createElement\(['"`]style['"`]\)/.test(bundleCode)) ? 'CSS' : undefined,
 
   ].filter((x) => x !== undefined);
 
