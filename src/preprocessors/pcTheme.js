@@ -15,8 +15,6 @@ export default (manifestPath, repo) => {
     authors: [ pcManifest.author ]
   };
 
-  manifest = Object.assign(manifest, repo[4]);
-
   rmSync(manifestPath);
   mkdirSync(manifestPath);
 

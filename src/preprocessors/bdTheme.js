@@ -40,8 +40,6 @@ export default (themePath, repo) => {
     }
   }
 
-  manifest = Object.assign(manifest, repo[4]);
-
   rmSync(themePath);
   mkdirSync(themePath);
 

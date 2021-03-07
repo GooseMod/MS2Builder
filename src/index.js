@@ -164,7 +164,7 @@ for (const parentRepo of ModuleRepos) {
       
       version: manifest.version,
       
-      tags: manifest.tags.concat(AutoTag(jsCode)),
+      tags: AutoTag(jsCode, manifest.tags),
       
       authors: manifest.authors,
       
@@ -173,8 +173,12 @@ for (const parentRepo of ModuleRepos) {
       github: {
         stars: githubInfo.stargazers_count,
         repo: repo[0]
-      }
+      },
+
+      ...repo[4]
     };
+
+    console.log(manifestJson.tags);
     
     if (manifest.images) manifestJson.images = manifest.images;
     if (manifest.dependencies) manifestJson.dependencies = manifest.dependencies;
