@@ -7,6 +7,9 @@ export default (bundleCode) => { // Scans final bundle JS to try and auto-detect
   const tags = [
     basicIncludes(bundleCode, 'react'),
     basicIncludes(bundleCode, 'document', 'DOM'),
+
+    (bundleCode.includes('document.createTextNode') && /document\.createElement\(['"`]style['"`]\)/.test(bundleCode)) ? 'CSS' : '',
+
   ].filter((x) => x !== undefined);
 
   return tags;
