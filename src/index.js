@@ -127,8 +127,16 @@ for (const parentRepo of ModuleRepos) {
     //  resetDir(cloneDir);
     //  rmSync(cloneDir, { recursive: true, force: true });
 
-    // if (existsSync(cloneDir)) rmSync(cloneDir, { recursive: true, force: true });
+    if (existsSync(cloneDir)) {
+      process.chdir(cloneDir);
+
+      const currentHash = await new Promise((res) => exec(`git rev-parse HEAD`, (err, stdout) => res(stdout.trim())));
+
+      if (currentHash !== repo[1]) rmSync(cloneDir, { recursive: true, force: true });
+    }
     
+    process.chdir(distDir); // Incase current wd is broken, in which case exec / git crashes
+
     await new Promise((res) => exec(`git clone ${url} ${cloneDir}`, res));
     
     process.chdir(cloneDir);
