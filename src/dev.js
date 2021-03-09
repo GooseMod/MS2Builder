@@ -51,11 +51,12 @@ const parcelOptions = {
 };
 
 createServer((req, res) => {
-  const basedPath = `${distDir}${req.url.split('?').shift().replace(/\.\./g, '')}`;
+  const goodUrl = decodeURI(req.url);
+  const basedPath = `${distDir}${goodUrl.split('?').shift().replace(/\.\./g, '')}`;
 
   let contentType = 'text/plain';
 
-  switch (req.url.split('.').pop()) {
+  switch (goodUrl.split('.').pop()) {
     case 'js':
       contentType = 'text/javascript';
       break;
