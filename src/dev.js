@@ -95,7 +95,7 @@ const build = async () => {
   resetDir(distDir);
   resetDir(modulesDir);
 
-  const modules = glob.sync(`${tempDir}/*`);
+  const modules = glob.sync(`${tempDir}/**/goosemodModule.json`).map((x) => x.split('/').slice(0, -1).join('/'));
 
   const jsonOut = {
     modules: [],
