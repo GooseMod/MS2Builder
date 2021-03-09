@@ -166,7 +166,7 @@ build();
 
 chokidar.watch(dir).on('change', (ev, pa) => {
   console.log(ev, pa);
-  // build();
+  build();
 });
 
 // await new Promise(() => {});
