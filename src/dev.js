@@ -139,7 +139,7 @@ const build = async () => {
       
       version: manifest.version,
       
-      tags: manifest.tags.concat(AutoTag(jsCode)),
+      tags: AutoTag(jsCode, manifest.tags),
       
       authors: manifest.authors,
       
