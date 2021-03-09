@@ -11,7 +11,7 @@ export default
   ['Controlfreak707/GM-Send-Button', 'e5101713ddee325208b6fb190a07f3ec30373af4'],
   ['Controlfreak707/GM-Relaunch', '75c838c352743becdef0d68a954cb5d4f43bce5b'],
   ['Controlfreak707/GM-Better-Animations', '501ec6031ec2e559f1e3fce89237c043f6120c63', undefined, undefined, { tags: ['ui', 'theme'] }],
-  ['Controlfreak707/GM-Comfy-Theme', 'c54da8ee8a038e9d14fea4420e1850674bd1c02a'],
+  ['Controlfreak707/GM-Comfy-Theme', 'd612b57485f18b53ce1ef732927563169ce3e52e'],
 
   ['TechnoJo4/GM-MessageClickActions', 'd2605cc4f364e627964616693ff254bb1b86e5aa'],
 
