@@ -50,6 +50,11 @@ export default [
     images: ['https://i.imgur.com/Gr8JJAv.jpg', 'https://i.imgur.com/xnUQ1Ek.jpg', 'https://i.imgur.com/qfMW8HI.jpg']
   }],
 
+  ['DiscordStyles/MinimalCord', '', '/MinimalCord.theme.css', 'bdTheme', {
+    authors: ['174868361040232448'],
+    images: ['https://i.imgur.com/W33dgMJ.png', 'https://i.imgur.com/vtPiMFw.png']
+  }],
+
   ['A-User-s-Discord-Themes/Couve', '', '/download/betterdiscord/couve.theme.css', 'bdTheme', {
     authors: ['264062457448759296'],
     images: ['https://cdn.discordapp.com/attachments/539180316447997974/725737819015872562/unknown.png']
