@@ -39,7 +39,6 @@ export default
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/hideClyde', undefined, undefined, { tags: ['ui', 'theme'] }],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/hideMessage'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/hideQuickReactions', undefined, undefined, { tags: ['ui', 'theme'] }],
-  ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/horizontalServerList', undefined, undefined, { tags: ['ui', 'theme'] }],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/nicerUserConnections', undefined, undefined, { tags: ['ui', 'theme'] }],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/nicknamePanel'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/noNotes', undefined, undefined, { tags: ['ui', 'theme'] }],

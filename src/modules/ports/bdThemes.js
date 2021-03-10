@@ -35,6 +35,11 @@ export default [
     images: ['https://i.imgur.com/4zZU4iw.jpg']
   }],
 
+  ['DiscordStyles/HorizontalServerList', '', '/HorizontalServerList.theme.css', 'bdTheme', {
+    authors: ['174868361040232448'],
+    images: ['https://i.imgur.com/ygGh3hy.jpg']
+  }],
+
   ['A-User-s-Discord-Themes/Couve', '', '/download/betterdiscord/couve.theme.css', 'bdTheme', {
     authors: ['264062457448759296'],
     images: ['https://cdn.discordapp.com/attachments/539180316447997974/725737819015872562/unknown.png']
