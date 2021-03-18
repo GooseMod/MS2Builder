@@ -65,5 +65,18 @@ export default [
   ['Pavui/Nebula', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['597072695875600385'],
     images: ['https://i.imgur.com/4SzKqEG.png', 'https://i.imgur.com/ewD8NvI.png']
-  }]
+  }],
+
+  ['cainy-a/LunaCord', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['435026627907420161']
+  }],
+
+  ['cainy-a/SmolCord', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['435026627907420161']
+  }],
+
+  ['cainy-a/Diskai', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['435026627907420161'],
+    images: ['https://raw.githubusercontent.com/cainy-a/Diskai/master/screenshots/User%20Settings.png', 'https://raw.githubusercontent.com/cainy-a/Diskai/master/screenshots/Voice%20Settings.png']
+  }],
 ];
