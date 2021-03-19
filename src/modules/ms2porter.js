@@ -33,7 +33,7 @@ export default
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/nordtheme'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/solarizedDarkTheme'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/betterNsfw'],
-  ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/deNitro'],
+  ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/deNitro', undefined, undefined, { tags: ['ui', 'theme'] }],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/fullscreenInbox'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/hardcodedColorFixer'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/hideClyde', undefined, undefined, { tags: ['ui', 'theme'] }],
