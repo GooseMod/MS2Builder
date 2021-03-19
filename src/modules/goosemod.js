@@ -12,7 +12,7 @@ export default
   ['Controlfreak707/GM-Relaunch', '75c838c352743becdef0d68a954cb5d4f43bce5b'],
   ['Controlfreak707/GM-Better-Animations', '501ec6031ec2e559f1e3fce89237c043f6120c63', undefined, undefined, { tags: ['ui', 'theme'] }],
   ['Controlfreak707/GM-Comfy-Theme', 'f1f8866312f048d02baed6959cd09b1baa49feda'],
-  ['Controlfreak707/GM-Channel-Icons', '2fc85d6c952ef2f64b05dd64e1739da8aed8c82b'],
+  ['Controlfreak707/GM-Channel-Icons', '83049d7bf164e14e6322e55f5c17151e18ca5ec3'],
 
   ['TechnoJo4/GM-MessageClickActions', 'd2605cc4f364e627964616693ff254bb1b86e5aa'],
 
