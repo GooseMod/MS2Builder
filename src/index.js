@@ -115,8 +115,8 @@ for (const parentRepo of ModuleRepos) {
       continue;
     }
   
-    const githubInfo = await getGithubInfo(repo[0]);
-    
+    let githubInfo = getGithubInfo(repo[0]);
+
     // console.log(repo);
     
     const url = `https://github.com/${repo[0]}.git`;
@@ -172,6 +172,8 @@ for (const parentRepo of ModuleRepos) {
     
     const jsHash = createHash('sha512').update(jsCode).digest('hex');
     
+    githubInfo = await githubInfo; // GitHub info is gotten async during other stuff to reduce time
+
     const manifestJson = {
       name: manifest.name,
       description: manifest.description,
