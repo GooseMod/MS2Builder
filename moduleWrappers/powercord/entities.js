@@ -1,6 +1,6 @@
 // Also set Powercord global var stuff here since entities import is needed to use Plugin (which every PC plugin uses)
 
-window.powercord = {
+export const powercord = {
   api: {
     commands: {
       registerCommand: ({ command, alias, description, usage, executor }) => {
