@@ -79,4 +79,9 @@ export default [
     authors: ['435026627907420161'],
     images: ['https://raw.githubusercontent.com/cainy-a/Diskai/master/screenshots/User%20Settings.png', 'https://raw.githubusercontent.com/cainy-a/Diskai/master/screenshots/Voice%20Settings.png']
   }],
+
+  ['Awish-Senpai/ForgottenKeep', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['671355502399193128'],
+    images: ['https://i.imgur.com/VEyRqDR.png', 'https://i.imgur.com/wQ4wqeh.gif', 'https://i.imgur.com/URYSqL5.gif']
+  }]
 ];
