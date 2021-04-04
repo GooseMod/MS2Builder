@@ -1,0 +1,1 @@
+module.exports = goosemodScope.patcher; // GM's Patcher main functions (inject, uninject) have very similar syntax to PC's Injector as it was initially based on PC's design (however was later changed to use patch func)
