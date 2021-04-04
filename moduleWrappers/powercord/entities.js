@@ -13,6 +13,10 @@ window.powercord = {
           }, [
           { type: 3, required: false, name: 'args', description: 'Arguments for PC command' } // Argument for any string for compat. with PC's classical commands
         ])
+      },
+
+      unregisterCommand: (command) => {
+        goosemodScope.patcher.commands.remove(command);
       }
     }
   }
