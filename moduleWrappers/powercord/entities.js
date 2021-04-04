@@ -7,8 +7,10 @@ export const powercord = {
         // TODO: implement alias
 
         goosemodScope.patcher.commands.add(command, description,
-          ( { args: [ { text } ] } ) => {
-            const out = executor(text.split(' ')); // Run original executor func
+          async ( { args: [ { text } ] } ) => {
+            const out = await executor(text.split(' ')); // Run original executor func (await incase it's an async function)
+
+            console.log(out);
 
             if (!out.send) return goosemodScope.patcher.internalMessage(out.result); // PC impl. sends internal message when out.send === false, so we also do the same via our previous Patcher API function
             // When send is true, we send it as a message via returning obj with content
