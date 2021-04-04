@@ -58,5 +58,10 @@ export default [
   ['A-User-s-Discord-Themes/Couve', '', '/download/betterdiscord/couve.theme.css', 'bdTheme', {
     authors: ['264062457448759296'],
     images: ['https://cdn.discordapp.com/attachments/539180316447997974/725737819015872562/unknown.png']
+  }],
+
+  ['SlippingGitty/WinClassic', '', '/WinClassic.theme.css', 'bdTheme', {
+    authors: ['359175647257690113', '324260038736871426', '224565309133029379'],
+    images: ['https://files.catbox.moe/qcjfyz.png']
   }]
 ];
