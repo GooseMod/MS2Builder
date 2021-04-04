@@ -10,8 +10,12 @@ export const powercord = {
           ( { args: [ { text } ] } ) => {
             const out = executor(text.split(' ')); // Run original executor func
 
-            if (!out.send) return; // PC impl. sends internal message when out.send === true, so we also do the same via our previous Patcher API function, seen below
-            goosemodScope.patcher.internalMessage(out.result);
+            if (!out.send) return goosemodScope.patcher.internalMessage(out.result); // PC impl. sends internal message when out.send === false, so we also do the same via our previous Patcher API function
+            // When send is true, we send it as a message via returning obj with content
+
+            return {
+              content: out.result
+            };
           }, [
           { type: 3, required: false, name: 'args', description: 'Arguments for PC command' } // Argument for any string for compat. with PC's classical commands
         ]);
