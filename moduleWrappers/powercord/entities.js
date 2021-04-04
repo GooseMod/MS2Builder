@@ -18,6 +18,14 @@ window.powercord = {
       unregisterCommand: (command) => {
         goosemodScope.patcher.commands.remove(command);
       }
+    },
+
+    notices: {
+      sendToast: (_id, { header, content, type, buttons }) => {
+        // TODO: implement full toast in future instead of just small current GM toast
+
+        goosemodScope.showToast(content);
+      }
     }
   }
 };
