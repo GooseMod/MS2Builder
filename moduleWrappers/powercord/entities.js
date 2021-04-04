@@ -7,14 +7,14 @@ window.powercord = {
         // TODO: implement alias
 
         goosemodScope.patcher.commands.add(command, description,
-          ( { message: [ { text } ] } ) => {
+          ( { args: [ { text } ] } ) => {
             const out = executor(text.split(' ')); // Run original executor func
 
             if (!out.send) return; // PC impl. sends internal message when out.send === true, so we also do the same via our previous Patcher API function, seen below
             goosemodScope.patcher.internalMessage(out.result);
           }, [
           { type: 3, required: false, name: 'args', description: 'Arguments for PC command' } // Argument for any string for compat. with PC's classical commands
-        ])
+        ]);
       },
 
       unregisterCommand: (command) => {
