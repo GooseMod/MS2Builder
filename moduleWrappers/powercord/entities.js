@@ -3,7 +3,9 @@
 window.powercord = {
   api: {
     commands: {
-      registerCommand: ({ command, description, _usage, executor }) => {
+      registerCommand: ({ command, alias, description, usage, executor }) => {
+        // TODO: implement alias
+
         goosemodScope.patcher.commands.add(command, description,
           ( { message: [ { text } ] } ) => {
             const out = executor(text.split(' ')); // Run original executor func
