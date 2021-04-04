@@ -36,9 +36,9 @@
     "@goosemod/toast": "./moduleWrappers/goosemod/toast.js",
     "@goosemod/settings": "./moduleWrappers/goosemod/settings.js",
 
-    "powercord/entities": "",
-    "powercord/injector": "",
-    "powercord/webpack": ""
+    "powercord/entities": "./moduleWrappers/powercord/entities.js",
+    "powercord/injector": "./moduleWrappers/powercord/injector.js",
+    "powercord/webpack": "./moduleWrappers/powercord/webpack.js"
   },
 
   "type": "module"
