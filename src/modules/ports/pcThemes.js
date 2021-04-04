@@ -98,5 +98,15 @@ export default [
       'https://raw.githubusercontent.com/leeprky/slook_theme/main/previews/light3.png',
       'https://raw.githubusercontent.com/leeprky/slook_theme/main/previews/light4.jpg'
     ]
+  }],
+
+  ['sneexy-boi/CutTheTheme', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['468894601542107146'],
+    images: ['https://raw.githubusercontent.com/sneexy-boi/CutTheTheme/main/docs/images/screenshot.png']
+  }],
+
+  ['sneexy-boi/material-cord', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['468894601542107146'],
+    images: ['https://raw.githubusercontent.com/sneexy-boi/material-cord/main/docs/screenshot.png']
   }]
 ];
