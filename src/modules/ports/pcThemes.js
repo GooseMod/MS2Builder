@@ -83,5 +83,20 @@ export default [
   ['Awish-Senpai/ForgottenKeep', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['671355502399193128'],
     images: ['https://i.imgur.com/VEyRqDR.png', 'https://i.imgur.com/wQ4wqeh.gif', 'https://i.imgur.com/URYSqL5.gif']
+  }],
+
+  ['leeprky/slook_theme', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['224524143482241035'],
+    images: [
+      'https://raw.githubusercontent.com/leeprky/slook_theme/main/previews/dark1.jpg',
+      'https://raw.githubusercontent.com/leeprky/slook_theme/main/previews/dark2.jpg',
+      'https://raw.githubusercontent.com/leeprky/slook_theme/main/previews/dark3.png',
+      'https://raw.githubusercontent.com/leeprky/slook_theme/main/previews/dark4.jpg',
+
+      'https://raw.githubusercontent.com/leeprky/slook_theme/main/previews/light1.jpg',
+      'https://raw.githubusercontent.com/leeprky/slook_theme/main/previews/light2.jpg',
+      'https://raw.githubusercontent.com/leeprky/slook_theme/main/previews/light3.png',
+      'https://raw.githubusercontent.com/leeprky/slook_theme/main/previews/light4.jpg'
+    ]
   }]
 ];
