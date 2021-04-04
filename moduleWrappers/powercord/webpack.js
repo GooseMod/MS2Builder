@@ -8,10 +8,16 @@ const makeFinalFilter = (filter) => {
 };
 
 module.exports = {
-  getModule: (filter, _retry, _forever) => { // Ignoring retry and forever arguments for basic implementation
+  getModule: (filter, retry, _forever) => { // Ignoring retry and forever arguments for basic implementation
     filter = makeFinalFilter(filter);
 
-    return goosemodScope.webpackModules.find(filter);
+    const result = goosemodScope.webpackModules.find(filter);
+
+    if (!retry) { // retry = false: sync, retry = true: async (returns Promise)
+      return result;
+    }
+
+    return new Promise((res) => res(result));
   },
 
   getAllModules: (filter) => {
