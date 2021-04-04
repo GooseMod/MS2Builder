@@ -5,5 +5,9 @@ export default [
 
   ['amitpalbadhan/LaTeX-Cord', 'e56ae2019d9af9022ea4b278ab2b34ee61880789', '/manifest.json', 'pcPlugin', {
     authors: ['510591410362122252']
+  }],
+
+  ['notsapinho/powercord-mute-folder', '79fefd512788ef7a6443819ad89aface5fb7df98', '/manifest.json', 'pcPlugin', {
+    authors: ['693288915427262585']
   }]
 ];
