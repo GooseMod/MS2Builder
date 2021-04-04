@@ -1,7 +1,7 @@
 import goosemod from './goosemod.js';
 import ms2porter from './ms2porter.js';
-import bdThemes from './ports/bdThemes.js';
-import pcThemes from './ports/pcThemes.js';
+import bdThemes from './ports/themes/bdThemes.js';
+import pcThemes from './ports/themes/pcThemes.js';
 
 export default [
   {
@@ -40,5 +40,3 @@ export default [
     modules: pcThemes
   }
 ];
-
-// export default goosemod.concat(ms2porter).concat(bdThemes);
