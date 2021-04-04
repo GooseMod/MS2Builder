@@ -29,12 +29,16 @@
   },
 
   "alias": {
-    "@goosemod/patcher": "./moduleWrappers/patcher.js",
-    "@goosemod/webpack": "./moduleWrappers/webpack.js",
-    "@goosemod/logger": "./moduleWrappers/logger.js",
-    "@goosemod/reactUtils": "./moduleWrappers/reactUtils.js",
-    "@goosemod/toast": "./moduleWrappers/toast.js",
-    "@goosemod/settings": "./moduleWrappers/settings.js"
+    "@goosemod/patcher": "./moduleWrappers/goosemod/patcher.js",
+    "@goosemod/webpack": "./moduleWrappers/goosemod/webpack.js",
+    "@goosemod/logger": "./moduleWrappers/goosemod/logger.js",
+    "@goosemod/reactUtils": "./moduleWrappers/goosemod/reactUtils.js",
+    "@goosemod/toast": "./moduleWrappers/goosemod/toast.js",
+    "@goosemod/settings": "./moduleWrappers/goosemod/settings.js",
+
+    "powercord/entities": "",
+    "powercord/injector": "",
+    "powercord/webpack": ""
   },
 
   "type": "module"
