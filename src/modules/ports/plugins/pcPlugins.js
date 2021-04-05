@@ -9,5 +9,9 @@ export default [
 
   ['notsapinho/powercord-mute-folder', '79fefd512788ef7a6443819ad89aface5fb7df98', '/manifest.json', 'pcPlugin', {
     authors: ['693288915427262585']
+  }],
+
+  ['NurMarvin/SnowflakeInfo', '9e34cfa8e50d9083c66d0ee7149f6395a8e8847e', '/manifest.json', 'pcPlugin', {
+    authors: ['562415519454461962']
   }]
 ];
