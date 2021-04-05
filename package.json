@@ -38,7 +38,8 @@
 
     "powercord/entities": "./moduleWrappers/powercord/entities.js",
     "powercord/injector": "./moduleWrappers/powercord/injector.js",
-    "powercord/webpack": "./moduleWrappers/powercord/webpack.js"
+    "powercord/webpack": "./moduleWrappers/powercord/webpack.js",
+    "powercord/util": "./moduleWrappers/powercord/util.js"
   },
 
   "type": "module"
