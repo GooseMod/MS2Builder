@@ -13,5 +13,9 @@ export default [
 
   ['NurMarvin/SnowflakeInfo', '9e34cfa8e50d9083c66d0ee7149f6395a8e8847e', '/manifest.json', 'pcPlugin', {
     authors: ['562415519454461962']
+  }],
+
+  ['RazerMoon/vcTimer', '6619cd9b24ce6337d9e93940d12031d9ce40dd2e', '/manifest.json', 'pcPlugin', {
+    authors: ['162970149857656832']
   }]
 ];
