@@ -1,5 +1,8 @@
 // Also set Powercord global var stuff here since entities import is needed to use Plugin (which every PC plugin uses)
 
+const sendMessage = goosemodScope.webpackModules.findByProps('sendMessage', 'receiveMessage').sendMessage;
+const getChannelId = goosemod.webpackModules.findByProps('getChannelId').getChannelId;
+
 export const powercord = {
   api: {
     commands: {
@@ -12,12 +15,21 @@ export const powercord = {
 
             console.log(out);
 
-            if (!out.send) return goosemodScope.patcher.internalMessage(out.result); // PC impl. sends internal message when out.send === false, so we also do the same via our previous Patcher API function
-            // When send is true, we send it as a message via returning obj with content
+            if (!out.send) {
+              goosemodScope.patcher.internalMessage(out.result); // PC impl. sends internal message when out.send === false, so we also do the same via our previous Patcher API function
 
-            return {
-              content: out.result
-            };
+              return;
+            }
+
+            // When send is true, we send it as a message via sendMessage
+
+            sendMessage(getChannelId(), {
+              content: out.result,
+
+              tts: false,
+              invalidEmojis: [],
+              validNonShortcutEmojis: []
+            });
           }, [
           { type: 3, required: false, name: 'args', description: 'Arguments for PC command' } // Argument for any string for compat. with PC's classical commands
         ]);
