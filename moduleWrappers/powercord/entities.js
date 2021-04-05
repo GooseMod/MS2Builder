@@ -57,8 +57,8 @@ export class Plugin {
 
   get goosemodHandlers() {
     return {
-      onImport: this.startPlugin,
-      onRemove: this.pluginWillUnload
+      onImport: this.startPlugin.bind(this),
+      onRemove: this.pluginWillUnload.bind(this)
     };
   }
 }
