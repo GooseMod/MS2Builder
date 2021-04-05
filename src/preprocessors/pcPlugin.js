@@ -4,7 +4,7 @@ export default (manifestPath, repo) => {
   const pcManifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
 
   let manifest = {
-    main: 'index.js',
+    main: '../index.js',
     tags: ['port'],
 
     name: pcManifest.name,
@@ -22,5 +22,5 @@ export default (manifestPath, repo) => {
   const jsCode = content.replace(`module.exports = class`, `export default new class`).replace(/{ *Plugin *}/, `{ Plugin, powercord }`);
 
   writeFileSync(`${manifestPath}/goosemodModule.json`, JSON.stringify(manifest));
-  writeFileSync(`${manifestPath}/index.js`, jsCode);
+  writeFileSync(`${manifestPath}/../index.js`, jsCode);
 };
