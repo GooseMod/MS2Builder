@@ -17,5 +17,9 @@ export default [
 
   ['RazerMoon/vcTimer', '6619cd9b24ce6337d9e93940d12031d9ce40dd2e', '/manifest.json', 'pcPlugin', {
     authors: ['162970149857656832']
+  }],
+
+  ['ShadiestGoat/Powercord-googleit-plugin', '6dc632b1e838ca74e90b508e8f9dc36c251bdc7d', '/manifest.json', 'pcPlugin', {
+    authors: ['376079696489742338']
   }]
 ];
