@@ -46,18 +46,107 @@ export const powercord = {
 
         goosemodScope.showToast(content);
       }
+    },
+
+    settings: {
+      registerSettings: (id, { label, render, category }) => {
+        const { React } = goosemodScope.webpackModules.common;
+
+        const SettingsView = goosemodScope.webpackModules.findByDisplayName('SettingsView');
+
+        const FormTitle = goosemodScope.webpackModules.findByDisplayName('FormTitle');
+        const FormSection = goosemodScope.webpackModules.findByDisplayName('FormSection');
+
+        goosemodScope.patcher.inject(id, SettingsView.prototype, 'getPredicateSections', (_, sections) => {
+          if (!sections.find(c => c.section === 'changelog')) return sections;
+      
+          const dividers = sections.filter(c => c.section === 'DIVIDER');
+
+          const finalLabel = typeof label === 'function' ? label() : label;
+
+          sections.splice(sections.indexOf(dividers[dividers.length - 2]) - 2, 0,
+            {
+              section: finalLabel,
+              label: finalLabel,
+              predicate: () => { },
+              element: () => React.createElement(FormSection, { },
+                React.createElement(FormTitle, { tag: 'h2' }, finalLabel),
+
+                render({
+                  getSetting: settingStores[category].getSetting,
+                  updateSetting: settingStores[category].updateSetting
+                })
+              )
+            }
+          );
+
+          return sections;
+        });
+      },
+
+      unregisterSettings: (id) => {
+        goosemodScope.patcher.uninject(id);
+      }
     }
   }
 };
+
+const settingStores = {};
+
+class SimpleStore {
+  constructor() {
+    console.log('cons', this);
+
+    this.store = {};
+  }
+
+  getSetting = (key, defaultValue) => {
+    console.log('getsetting', this);
+
+    return this.store[key] ?? defaultValue;
+  }
+
+  updateSetting = (key, value) => {
+    console.log('updatesetting', this);
+
+    this.store[key] = value;
+  }
+}
 
 export class Plugin {
   constructor() {
 
   }
 
+  loadStylesheet(path) {
+    const url = `https://raw.githubusercontent.com/${this.github.repo}/main/${path}`;
+
+    return url;
+  }
+
+  delayedConstructor() {
+    if (this.delayedConstructed) return;
+    this.delayedConstructed = true;
+
+    settingStores[this.entityID] = new SimpleStore();
+  }
+
+  get entityID() {
+    return this.name;
+  }
+
+  get settings() {
+    return settingStores[this.entityID];
+  }
+
   get goosemodHandlers() {
     return {
-      onImport: this.startPlugin.bind(this),
+      onImport: () => {
+        this.delayedConstructor();
+
+        this.startPlugin.bind(this)();
+      },
+
       onRemove: this.pluginWillUnload.bind(this)
     };
   }
