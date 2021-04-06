@@ -13,8 +13,6 @@ export const powercord = {
           async ( { args: [ { text } ] } ) => {
             const out = await executor(text.split(' ')); // Run original executor func (await incase it's an async function)
 
-            console.log(out);
-
             if (!out.send) {
               goosemodScope.patcher.internalMessage(out.result); // PC impl. sends internal message when out.send === false, so we also do the same via our previous Patcher API function
 
@@ -95,20 +93,14 @@ const settingStores = {};
 
 class SimpleStore {
   constructor() {
-    console.log('cons', this);
-
     this.store = {};
   }
 
   getSetting = (key, defaultValue) => {
-    console.log('getsetting', this);
-
     return this.store[key] ?? defaultValue;
   }
 
   updateSetting = (key, value) => {
-    console.log('updatesetting', this);
-
     this.store[key] = value;
   }
 }
