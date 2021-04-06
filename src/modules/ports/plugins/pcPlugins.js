@@ -21,5 +21,9 @@ export default [
 
   ['ShadiestGoat/Powercord-googleit-plugin', '6dc632b1e838ca74e90b508e8f9dc36c251bdc7d', '/manifest.json', 'pcPlugin', {
     authors: ['376079696489742338']
+  }],
+
+  ['PandaDriver156/Custom-Volume-Range', '', '/manifest.json', 'pcPlugin', { // wrong meta, no perm
+    authors: ['562415519454461962']
   }]
 ];
