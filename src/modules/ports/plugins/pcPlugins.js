@@ -23,7 +23,7 @@ export default [
     authors: ['376079696489742338']
   }],
 
-  ['PandaDriver156/Custom-Volume-Range', 'bd732e0c5714c9bd28412948f6403dc8c53a7c2e', '/manifest.json', 'pcPlugin', { // wrong meta, no perm
-    authors: ['562415519454461962']
+  ['PandaDriver156/Custom-Volume-Range', 'bd732e0c5714c9bd28412948f6403dc8c53a7c2e', '/manifest.json', 'pcPlugin', {
+    authors: ['500656746440949761']
   }]
 ];
