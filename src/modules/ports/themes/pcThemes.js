@@ -108,5 +108,10 @@ export default [
   ['sneexy-boi/material-cord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['468894601542107146'],
     images: ['https://raw.githubusercontent.com/sneexy-boi/material-cord/main/docs/screenshot.png']
+  }],
+
+  ['leeprky/Naive', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['224524143482241035'],
+    images: ['https://raw.githubusercontent.com/leeprky/Naive/main/previews/cherry-glasscord.jpg']
   }]
 ];
