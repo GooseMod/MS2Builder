@@ -19,7 +19,7 @@ export default (manifestPath, repo) => {
 
   const content = readFileSync(pcManifest.main || 'index.js', 'utf8');//.replace(/\\/g, '\\\\').replace(/`/g, '\\`');
 
-  const jsCode = content.replace(`module.exports = class`, `export default new class`).replace(/{ *Plugin *}/, `{ Plugin, powercord }`);
+  const jsCode = `import powercord from '_powercord/global';\n` + content.replace(`module.exports = class`, `export default new class`);
 
   writeFileSync(`${manifestPath}/goosemodModule.json`, JSON.stringify(manifest));
   writeFileSync(`${manifestPath}/../index.js`, jsCode);

@@ -40,7 +40,9 @@
     "powercord/injector": "./moduleWrappers/powercord/injector.js",
     "powercord/webpack": "./moduleWrappers/powercord/webpack.js",
     "powercord/util": "./moduleWrappers/powercord/util.js",
-    "powercord/components/settings": "./moduleWrappers/powercord/components/settings.js"
+    "powercord/components/settings": "./moduleWrappers/powercord/components/settings.js",
+
+    "_powercord/global": "./moduleWrappers/powercord/global/index.js"
   },
 
   "type": "module"
