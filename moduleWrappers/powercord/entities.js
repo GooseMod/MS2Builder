@@ -101,8 +101,22 @@ class SimpleStore {
   }
 
   updateSetting = (key, value) => {
+    if (value === undefined) {
+      return this.toggleSetting(key);
+    }
+
     this.store[key] = value;
   }
+
+  toggleSetting = (key) => {
+    this.store[key] = !this.store[key];
+  }
+
+  deleteSetting = (key) => {
+    delete this.store[key];
+  }
+
+  getKeys = () => Object.keys(this.store)
 }
 
 export class Plugin {
@@ -128,7 +142,17 @@ export class Plugin {
   }
 
   get settings() {
-    return settingStores[this.entityID];
+    const store = settingStores[this.entityID];
+
+    return { // Basic wrapper with renamed functions
+      get: store.getSetting,
+      set: store.setSetting,
+      delete: store.deleteSetting,
+
+      getKeys: store.getKeys,
+
+      connectStore: () => {} // Unneeded util func, but here incase it is attempted to be called
+    };
   }
 
   get goosemodHandlers() {
