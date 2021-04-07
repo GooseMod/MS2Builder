@@ -2,13 +2,19 @@ import * as Settings from './util/settings';
 
 export class Plugin {
   constructor() {
-
+    this.stylesheets = [];
   }
 
-  loadStylesheet(path) { // TODO: actually implement this func
-    const url = `https://raw.githubusercontent.com/${this.github.repo}/main/${path}`;
+  loadStylesheet(path) {
+    const url = `https://raw.githubusercontent.com/${this.github.repo}/HEAD/${path}`; // HEAD essentially means default branch
 
-    return url;
+    const el = document.createElement('style');
+
+    el.appendChild(document.createTextNode(`@import url(${url})`)); // Load the stylesheet via style element w/ CSS @import
+
+    document.head.appendChild(el);
+  
+    this.stylesheets.push(el); // Push to internal array so we can remove the elements on unload
   }
 
   delayedConstructor() { // Run funcs which rely on after eval (GooseMod sets keys on this class with more info, mostly metadata)
@@ -44,7 +50,11 @@ export class Plugin {
         this.startPlugin.bind(this)();
       },
 
-      onRemove: this.pluginWillUnload.bind(this)
+      onRemove: () => {
+        this.stylesheets.forEach((x) => x.remove()); // Remove loaded stylesheets which were added with Plugin.loadStylesheet
+
+        this.pluginWillUnload.bind(this)();
+      }
     };
   }
 }
