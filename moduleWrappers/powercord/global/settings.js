@@ -9,13 +9,12 @@ export const registerSettings = (id, { label, render, category }) => {
   const FormSection = goosemodScope.webpackModules.findByDisplayName('FormSection');
 
   goosemodScope.patcher.inject(id, SettingsView.prototype, 'getPredicateSections', (_, sections) => {
-    if (!sections.find(c => c.section === 'changelog')) return sections;
-
-    const dividers = sections.filter(c => c.section === 'DIVIDER');
+    const logout = sections.find((c) => c.section === 'logout');
+    if (!logout) return sections;
 
     const finalLabel = typeof label === 'function' ? label() : label;
 
-    sections.splice(sections.indexOf(dividers[dividers.length - 2]) - 2, 0,
+    sections.splice(sections.indexOf(logout) - 1, 0,
       {
         section: finalLabel,
         label: finalLabel,
