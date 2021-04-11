@@ -25,5 +25,9 @@ export default [
 
   ['PandaDriver156/Custom-Volume-Range', 'bd732e0c5714c9bd28412948f6403dc8c53a7c2e', '/manifest.json', 'pcPlugin', {
     authors: ['500656746440949761']
+  }],
+
+  ['tuanbinhtran/voice-user-count', '39b92ab1f0ba3fc7f1ca5c411518f50343d5387d', '/manifest.json', 'pcPlugin', {
+    authors: ['92181558949060608']
   }]
 ];
