@@ -86,9 +86,17 @@ const shouldCommit = await new Promise((resp) => {
 }) === 'Y';
 
 if (shouldCommit) {
+  console.log('Building...');
+
+  await exec(`node src/index.js`);
+
+  console.log('Committing...');
+
   await exec(`git add dist ${file}`);
 
   await exec(`git commit -m "[(Auto) Add Theme (PCTheme)] ${repo}`);
+
+  console.log('Pushing...');
 
   await exec(`git push`);
 }
