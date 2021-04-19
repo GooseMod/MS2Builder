@@ -119,4 +119,9 @@ export default [
     authors: ["399416615742996480"],
     images: []
   }],
+
+  ['LuckFire/amoled-cord', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["399416615742996480"],
+    images: []
+  }],
 ];
