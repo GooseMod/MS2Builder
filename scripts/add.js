@@ -1,10 +1,16 @@
 import { createInterface } from 'readline';
 import { readFileSync, writeFileSync } from 'fs';
 
+import { exec as _exec } from 'child_process';
+import { promisify } from 'util';
+
+const exec = util.promisify(_exec);
+
 const rl = createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 
 const [ type1, type2, repo ] = process.argv.slice(2);
 
@@ -72,5 +78,19 @@ contents.splice(-1, 0, '', ...js.split('\n'));
 contents = contents.join('\n');
 
 writeFileSync(file, contents);
+
+const shouldCommit = await new Promise((resp) => {
+  rl.question(`Continue with automated Git (Y/N) > `, (ans) => {
+    resp(ans);
+  });
+}) === 'Y';
+
+if (shouldCommit) {
+  await exec(`git add dist ${file}`);
+
+  await exec(`git commit -m "[(Auto) Add Theme (PCTheme)] ${repo}`);
+
+  await exec(`git push`);
+}
 
 rl.close();
