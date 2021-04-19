@@ -113,5 +113,10 @@ export default [
   ['leeprky/Naive', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['224524143482241035'],
     images: ['https://raw.githubusercontent.com/leeprky/Naive/main/previews/cherry-glasscord.jpg']
-  }]
+  }],
+
+  ['LuckFire/midnight-mars', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["399416615742996480"],
+    images: []
+  }],
 ];
