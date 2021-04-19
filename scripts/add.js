@@ -94,7 +94,7 @@ if (shouldCommit) {
 
   await exec(`git add dist ${file}`);
 
-  await exec(`git commit -m "[(Auto) Add Theme (PCTheme)] ${repo}`);
+  await exec(`git commit -m "[(Auto) Add Theme (PCTheme)] ${repo}"`);
 
   console.log('Pushing...');
 
