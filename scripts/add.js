@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from 'fs';
 import { exec as _exec } from 'child_process';
 import { promisify } from 'util';
 
-const exec = util.promisify(_exec);
+const exec = promisify(_exec);
 
 const rl = createInterface({
   input: process.stdin,
