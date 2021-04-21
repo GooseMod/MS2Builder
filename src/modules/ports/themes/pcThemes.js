@@ -129,4 +129,9 @@ export default [
     authors: ["158296466119458816"],
     images: ["https://codeberg.org/Freeplay/UserStyles/raw/branch/main/images/discord_serverlist-drawer-1.png"]
   }],
+
+  ['Freeplayg/discord-AnotherSidebar', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["158296466119458816"],
+    images: ["https://i.imgur.com/J95Re46.png"]
+  }],
 ];
