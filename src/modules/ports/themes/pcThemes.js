@@ -124,4 +124,9 @@ export default [
     authors: ["399416615742996480"],
     images: []
   }],
+
+  ['Freeplayg/discord-serverlist-drawer', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["158296466119458816"],
+    images: ["https://codeberg.org/Freeplay/UserStyles/raw/branch/main/images/discord_serverlist-drawer-1.png"]
+  }],
 ];
