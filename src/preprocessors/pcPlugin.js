@@ -22,12 +22,12 @@ export default (manifestPath, repo) => {
 
   content = content.replace(`module.exports = class`, `export default new class`);
   content = content.replace(/this\.loadStylesheet\(['"`](.*)['"`]\)/g, (_, relative) => {
-    const path = manifestPath.split('/').slice(0, -1).join('/') + relative;
+    const path = manifestPath.split('/').slice(0, -1).concat('').join('/') + relative;
 
     let css;
 
     if (path.split('.').pop() === 'scss') {
-      css = (sass.renderSync({ file: path })).css;
+      css = (sass.renderSync({ file: path })).css.toString('utf8');
     } else {
       css = readFileSync(sync);
     }
