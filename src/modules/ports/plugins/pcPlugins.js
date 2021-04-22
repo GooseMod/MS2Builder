@@ -30,5 +30,10 @@ export default [
   ['tuanbinhtran/voice-user-count', '39b92ab1f0ba3fc7f1ca5c411518f50343d5387d', '/manifest.json', 'pcPlugin', {
     authors: ['92181558949060608'],
     images: ['https://raw.githubusercontent.com/tuanbinhtran/voice-user-count/main/example.png']
+  }],
+
+  ['jaimeadf/who-reacted', 'fa5391bc1791734f7a27d011ba82c37f4e455df4', '/manifest.json', 'pcPlugin', {
+    authors: ['289112759948410881'],
+    images: ['https://i.imgur.com/dvwN7qr_d.png']
   }]
 ];

@@ -134,4 +134,8 @@ export default [
     authors: ["158296466119458816"],
     images: ["https://i.imgur.com/J95Re46.png"]
   }],
+
+  ['LuckFire/Discord-Revamp', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ['399416615742996480']
+  }],
 ];
