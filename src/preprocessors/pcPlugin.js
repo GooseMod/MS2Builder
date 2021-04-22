@@ -34,7 +34,7 @@ export default (manifestPath, repo) => {
 
     css = css.replace(/\\/g, '\\\\').replace(/\`/g, '\`'); // Escape backticks
 
-    return `this.loadStyleSheet(\`${css}\`)`;
+    return `this.loadStylesheet(\`${css}\`)`;
   });
 
   const jsCode = `import powercord from '_powercord/global';\n` + content;
