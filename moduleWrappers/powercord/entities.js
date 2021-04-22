@@ -5,12 +5,10 @@ export class Plugin {
     this.stylesheets = [];
   }
 
-  loadStylesheet(path) {
-    const url = `https://raw.githubusercontent.com/${this.github.repo}/HEAD/${path}`; // HEAD essentially means default branch
-
+  loadStylesheet(css) {
     const el = document.createElement('style');
 
-    el.appendChild(document.createTextNode(`@import url(${url})`)); // Load the stylesheet via style element w/ CSS @import
+    el.appendChild(document.createTextNode(css)); // Load the stylesheet via style element w/ CSS text
 
     document.head.appendChild(el);
   
