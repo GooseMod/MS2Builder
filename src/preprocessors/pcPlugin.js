@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'fs';
+import sass from 'sass';
 
 export default (manifestPath, repo) => {
   const pcManifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
