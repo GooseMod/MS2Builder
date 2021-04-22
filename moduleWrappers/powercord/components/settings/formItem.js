@@ -1,5 +1,7 @@
 const { React } = goosemodScope.webpackModules.common;
 
+import Divider from './divider';
+
 const OriginalFormItem = goosemodScope.webpackModules.findByDisplayName('FormItem');
 const OriginalFormText = goosemodScope.webpackModules.findByDisplayName('FormText');
 
