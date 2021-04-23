@@ -14,7 +14,10 @@ export default class FormItem extends React.PureComponent {
     return React.createElement(OriginalFormItem, {
         title: this.props.title,
         required: this.props.required,
-        className: [Flex.Direction.VERTICAL, Flex.Justify.START, Flex.Align.STRETCH, Flex.Wrap.NO_WRAP, Margins.marginBottom20].join(' ')
+        className: [Flex.Direction.VERTICAL, Flex.Justify.START, Flex.Align.STRETCH, Flex.Wrap.NO_WRAP, Margins.marginBottom20].join(' '),
+        onClick: () => {
+          this.props.onClick();
+        }
       },
 
       this.props.children,
