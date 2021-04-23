@@ -1,8 +1,17 @@
 const { React } = goosemodScope.webpackModules.common;
 
-import FormItem from './formItem';
+import Divider from './divider';
 
-const OriginalButton = goosemodScope.webpackModules.findByProps('Sizes', 'Colors', 'Looks', 'DropdownSizes');
+const Button = goosemodScope.webpackModules.findByProps('Sizes', 'Colors', 'Looks', 'DropdownSizes');
+
+const FormItem = goosemodScope.webpackModules.findByDisplayName('FormItem');
+const FormText = goosemodScope.webpackModules.findByDisplayName('FormText');
+
+const Flex = goosemodScope.webpackModules.findByDisplayName('Flex');
+const Margins = goosemodScope.webpackModules.findByProps('marginTop20', 'marginBottom20');
+
+const FormClasses = goosemodScope.webpackModules.findByProps('title', 'dividerDefault');
+const FormTextClasses = goosemodScope.webpackModules.findByProps('formText', 'placeholder');
 
 const Tooltip = goosemodScope.webpackModules.findByDisplayName('Tooltip');
 
@@ -13,24 +22,50 @@ export default class ButtonItem extends React.PureComponent {
     delete this.props.children;
 
     return React.createElement(FormItem, {
-        title,
-        note: this.props.note,
-        required: this.props.required
+        className: [Flex.Direction.VERTICAL, Flex.Justify.START, Flex.Align.STRETCH, Flex.Wrap.NO_WRAP, Margins.marginBottom20].join(' '),
       },
 
-      React.createElement(Tooltip, {
-        text: this.props.tooltipText,
-        position: this.props.tooltipPosition,
-        shouldShow: this.props.tooltipText !== ''
-      }, () => React.createElement(OriginalButton,
-        {
-          color: this.props.success ? OriginalButton.Colors.GREEN : (this.props.color || OriginalButton.Colors.BRAND),
-          disabled: this.props.disabled,
-          onClick: () => this.props.onClick(),
-          style: { marginLeft: 5 }
+      React.createElement('div', {
+          style: {
+            display: 'flex',
+            justifyContent: 'space-between'
+          }
         },
-        this.props.button
-      ))
+
+        React.createElement('div', {},
+          React.createElement('div', {
+              className: FormClasses.labelRow,
+              style: {
+                marginBottom: '4px'
+              }
+            },
+
+            React.createElement('label', {
+              class: FormClasses.title
+            }, title)
+          ),
+
+          React.createElement(FormText, {
+            className: FormTextClasses.description
+          }, this.props.note)
+        ),
+
+        React.createElement(Tooltip, {
+          text: this.props.tooltipText,
+          position: this.props.tooltipPosition,
+          shouldShow: this.props.tooltipText !== ''
+        }, () => React.createElement(Button,
+          {
+            color: this.props.success ? Button.Colors.GREEN : (this.props.color || Button.Colors.BRAND),
+            disabled: this.props.disabled,
+
+            onClick: () => this.props.onClick()
+          },
+          this.props.button
+        )),
+      ),
+
+      React.createElement(Divider)
     );
   }
 }
