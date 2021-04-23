@@ -2,7 +2,7 @@ const { React } = goosemodScope.webpackModules.common;
 
 import FormItem from './formItem';
 
-const OriginalButton = goosemod.webpackModules.findByProps('Sizes', 'Colors', 'Looks', 'DropdownSizes');
+const OriginalButton = goosemodScope.webpackModules.findByProps('Sizes', 'Colors', 'Looks', 'DropdownSizes');
 
 const Tooltip = goosemodScope.webpackModules.findByDisplayName('Tooltip');
 
