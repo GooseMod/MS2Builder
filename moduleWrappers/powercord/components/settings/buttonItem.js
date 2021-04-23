@@ -24,7 +24,7 @@ export default class TextInput extends React.PureComponent {
         shouldShow: this.props.tooltipText !== ''
       }, () => React.createElement(OriginalButton,
         {
-          color: this.props.success ? OriginalButton.Colors.GREEN : (this.props.color || Buttons.Colors.BRAND),
+          color: this.props.success ? OriginalButton.Colors.GREEN : (this.props.color || OriginalButton.Colors.BRAND),
           disabled: this.props.disabled,
           onClick: () => this.props.onClick(),
           style: { marginLeft: 5 }
