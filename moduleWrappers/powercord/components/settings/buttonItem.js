@@ -7,7 +7,7 @@ const OriginalButton = goosemod.webpackModules.findByProps('Sizes', 'Colors', 'L
 const Tooltip = goosemodScope.webpackModules.findByDisplayName('Tooltip');
 
 
-export default class TextInput extends React.PureComponent {
+export default class ButtonItem extends React.PureComponent {
   render() {
     const title = this.props.children;
     delete this.props.children;
