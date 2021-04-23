@@ -27,7 +27,7 @@ export default [
     authors: ['500656746440949761']
   }],
 
-  ['tuanbinhtran/voice-user-count', '39b92ab1f0ba3fc7f1ca5c411518f50343d5387d', '/manifest.json', 'pcPlugin', {
+  ['tuanbinhtran/voice-user-count', '6f3b0be85b9c62a906ecf6eef48871dcf128acca', '/manifest.json', 'pcPlugin', {
     authors: ['92181558949060608'],
     images: ['https://raw.githubusercontent.com/tuanbinhtran/voice-user-count/main/example.png']
   }],
