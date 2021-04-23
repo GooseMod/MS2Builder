@@ -20,7 +20,7 @@ export default (manifestPath, repo) => {
 
   let content = readFileSync(pcManifest.main || 'index.js', 'utf8');//.replace(/\\/g, '\\\\').replace(/`/g, '\\`');
 
-  content = content.replace(`module.exports = class`, `export default new class`);
+  content = content.replace(`module.exports = `, `export default new `);
   content = content.replace(/this\.loadStylesheet\(['"`](.*)['"`]\)/g, (_, relative) => {
     const path = manifestPath.split('/').slice(0, -1).concat('').join('/') + relative;
 
