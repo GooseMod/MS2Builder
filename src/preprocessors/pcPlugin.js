@@ -29,7 +29,7 @@ export default (manifestPath, repo) => {
     if (path.split('.').pop() === 'scss') {
       css = (sass.renderSync({ file: path })).css.toString('utf8');
     } else {
-      css = readFileSync(path);
+      css = readFileSync(path, 'utf8');
     }
 
     css = css.replace(/\\/g, '\\\\').replace(/\`/g, '\`'); // Escape backticks
