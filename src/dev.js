@@ -1,3 +1,8 @@
+if (!parseInt(process.version.substring(1, 3)) >= 15) {
+  console.error(`Node v15 or above required, aborting`);
+  process.exit();
+}
+
 import { dirname, sep, join } from 'path';
 import { fileURLToPath } from 'url';
 
