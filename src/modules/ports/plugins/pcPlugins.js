@@ -39,5 +39,9 @@ export default [
 
   ['RazerMoon/userNotifs', '4bb56a8410ba56d0c2ef8996ae186aad2e0eec02', '/manifest.json', 'pcPlugin', {
     authors: ['162970149857656832']
+  }],
+
+  ['Vendicated/PowercordTwemojiEverywhere', '5d9009e80ad63d2a882fb80afa92170f47ca18a2', '/manifest.json', 'pcPlugin', {
+    authors: ['343383572805058560']
   }]
 ];
