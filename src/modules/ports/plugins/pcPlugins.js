@@ -43,5 +43,9 @@ export default [
 
   ['Vendicated/PowercordTwemojiEverywhere', '5d9009e80ad63d2a882fb80afa92170f47ca18a2', '/manifest.json', 'pcPlugin', {
     authors: ['343383572805058560']
+  }],
+
+  ['Vendicated/PowercordReacter', 'f2577849d3f0fa74beb5ba40cb880a6e3fe662b7', '/manifest.json', 'pcPlugin', {
+    authors: ['343383572805058560']
   }]
 ];
