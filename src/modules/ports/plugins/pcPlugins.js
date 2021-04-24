@@ -35,5 +35,9 @@ export default [
   ['jaimeadf/who-reacted', 'fa5391bc1791734f7a27d011ba82c37f4e455df4', '/manifest.json', 'pcPlugin', {
     authors: ['289112759948410881'],
     images: ['https://i.imgur.com/dvwN7qr_d.png']
+  }],
+
+  ['RazerMoon/userNotifs', '4bb56a8410ba56d0c2ef8996ae186aad2e0eec02', '/manifest.json', 'pcPlugin', {
+    authors: ['162970149857656832']
   }]
 ];
