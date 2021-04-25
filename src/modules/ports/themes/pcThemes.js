@@ -148,4 +148,9 @@ export default [
     authors: ["574870314928832533"],
     images: ["https://cdn.discordapp.com/attachments/715106442406920273/835786520216338452/kaleidoscope_preview_one.png","https://cdn.discordapp.com/attachments/715106442406920273/835786531616063538/kaleidoscope_preview_two.png","https://cdn.discordapp.com/attachments/715106442406920273/835786526864441344/kaleidoscope_preview_three.png"]
   }],
+
+  ['leeprky/Lode', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["224524143482241035"],
+    images: ["https://raw.githubusercontent.com/leeprky/Lode/main/default/images/v1.0.1.png","https://raw.githubusercontent.com/leeprky/Lode/main/default/images/v1.0.1%202.png"]
+  }],
 ];
