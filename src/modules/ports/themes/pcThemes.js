@@ -143,4 +143,9 @@ export default [
     authors: ["671355502399193128"],
     images: ["https://i.imgur.com/5eF3dAE.png","https://i.imgur.com/yD7IAEe.png","https://i.imgur.com/bEgMxYm.png"]
   }],
+
+  ['spinfish/kaleidoscope', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["574870314928832533"],
+    images: ["https://cdn.discordapp.com/attachments/715106442406920273/835786520216338452/kaleidoscope_preview_one.png","https://cdn.discordapp.com/attachments/715106442406920273/835786531616063538/kaleidoscope_preview_two.png","https://cdn.discordapp.com/attachments/715106442406920273/835786526864441344/kaleidoscope_preview_three.png"]
+  }],
 ];
