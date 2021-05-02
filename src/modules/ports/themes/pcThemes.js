@@ -158,4 +158,9 @@ export default [
     authors: ["574870314928832533"],
     images: ["https://media.discordapp.net/attachments/678012423067926539/837311603954941962/midnight_candy_main_preview.png","https://media.discordapp.net/attachments/678012423067926539/837312429749829713/midnight_candy_preview_two.png","https://media.discordapp.net/attachments/678012423067926539/837312453544902706/midnight_candy_preview_three.png"]
   }],
+
+  ['NYRI4/LilyPichu', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["265924886461939712"],
+    images: ["https://nyri4.github.io/LilyPichu/assets/capture.png"]
+  }],
 ];
