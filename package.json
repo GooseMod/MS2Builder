@@ -2,26 +2,33 @@
   "name": "ms2builder",
   "version": "1.0.0",
   "description": "Builder for Module Store v2.",
+
   "main": "src/index.js",
+
   "scripts": {
     "theme": "node ./scripts/add.js theme"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GooseMod/MS2Builder.git"
   },
+
   "author": "GooseMod",
   "license": "MIT",
+
   "bugs": {
     "url": "https://github.com/GooseMod/MS2Builder/issues"
   },
   "homepage": "https://github.com/GooseMod/MS2Builder#readme",
+
   "dependencies": {
     "axios": "^0.21.1",
     "glob": "^7.1.6",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.32.8"
   },
+
   "alias": {
     "@goosemod/patcher": "./moduleWrappers/goosemod/patcher.js",
     "@goosemod/webpack": "./moduleWrappers/goosemod/webpack.js",
@@ -29,12 +36,17 @@
     "@goosemod/reactUtils": "./moduleWrappers/goosemod/reactUtils.js",
     "@goosemod/toast": "./moduleWrappers/goosemod/toast.js",
     "@goosemod/settings": "./moduleWrappers/goosemod/settings.js",
+
     "powercord/entities": "./moduleWrappers/powercord/entities.js",
     "powercord/injector": "./moduleWrappers/powercord/injector.js",
     "powercord/webpack": "./moduleWrappers/powercord/webpack.js",
     "powercord/util": "./moduleWrappers/powercord/util.js",
     "powercord/components/settings": "./moduleWrappers/powercord/components/settings/index.js",
-    "_powercord/global": "./moduleWrappers/powercord/global/index.js"
+
+    "_powercord/global": "./moduleWrappers/powercord/global/index.js",
+
+    "electron": "./moduleWrappers/electron/index.js"
   },
+
   "type": "module"
 }
