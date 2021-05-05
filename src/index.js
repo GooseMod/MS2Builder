@@ -39,7 +39,7 @@ if (existsSync(clonesDir)) {
     process.chdir(cloneDir);
     
     const currentHash = await new Promise((res) => exec(`git rev-parse HEAD`, (err, stdout) => res(stdout.trim())));
-    
+
     const moduleInRepos = ModuleRepos.map(
       (x) => x.modules.filter(
         (y) => y[0] === cloneDir.replace(`${clonesDir}/`, '') && (y[1] === currentHash || !y[1])
@@ -96,23 +96,27 @@ for (const parentRepo of ModuleRepos) {
     const cloneDir = `${clonesDir}/${name}`;
     let moduleDir = repo[2] || '';
 
-    if (previous.includes(repo)) {
-      let currentModule = currentRepoJson.modules.filter((x) => x.github.repo === repo[0]);
-      if (currentModule.length > 1) {
-        const manifest = JSON.parse(readFileSync(`${cloneDir}${moduleDir}/goosemodModule.json`));
+    try {
+      if (previous.includes(repo)) {
+        let currentModule = currentRepoJson.modules.filter((x) => x.github.repo === repo[0]);
+        if (currentModule.length > 1) {
+          const manifest = JSON.parse(readFileSync(`${cloneDir}${moduleDir}/goosemodModule.json`));
 
-        currentModule = currentModule.find((x) => x.name === manifest.name);
-      } else {
-        currentModule = currentModule[0];
-      }
+          currentModule = currentModule.find((x) => x.name === manifest.name);
+        } else {
+          currentModule = currentModule[0];
+        }
   
-      moduleJson.modules.push(currentModule);
+        moduleJson.modules.push(currentModule);
       
-      process.stdout.write('[SKIP] ');
+        process.stdout.write('[SKIP] ');
       
-      console.timeEnd(repo.slice(0, 2).join(' @ ')+`${repo[2] ? ` ${repo[2]}` : ''}`);
+        console.timeEnd(repo.slice(0, 2).join(' @ ')+`${repo[2] ? ` ${repo[2]}` : ''}`);
       
-      continue;
+        continue;
+      }
+    } catch (e) {
+      console.log('Cache fail', repo[0], e);
     }
   
     let githubInfo = getGithubInfo(repo[0]);
