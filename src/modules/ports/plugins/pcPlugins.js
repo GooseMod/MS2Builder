@@ -52,5 +52,10 @@ export default [
   ['Antonio32A/copy-role-color', '0daab6c9e0a851a364cd1b2177d82304f5344507', '/manifest.json', 'pcPlugin', {
     authors: ['166630166825664512'],
     images: ['https://i.antonio32a.com/XAyU.png', 'https://i.antonio32a.com/hBPe.png']
+  }],
+
+  ['BenSegal855/webhook-tag', 'd734364533b53a6f94fe9d6ddc18d1c1f3c5f849', '/manifest.json', 'pcPlugin', {
+    authors: ['465668689920917534'],
+    images: ['https://cdn.discordapp.com/attachments/723241105323327581/792496211298353192/unknown.png']
   }]
 ];
