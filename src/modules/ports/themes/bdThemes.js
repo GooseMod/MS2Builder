@@ -80,4 +80,9 @@ export default [
     authors: ["98468214824001536"],
     images: ["https://images-ext-1.discordapp.net/external/Rpwl0eXWaomXnkX7KR9gihEdgQLadY5BW-SLTm7IE84/https/betterdiscord.app/resources/thumbnails/338.png"]
   }],
+
+  ['userMacieG/userMacieG.github.io', '', '/betterdiscord/discord-tv.theme.css', 'bdTheme', {
+    authors: ["144109479443693568"],
+    images: ["https://images-ext-2.discordapp.net/external/tARSDRAeSbeQmaUxA51qYCOMHPWb5zdYMWFflgknFp0/https/betterdiscord.app/resources/thumbnails/322.png"]
+  }],
 ];
