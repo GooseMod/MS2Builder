@@ -15,6 +15,8 @@ export default (themePath, repo) => {
     const [_, key, value] = match;
     if (key === 'import') break;
 
+    value = value.trim();
+
 //    console.log(key, value);
 
     switch (key) {
