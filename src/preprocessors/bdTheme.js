@@ -12,7 +12,7 @@ export default (themePath, repo) => {
 
   let match;
   while ((match = metaReg.exec(content)) !== null) {
-    const [_, key, value] = match;
+    let [_, key, value] = match;
     if (key === 'import') break;
 
     value = value.trim();
