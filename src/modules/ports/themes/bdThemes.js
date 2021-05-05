@@ -70,4 +70,9 @@ export default [
     authors: ["237627458143125506"],
     images: ["https://i.imgur.com/0xtQq87.png","https://i.imgur.com/s5Q4WDu.png","https://i.imgur.com/HmOuIP8.png","https://i.imgur.com/0HpQh5a.gif"]
   }],
+
+  ['rmkx/rmkx.github.io', '', '/Boreal/Boreal.theme.css', 'bdTheme', {
+    authors: ["237627458143125506"],
+    images: ["https://i.imgur.com/xtQflHh.jpg","https://i.imgur.com/R0OymsS.png","https://i.imgur.com/2Vc9b70.png","https://i.imgur.com/tGv56s2.png"]
+  }],
 ];
