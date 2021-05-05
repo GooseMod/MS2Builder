@@ -47,5 +47,10 @@ export default [
 
   ['Vendicated/PowercordReacter', 'f2577849d3f0fa74beb5ba40cb880a6e3fe662b7', '/manifest.json', 'pcPlugin', {
     authors: ['343383572805058560']
+  }],
+
+  ['Antonio32A/copy-role-color', '0daab6c9e0a851a364cd1b2177d82304f5344507', '/manifest.json', 'pcPlugin', {
+    authors: ['166630166825664512'],
+    images: ['https://i.antonio32a.com/XAyU.png', 'https://i.antonio32a.com/hBPe.png']
   }]
 ];
