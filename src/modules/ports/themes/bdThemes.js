@@ -75,4 +75,9 @@ export default [
     authors: ["237627458143125506"],
     images: ["https://i.imgur.com/xtQflHh.jpg","https://i.imgur.com/R0OymsS.png","https://i.imgur.com/2Vc9b70.png","https://i.imgur.com/tGv56s2.png"]
   }],
+
+  ['KillYoy/DiscordNight', '', '/DiscordNight.theme.css', 'bdTheme', {
+    authors: ["98468214824001536"],
+    images: ["https://images-ext-1.discordapp.net/external/Rpwl0eXWaomXnkX7KR9gihEdgQLadY5BW-SLTm7IE84/https/betterdiscord.app/resources/thumbnails/338.png"]
+  }],
 ];
