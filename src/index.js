@@ -94,7 +94,7 @@ for (const parentRepo of ModuleRepos) {
     
     const name = repo[0];
     const cloneDir = `${clonesDir}/${name}`;
-    const moduleDir = repo[2] || '';
+    let moduleDir = repo[2] || '';
 
     if (previous.includes(repo)) {
       let currentModule = currentRepoJson.modules.filter((x) => x.github.repo === repo[0]);
@@ -146,7 +146,11 @@ for (const parentRepo of ModuleRepos) {
     await new Promise((res) => exec(`git checkout ${commitHash}`, res));
     
     if (preprocessor) {
-      (await import(`./preprocessors/${preprocessor}.js`)).default(`${cloneDir}${moduleDir}`, repo);
+      const preOut = (await import(`./preprocessors/${preprocessor}.js`)).default(`${cloneDir}${moduleDir}`, repo);
+
+      if (preOut !== undefined) {
+        moduleDir = preOut;
+      }
     }
     
     const manifest = JSON.parse(readFileSync(`${cloneDir}${moduleDir}/goosemodModule.json`));
@@ -154,7 +158,7 @@ for (const parentRepo of ModuleRepos) {
     // console.log(manifest);
     
     const outFile = `${manifest.name}.js`;
-    
+  
     const bundler = new Parcel(`${cloneDir}${moduleDir}/${manifest.main}`, Object.assign(parcelOptions, {
       outFile
     }));

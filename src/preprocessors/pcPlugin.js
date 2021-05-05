@@ -1,11 +1,15 @@
+import { join } from 'path';
 import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'fs';
+
 import sass from 'sass';
 
 export default (manifestPath, repo) => {
+  const baseDir = join(manifestPath, '..');
+
   const pcManifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
 
   let manifest = {
-    main: '../index.js',
+    main: 'index.js',
     tags: ['port'],
 
     name: pcManifest.name,
@@ -14,9 +18,6 @@ export default (manifestPath, repo) => {
     version: pcManifest.version,
     authors: [ pcManifest.author ]
   };
-
-  rmSync(manifestPath);
-  mkdirSync(manifestPath);
 
   let content = readFileSync(pcManifest.main || 'index.js', 'utf8');//.replace(/\\/g, '\\\\').replace(/`/g, '\\`');
 
@@ -39,6 +40,8 @@ export default (manifestPath, repo) => {
 
   const jsCode = `import powercord from '_powercord/global';\n` + content;
 
-  writeFileSync(`${manifestPath}/goosemodModule.json`, JSON.stringify(manifest));
-  writeFileSync(`${manifestPath}/../index.js`, jsCode);
+  writeFileSync(join(baseDir, `goosemodModule.json`), JSON.stringify(manifest));
+  writeFileSync(join(baseDir, `index.js`), jsCode);
+
+  return '';
 };
