@@ -173,4 +173,9 @@ export default [
     authors: ["265924886461939712"],
     images: ["https://nyri4.github.io/Discolored/assets/screenshot.png"]
   }],
+
+  ['DiscordStyles/DarkMatter', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["254362351170617345"],
+    images: ["https://i.imgur.com/xSG96qa.png"]
+  }],
 ];
