@@ -57,8 +57,8 @@ const discordVars = [
 ];
 
 export default (manifest, content, repo) => {
-  let variables = content.match(/--(.*): (.*);/g);
-  variables = variables.map((x) => {
+  let variables = content.match(/--(.*): (.*);/g) || [];
+  if (variables.length > 0) variables = variables.map((x) => {
     const spl = x.split(':');
 
     let name = spl[0].trim();
@@ -74,7 +74,7 @@ export default (manifest, content, repo) => {
   });
 
   // Filter out Discord standard vars, and duplicate names
-  variables = variables.filter((x, i, s) => !discordVars.includes(x[0]) && !x[1].includes('var(') && s.indexOf(s.find((y) => y[0] === x[0])) === i);
+  if (variables.length > 0) variables = variables.filter((x, i, s) => !discordVars.includes(x[0]) && !x[1].includes('var(') && s.indexOf(s.find((y) => y[0] === x[0])) === i);
 
   const toShowSettings = repo[5] && variables.length > 0;
 
