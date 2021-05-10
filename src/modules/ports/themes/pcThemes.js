@@ -62,9 +62,9 @@ export default [
     images: ['https://media.discordapp.net/attachments/755005710323941386/811325025025785886/2021-02-16_14-51.png']
   }],
 
-  ['Pavui/Nebula', '', '/powercord_manifest.json', 'pcTheme', {
+  ['Loremly/Nebula4', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['597072695875600385'],
-    images: ['https://i.imgur.com/4SzKqEG.png', 'https://i.imgur.com/ewD8NvI.png']
+    images: ['https://i.imgur.com/vcoREaX.png']
   }],
 
   ['cainy-a/LunaCord', '', '/powercord_manifest.json', 'pcTheme', {
@@ -177,5 +177,5 @@ export default [
   ['DiscordStyles/DarkMatter', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["254362351170617345"],
     images: ["https://i.imgur.com/xSG96qa.png"]
-  }],
+  }, true],
 ];

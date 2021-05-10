@@ -89,10 +89,10 @@ export default [
   ['CommandCrafterHD/Fallout4TerminalTheme', '', '/css/Fallout4Terminal.theme.css', 'bdTheme', {
     authors: ["137259132305539072"],
     images: ["https://cegledi.net/uploads/20-04-2021_368.png"]
-  }],
+  }, true],
 
   ['CommandCrafterHD/DiscordDarkNeon', '', '/css/DarkNeon.theme.css', 'bdTheme', {
     authors: ["137259132305539072"],
     images: ["https://cegledi.net/uploads/ubynvF4imJ.gif"]
-  }],
+  }, true],
 ];
