@@ -85,4 +85,9 @@ export default [
     authors: ["144109479443693568"],
     images: ["https://images-ext-2.discordapp.net/external/tARSDRAeSbeQmaUxA51qYCOMHPWb5zdYMWFflgknFp0/https/betterdiscord.app/resources/thumbnails/322.png"]
   }],
+
+  ['CommandCrafterHD/Fallout4TerminalTheme', '', '/css/Fallout4Terminal.theme.css', 'bdTheme', {
+    authors: ["137259132305539072"],
+    images: ["https://cegledi.net/uploads/20-04-2021_368.png"]
+  }],
 ];
