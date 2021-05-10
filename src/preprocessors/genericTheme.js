@@ -74,7 +74,7 @@ export default (manifest, content, repo) => {
   });
 
   // Filter out Discord standard vars, and duplicate names
-  if (variables.length > 0) variables = variables.filter((x, i, s) => !discordVars.includes(x[0]) && !x[1].includes('var(') && s.indexOf(s.find((y) => y[0] === x[0])) === i);
+  if (variables.length > 0) variables = variables.filter((x, i, s) => !discordVars.includes(x[0]) && !x[1].includes('var(') && !x[0].includes('glasscord') && s.indexOf(s.find((y) => y[0] === x[0])) === i);
 
   const toShowSettings = repo[5] === true && variables.length > 0;
 
