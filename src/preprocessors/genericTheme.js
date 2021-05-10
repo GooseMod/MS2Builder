@@ -94,7 +94,7 @@ export default (manifest, content, repo) => {
           )
         );
   
-        if (${toShowSettings}) goosemodScope.settings.createItem('${manifest.name}', [
+        if (${toShowSettings} || (goosemodScope.settings.gmSettings.get().allThemeSettings)) goosemodScope.settings.createItem('${manifest.name}', [
           '',
   
           ${variables.map((x) => (`{
