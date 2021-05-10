@@ -90,4 +90,9 @@ export default [
     authors: ["137259132305539072"],
     images: ["https://cegledi.net/uploads/20-04-2021_368.png"]
   }],
+
+  ['CommandCrafterHD/DiscordDarkNeon', '', '/css/DarkNeon.theme.css', 'bdTheme', {
+    authors: ["137259132305539072"],
+    images: ["https://cegledi.net/uploads/ubynvF4imJ.gif"]
+  }],
 ];
