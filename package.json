@@ -6,7 +6,8 @@
   "main": "src/index.js",
 
   "scripts": {
-    "theme": "node ./scripts/add.js theme"
+    "theme": "node ./scripts/add.js theme",
+    "pccompatcheck": "node ./scripts/pccompatCheck.js"
   },
 
   "repository": {
