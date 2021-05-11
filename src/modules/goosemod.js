@@ -14,7 +14,7 @@ export default
   ['Controlfreak707/GM-Comfy-Theme', 'f1f8866312f048d02baed6959cd09b1baa49feda'],
   ['Controlfreak707/GM-Channel-Icons', '83049d7bf164e14e6322e55f5c17151e18ca5ec3'],
 
-  ['TechnoJo4/GM-MessageClickActions', 'd2605cc4f364e627964616693ff254bb1b86e5aa'],
+  ['TechnoJo4/GM-MessageClickActions', '3dbadf674f451d5d115aa9cb842172415d91ccbc'],
 
   ['GooseMod-Modules/CopyAvatarURL', '8c02c9b5dabc04f8a41cbfa519e58c00b1895a23'],
 
