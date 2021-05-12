@@ -178,4 +178,9 @@ export default [
     authors: ["254362351170617345"],
     images: ["https://i.imgur.com/xSG96qa.png"]
   }, true],
+
+  ['Goose-Nest/GT-RevertRebrand', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["506482395269169153"],
+    images: []
+  }],
 ];
