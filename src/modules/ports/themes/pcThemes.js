@@ -183,4 +183,9 @@ export default [
     authors: ["506482395269169153"],
     images: []
   }],
+
+  ['Goose-Nest/GT-VSCHighContrast', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["506482395269169153"],
+    images: []
+  }],
 ];
