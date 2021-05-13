@@ -188,4 +188,9 @@ export default [
     authors: ["506482395269169153"],
     images: []
   }],
+
+  ['doggybootsy/Dribbblish', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["515780151791976453"],
+    images: ["https://media.discordapp.net/attachments/755005710323941386/842483963900723200/Screen_Shot_2021-05-13_at_12.29.50_PM.png"]
+  }],
 ];
