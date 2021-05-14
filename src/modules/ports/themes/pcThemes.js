@@ -101,7 +101,7 @@ export default [
   }],
 
   ['sneexy-boi/material-cord', '', '/powercord_manifest.json', 'pcTheme', {
-    authors: ['468894601542107146'],
+    authors: ['468894601542107146', '452289159399342090'],
     images: ['https://raw.githubusercontent.com/sneexy-boi/material-cord/main/docs/screenshot.png']
   }],
 
