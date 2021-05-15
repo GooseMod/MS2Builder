@@ -46,6 +46,9 @@
 
     "_powercord/global": "./moduleWrappers/powercord/global/index.js",
 
+    "@vizality/patcher": "./moduleWrappers/generic/empty.js",
+    "@vizality/util": "./moduleWrappers/generic/empty.js",
+
     "electron": "./moduleWrappers/electron/index.js"
   },
 
