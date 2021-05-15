@@ -2,6 +2,7 @@ import { join } from 'path';
 import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'fs';
 
 import sass from 'sass';
+import glob from 'glob';
 
 export default (manifestPath, repo) => {
   const baseDir = join(manifestPath, '..');
@@ -38,10 +39,28 @@ export default (manifestPath, repo) => {
     return `this.loadStylesheet(\`${css}\`)`;
   });
 
-  const jsCode = `import powercord from '_powercord/global';\n` + content;
+  writeFileSync(join(baseDir, `index.js`), content);
+
+  for (const jsFile of glob.sync(`${baseDir}/**/*.js`)) {
+    console.log(jsFile);
+    let content = readFileSync(jsFile, 'utf8');
+
+    /* Here we preappend some JS to each file to match context and fix some weird bundler bugs:
+      - Import our own Powercord global
+      - Fix dynamic imports (like using require("powercord/" + someVariable)) causing errors (due to no static analyse). Do this because some plugins use it for PC + VZ compat with the same JS
+    */
+
+    content = `import powercord from '_powercord/global';
+require.cache['powercord/entities'] = require('powercord/entities');
+require.cache['powercord/components/settings'] = require('powercord/components/settings');
+require.cache['powercord/webpack'] = require('powercord/webpack');
+
+${content}`;
+
+    writeFileSync(jsFile, content);
+  }
 
   writeFileSync(join(baseDir, `goosemodModule.json`), JSON.stringify(manifest));
-  writeFileSync(join(baseDir, `index.js`), jsCode);
 
   return '';
 };
