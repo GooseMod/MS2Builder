@@ -57,5 +57,10 @@ export default [
   ['BenSegal855/webhook-tag', 'd734364533b53a6f94fe9d6ddc18d1c1f3c5f849', '/manifest.json', 'pcPlugin', {
     authors: ['465668689920917534'],
     images: ['https://cdn.discordapp.com/attachments/723241105323327581/792496211298353192/unknown.png']
+  }],
+
+  ['TaiAurori/custom-timestamps', '76aba236933ef6c45fac006474ac2b9e334888c3', '/manifest.json', 'pcPlugin', {
+    authors: ['334469240394481667'],
+    images: ['https://raw.githubusercontent.com/TaiAurori/custom-timestamps/master/screenshots/preview-1.png']
   }]
 ];
