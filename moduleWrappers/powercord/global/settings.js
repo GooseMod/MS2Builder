@@ -8,6 +8,8 @@ export const registerSettings = (id, { label, render, category }) => {
   const FormTitle = goosemodScope.webpackModules.findByDisplayName('FormTitle');
   const FormSection = goosemodScope.webpackModules.findByDisplayName('FormSection');
 
+  if (!Settings.settingStores[category]) Settings.makeStore(category);
+
   goosemodScope.patcher.inject(id, SettingsView.prototype, 'getPredicateSections', (_, sections) => {
     const logout = sections.find((c) => c.section === 'logout');
     if (!logout) return sections;
@@ -22,7 +24,7 @@ export const registerSettings = (id, { label, render, category }) => {
         element: () => React.createElement(FormSection, { },
           React.createElement(FormTitle, { tag: 'h2' }, finalLabel),
 
-          render({
+          React.createElement(render, {
             ...Settings.settingStores[category]
           })
         )
