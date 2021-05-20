@@ -95,4 +95,9 @@ export default [
     authors: ["137259132305539072"],
     images: ["https://cegledi.net/uploads/ubynvF4imJ.gif"]
   }, true],
+
+  ['codedotspectra/themes', '', '/themes-files/neutron.theme.css', 'bdTheme', {
+    authors: ["286208664623120384"],
+    images: ["https://i.imgur.com/5YhoRtf.jpg"]
+  }],
 ];
