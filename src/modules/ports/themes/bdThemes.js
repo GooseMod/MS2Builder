@@ -105,4 +105,9 @@ export default [
     authors: ["286208664623120384"],
     images: ["https://i.imgur.com/yITlAjo.png"]
   }],
+
+  ['ClearVision/ClearVision-v6', '', '/ClearVision_v6.theme.css', 'bdTheme', {
+    authors: "ClearVision Team",
+    images: ["https://raw.githubusercontent.com/ClearVision/ClearVision-v6/master/screenshots/6-stable.4.7.9.png"]
+  }],
 ];
