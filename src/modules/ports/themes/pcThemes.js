@@ -188,4 +188,9 @@ export default [
     authors: ["515780151791976453"],
     images: ["https://media.discordapp.net/attachments/755005710323941386/842483963900723200/Screen_Shot_2021-05-13_at_12.29.50_PM.png"]
   }],
+
+  ['leeprky/Quarrel', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["224524143482241035"],
+    images: ["https://i.imgur.com/6bvkEoD.png"]
+  }],
 ];
