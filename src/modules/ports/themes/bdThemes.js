@@ -100,4 +100,9 @@ export default [
     authors: ["286208664623120384"],
     images: ["https://i.imgur.com/5YhoRtf.jpg"]
   }],
+
+  ['codedotspectra/themes', '', '/themes-files/nocturnal.theme.css', 'bdTheme', {
+    authors: ["286208664623120384"],
+    images: ["https://i.imgur.com/yITlAjo.png"]
+  }],
 ];
