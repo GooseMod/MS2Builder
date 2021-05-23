@@ -110,4 +110,9 @@ export default [
     authors: "ClearVision Team",
     images: ["https://raw.githubusercontent.com/ClearVision/ClearVision-v6/master/screenshots/6-stable.4.7.9.png"]
   }],
+
+  ['NYRI4/Comfy', '', '/betterdiscord/comfy.theme.css', 'bdTheme', {
+    authors: ["265924886461939712"],
+    images: ["https://i.ibb.co/5cWJGRP/Preview.png"]
+  }, true],
 ];
