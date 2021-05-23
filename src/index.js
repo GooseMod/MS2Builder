@@ -132,23 +132,27 @@ for (const parentRepo of ModuleRepos) {
     //  rmSync(cloneDir, { recursive: true, force: true });
 
     if (existsSync(cloneDir)) {
-      process.chdir(cloneDir);
+      /* process.chdir(cloneDir);
 
       const currentHash = await new Promise((res) => exec(`git rev-parse HEAD`, (err, stdout) => res(stdout.trim())));
 
-      if (currentHash !== repo[1]) rmSync(cloneDir, { recursive: true, force: true });
+      if (currentHash !== repo[1]) rmSync(cloneDir, { recursive: true, force: true });*/
+
+      rmSync(cloneDir, { recursive: true, force: true });
     }
     
     process.chdir(distDir); // Incase current wd is broken, in which case exec / git crashes
 
     await new Promise((res) => exec(`git clone ${url} ${cloneDir}`, res));
-    
+
     process.chdir(cloneDir);
     
     const lastHash = await new Promise((res) => exec(`git rev-parse HEAD`, (err, stdout) => res(stdout.trim())));
     
     await new Promise((res) => exec(`git checkout ${commitHash}`, res));
     
+    const commitTimestamp = await new Promise((res) => exec(`git log -1 --format="%at" | xargs -I{} date -d @{} +%s`, (err, stdout) => res(stdout.trim())));
+
     if (preprocessor) {
       const preOut = (await import(`./preprocessors/${preprocessor}.js`)).default(`${cloneDir}${moduleDir}`, repo);
 
@@ -198,6 +202,8 @@ for (const parentRepo of ModuleRepos) {
         stars: githubInfo.stargazers_count,
         repo: repo[0]
       },
+
+      lastUpdated: parseInt(commitTimestamp),
 
       ...repo[4]
     };
