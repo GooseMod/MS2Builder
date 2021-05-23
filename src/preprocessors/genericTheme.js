@@ -57,7 +57,7 @@ const discordVars = [
 ];
 
 export default (manifest, content, repo) => {
-  let variables = content.match(/--(.*): (.*);/g) || [];
+  let variables = content.match(/--([^*!\n}]*): ([^*!\n}]*);/g) || [];
   if (variables.length > 0) variables = variables.map((x) => {
     const spl = x.split(':');
 
