@@ -222,6 +222,8 @@ for (const parentRepo of ModuleRepos) {
     }
   }
 
+  moduleJson.modules = moduleJson.modules.filter((x) => x !== null);
+
   writeFileSync(repoJsonPath, JSON.stringify(moduleJson));
 
   oldTotalModulesJson = oldTotalModulesJson.concat(moduleJson.modules);
