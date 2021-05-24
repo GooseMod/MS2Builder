@@ -47,7 +47,7 @@ for (const jsFile of glob.sync(`${cloneDir}/**/*.js`).concat(glob.sync(`${cloneD
     const aliasPath = alias[requirePath];
 
     if (!aliasPath) {
-      console.log('No alias', requirePath);
+      console.log('No alias', requirePath, '(', imports, ')');
       continue;
     }
 
