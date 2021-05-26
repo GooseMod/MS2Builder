@@ -33,6 +33,7 @@
   "alias": {
     "@goosemod/patcher": "./moduleWrappers/goosemod/patcher.js",
     "@goosemod/webpack": "./moduleWrappers/goosemod/webpack.js",
+    "@goosemod/webpack/common": "./moduleWrappers/goosemod/webpackCommon.js",
     "@goosemod/logger": "./moduleWrappers/goosemod/logger.js",
     "@goosemod/reactUtils": "./moduleWrappers/goosemod/reactUtils.js",
     "@goosemod/toast": "./moduleWrappers/goosemod/toast.js",
