@@ -14,7 +14,8 @@ export default [
   }],
 
   ['Giangamerino/protoncord', '', '/protoncord.theme.css', 'bdTheme', {
-    authors: ['491262066813042698']
+    authors: ['491262066813042698'],
+    images: ['https://raw.githubusercontent.com/vaxx-y/protoncord/Release/Previews/ProtoncordPreview.png']
   }],
 
   ['SlippingGitty/SlideToUnlock', '', '/SlideToUnlock.theme.css', 'bdTheme', {
