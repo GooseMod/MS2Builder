@@ -18,6 +18,7 @@ export default
   ['GooseMod-Modules/CopyAvatarURL', '8c02c9b5dabc04f8a41cbfa519e58c00b1895a23'],
   ['GooseMod-Modules/CustomCSS', '64969856598a2cc2980988046e0ff266d64fa943'],
   ['GooseMod-Modules/UsernameInAuthor', '6f294f70390be4d8c613bcfac0b142e88fe47c5e'],
+  ['GooseMod-Modules/StatusInAuthor', '6fe060c93a216bb2d2f1e741ff0e7b9e489e803c'],
 
   ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/mock'],
   ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/rpc'],
