@@ -185,7 +185,7 @@ export default [
 
   ['Goose-Nest/GT-RevertRebrand', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["506482395269169153"],
-    images: []
+    images: ['https://raw.githubusercontent.com/Goose-Nest/GT-RevertRebrand/main/screenshots/message_revert.png']
   }],
 
   ['Goose-Nest/GT-VSCHighContrast', '', '/powercord_manifest.json', 'pcTheme', {
