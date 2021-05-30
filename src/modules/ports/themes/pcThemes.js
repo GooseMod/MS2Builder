@@ -212,4 +212,9 @@ export default [
     authors: ['399416615742996480'],
     images: ['https://raw.githubusercontent.com/Discord-Theme-Addons/compact-userarea/main/screenshots/preview.png']
   }],
+
+  ['4n4hits/ForestFrost', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["812815155288473630"],
+    images: ["https://i.vgy.me/k2KPcP.png"]
+  }],
 ];
