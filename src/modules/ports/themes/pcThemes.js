@@ -217,4 +217,9 @@ export default [
     authors: ["812815155288473630"],
     images: ["https://i.vgy.me/k2KPcP.png"]
   }],
+
+  ['kreat0/the-nightowl', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["647480386577760256"],
+    images: ["https://raw.githubusercontent.com/kreat0/the-nightowl/master/assets/screenshot.png"]
+  }],
 ];
