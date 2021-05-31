@@ -222,4 +222,9 @@ export default [
     authors: ["647480386577760256"],
     images: ["https://raw.githubusercontent.com/kreat0/the-nightowl/master/assets/screenshot.png"]
   }],
+
+  ['kixt0/shuttle', '', '/manifest.json', 'pcTheme', {
+    authors: ["452289159399342090"],
+    images: ["https://raw.githubusercontent.com/kixt0/shuttle/main/docs/screenshot.png"]
+  }],
 ];
