@@ -229,7 +229,7 @@ export default [
   }],
 
   ['mr-miner1/Better-Badges', '', '/powercord_manifest.json', 'pcTheme', {
-    authors: ["506482395269169153"],
+    authors: ["678541597654253600"],
     images: ["https://media.discordapp.net/attachments/849254599977992213/849256410751172618/badgespreview.gif"]
   }],
 ];
