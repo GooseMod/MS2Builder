@@ -227,4 +227,9 @@ export default [
     authors: ["452289159399342090"],
     images: ["https://raw.githubusercontent.com/kixt0/shuttle/main/docs/screenshot.png"]
   }],
+
+  ['mr-miner1/Better-Badges', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["506482395269169153"],
+    images: ["https://media.discordapp.net/attachments/849254599977992213/849256410751172618/badgespreview.gif"]
+  }],
 ];
