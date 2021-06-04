@@ -116,4 +116,9 @@ export default [
     authors: ["265924886461939712"],
     images: ["https://i.ibb.co/5cWJGRP/Preview.png"]
   }, true],
+
+  ['PlusInsta/discord-plus', '', '/DiscordPlus.theme.css', 'bdTheme', {
+    authors: ["309931975102300160"],
+    images: ["https://cdn.discordapp.com/attachments/560369937084973067/849296493730856970/dplus_v3.0.1_dark.png","https://cdn.discordapp.com/attachments/560369937084973067/849296501733589012/dplus_v3.0.1_light.png"]
+  }],
 ];
