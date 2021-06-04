@@ -121,4 +121,9 @@ export default [
     authors: ["309931975102300160"],
     images: ["https://cdn.discordapp.com/attachments/560369937084973067/849296493730856970/dplus_v3.0.1_dark.png","https://cdn.discordapp.com/attachments/560369937084973067/849296501733589012/dplus_v3.0.1_light.png"]
   }],
+
+  ['Tomrdh/discord-addons', '', '/download-themes-here/OperaGxGamingTheme/OperaGxGamingTheme.theme.css', 'bdTheme', {
+    authors: ["703638166162112516"],
+    images: ["https://tomrdh.github.io/da-website/screenshots/OperaGxGamingTheme.png"]
+  }],
 ];
