@@ -136,4 +136,9 @@ export default [
     authors: ["124276233478471680"],
     images: ["https://user-images.githubusercontent.com/4013216/92188719-5a0c9580-ee2b-11ea-9585-8d1092d6b9b1.png","https://user-images.githubusercontent.com/4013216/92188729-5ed14980-ee2b-11ea-8ede-5bb4eca3a953.png","https://user-images.githubusercontent.com/4013216/92188768-71e41980-ee2b-11ea-9da2-b88c5cde553f.png","https://user-images.githubusercontent.com/4013216/92188789-7ad4eb00-ee2b-11ea-8264-3bad57d6c761.png","https://user-images.githubusercontent.com/4013216/92188807-87594380-ee2b-11ea-8066-c764be590911.png"]
   }],
+
+  ['CapnKitten/Spotify-Discord', '', '/Spotify-Discord.theme.css', 'bdTheme', {
+    authors: ["124276233478471680"],
+    images: ["https://user-images.githubusercontent.com/4013216/120567756-77818680-c3e0-11eb-91d4-20709163ee69.png","https://user-images.githubusercontent.com/4013216/120567773-7f412b00-c3e0-11eb-8cb6-6dad10b145c5.png","https://user-images.githubusercontent.com/4013216/120567785-85cfa280-c3e0-11eb-85f7-0bdf5cad90b1.png","https://user-images.githubusercontent.com/4013216/120567799-89fbc000-c3e0-11eb-9c17-126747382c7f.png","https://user-images.githubusercontent.com/4013216/120567808-8f590a80-c3e0-11eb-8053-dc9f63e8471c.png","https://user-images.githubusercontent.com/4013216/120567817-954eeb80-c3e0-11eb-8965-a4ee9fa83537.png"]
+  }],
 ];
