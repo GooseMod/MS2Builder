@@ -62,5 +62,9 @@ export default [
   ['TaiAurori/custom-timestamps', '76aba236933ef6c45fac006474ac2b9e334888c3', '/manifest.json', 'pcPlugin', {
     authors: ['334469240394481667'],
     images: ['https://raw.githubusercontent.com/TaiAurori/custom-timestamps/master/screenshots/preview-1.png']
-  }]
+  }],
+
+  ['Killerjet101/open-in-app', '0a509a769cbd5fd046c92d2da682e3e2c98db2d1', '/manifest.json', 'pcPlugin', {
+    authors: ['224207524411211777']
+  }],
 ];
