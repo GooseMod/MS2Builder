@@ -126,4 +126,9 @@ export default [
     authors: ["703638166162112516"],
     images: ["https://tomrdh.github.io/da-website/screenshots/OperaGxGamingTheme.png"]
   }],
+
+  ['LeafyLuigi/discord-themes', '', '/pyrite/pyrite.theme.css', 'bdTheme', {
+    authors: ["309976820109803520"],
+    images: ["https://cdn.discordapp.com/attachments/533620490842013696/828992605911646258/unknown.png","https://cdn.discordapp.com/attachments/533620490842013696/828994350330675230/unknown.png","https://cdn.discordapp.com/attachments/533620490842013696/828996850890702888/unknown.png"]
+  }],
 ];
