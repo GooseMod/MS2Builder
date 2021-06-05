@@ -232,4 +232,9 @@ export default [
     authors: ["678541597654253600"],
     images: ["https://media.discordapp.net/attachments/849254599977992213/849256410751172618/badgespreview.gif"]
   }],
+
+  ['schnensch0/zelk', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["652801938374656013"],
+    images: ["https://raw.githubusercontent.com/schnensch0/zelk/main/preview/server.png","https://raw.githubusercontent.com/schnensch0/zelk/main/preview/profile.png","https://raw.githubusercontent.com/schnensch0/zelk/main/preview/settings.png"]
+  }],
 ];
