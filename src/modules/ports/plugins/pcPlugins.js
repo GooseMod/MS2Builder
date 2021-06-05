@@ -67,4 +67,9 @@ export default [
   ['Killerjet101/open-in-app', '0a509a769cbd5fd046c92d2da682e3e2c98db2d1', '/manifest.json', 'pcPlugin', {
     authors: ['224207524411211777']
   }],
+
+  ['Killerjet101/quick-mention', 'acbe71758e798f4ab81da62cdb8d7505a70e6731', '/manifest.json', 'pcPlugin', {
+    authors: ['224207524411211777'],
+    images: ['https://media.discordapp.net/attachments/850787684670636038/850824574786207814/unknown.png']
+  }],
 ];
