@@ -131,4 +131,9 @@ export default [
     authors: ["309976820109803520"],
     images: ["https://cdn.discordapp.com/attachments/533620490842013696/828992605911646258/unknown.png","https://cdn.discordapp.com/attachments/533620490842013696/828994350330675230/unknown.png","https://cdn.discordapp.com/attachments/533620490842013696/828996850890702888/unknown.png"]
   }],
+
+  ['CapnKitten/Translucence', '', '/Translucence.theme.css', 'bdTheme', {
+    authors: ["124276233478471680"],
+    images: ["https://user-images.githubusercontent.com/4013216/92188719-5a0c9580-ee2b-11ea-9585-8d1092d6b9b1.png","https://user-images.githubusercontent.com/4013216/92188729-5ed14980-ee2b-11ea-8ede-5bb4eca3a953.png","https://user-images.githubusercontent.com/4013216/92188768-71e41980-ee2b-11ea-9da2-b88c5cde553f.png","https://user-images.githubusercontent.com/4013216/92188789-7ad4eb00-ee2b-11ea-8264-3bad57d6c761.png","https://user-images.githubusercontent.com/4013216/92188807-87594380-ee2b-11ea-8066-c764be590911.png"]
+  }],
 ];
