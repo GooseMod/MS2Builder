@@ -98,7 +98,7 @@ for (const parentRepo of ModuleRepos) {
 
     try {
       if (previous.includes(repo)) {
-        let currentModule = currentRepoJson.modules.filter((x) => x.github.repo === repo[0]);
+        let currentModule = currentRepoJson.modules.filter((x) => x?.github?.repo === repo[0]);
         if (currentModule.length > 1) {
           const manifest = JSON.parse(readFileSync(`${cloneDir}${moduleDir}/goosemodModule.json`));
 
