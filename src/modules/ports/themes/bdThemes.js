@@ -141,4 +141,9 @@ export default [
     authors: ["124276233478471680"],
     images: ["https://user-images.githubusercontent.com/4013216/120567756-77818680-c3e0-11eb-91d4-20709163ee69.png","https://user-images.githubusercontent.com/4013216/120567773-7f412b00-c3e0-11eb-8cb6-6dad10b145c5.png","https://user-images.githubusercontent.com/4013216/120567785-85cfa280-c3e0-11eb-85f7-0bdf5cad90b1.png","https://user-images.githubusercontent.com/4013216/120567799-89fbc000-c3e0-11eb-9c17-126747382c7f.png","https://user-images.githubusercontent.com/4013216/120567808-8f590a80-c3e0-11eb-8053-dc9f63e8471c.png","https://user-images.githubusercontent.com/4013216/120567817-954eeb80-c3e0-11eb-8965-a4ee9fa83537.png"]
   }],
+
+  ['CapnKitten/Material-Discord', '', '/Material-Discord.theme.css', 'bdTheme', {
+    authors: ["124276233478471680"],
+    images: ["https://user-images.githubusercontent.com/4013216/40872156-c597347a-6617-11e8-9e30-0dce8965bcc6.png","https://user-images.githubusercontent.com/4013216/36956319-bea5497a-1ffb-11e8-862c-d8a926b1f6a1.gif","https://user-images.githubusercontent.com/4013216/36956334-d69b0b82-1ffb-11e8-8860-a171d0887f5c.gif","https://user-images.githubusercontent.com/4013216/35309728-dc958f5c-007b-11e8-8ff7-dee70cc82e22.gif","https://user-images.githubusercontent.com/4013216/40872157-c5a3c4d8-6617-11e8-8dc4-0cb4222286e6.png","https://user-images.githubusercontent.com/4013216/40872158-c5ae8846-6617-11e8-84d8-bb9fb7a701c8.png","https://user-images.githubusercontent.com/4013216/40872159-c5bc4760-6617-11e8-8965-5c3dc75715e8.png","https://user-images.githubusercontent.com/4013216/40872160-c5c7333c-6617-11e8-8d43-03005569e24a.png","https://user-images.githubusercontent.com/4013216/40872161-c5d33d4e-6617-11e8-8b73-7b474325fb79.png","https://user-images.githubusercontent.com/4013216/53679347-a3f64780-3c99-11e9-833b-640bba0b8825.png","https://user-images.githubusercontent.com/4013216/53679536-95a92b00-3c9b-11e9-8c15-e71452e91df7.png"]
+  }],
 ];
