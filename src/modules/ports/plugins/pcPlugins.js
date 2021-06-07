@@ -72,4 +72,8 @@ export default [
     authors: ['224207524411211777'],
     images: ['https://media.discordapp.net/attachments/850787684670636038/850824574786207814/unknown.png']
   }],
+
+  ['BlueWoIf/StreamerModeOnGoLive', 'b1d20a3147884b310eb62b6388b59aac9bca3eb1', '/manifest.json', 'pcPlugin', {
+    authors: ['331677911407132672']
+  }]
 ];
