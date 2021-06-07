@@ -22,6 +22,18 @@ export class Plugin {
     Settings.makeStore(this.entityID);
   }
 
+  // Supposed to return PC manifest, which we don't store so return a rough one based on GM metadata
+  get manifest() {
+    return {
+      name: this.name,
+      description: this.description,
+      version: this.version,
+
+      author: this.authors.toString(),
+      license: 'Unknown'
+    }
+  }
+
   get entityID() {
     return this.name;
   }
