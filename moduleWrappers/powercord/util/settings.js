@@ -19,10 +19,14 @@ class SimpleStore {
     }
 
     this.store[key] = value;
+
+    return this.store[key];
   }
 
   toggleSetting = (key) => {
     this.store[key] = !this.store[key];
+
+    return this.store[key];
   }
 
   deleteSetting = (key) => {
