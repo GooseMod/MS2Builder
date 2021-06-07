@@ -80,5 +80,10 @@ export default [
   ['Puyodead1/powercord-ownertag', '19052f01cf375f754472eb92ea8c22ff50a4594c', '/manifest.json', 'pcPlugin', {
     authors: ['213247101314924545'],
     images: ['https://i.imgur.com/4x8dnFA.png', 'https://i.imgur.com/6NwdauH.png']
+  }],
+
+  ['1XC1XC/ArrowDownForLastMessage', '7292199f10990b282b34807be1529e38e4bcb529', '/manifest.json', 'pcPlugin', {
+    authors: ['277567981913899013'],
+    images: ['https://cdn.discordapp.com/attachments/831036096962887720/833514474912743454/unknown.png']
   }]
 ];
