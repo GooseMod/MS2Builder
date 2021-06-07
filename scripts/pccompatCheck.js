@@ -56,9 +56,10 @@ for (const jsFile of glob.sync(`${cloneDir}/**/*.js`).concat(glob.sync(`${cloneD
     for (let imp of imports.split(',')) {
       imp = imp.trim().split(':')[0];
 
-      const searchRegex = new RegExp(`^export.*${imp}.*$`, 'gm');
+      const searchRegex1 = new RegExp(`^export.*${imp}.*$`, 'gm');
+      const searchRegex2 = new RegExp(`^ *${imp}: `, 'gm');
 
-      const searchMatch = aliasJS.match(searchRegex);
+      const searchMatch = aliasJS.match(searchRegex1) || aliasJS.match(searchRegex2);
 
       if (!searchMatch) {
         if (requirePath === 'powercord/webpack') {
