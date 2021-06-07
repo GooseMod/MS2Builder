@@ -57,7 +57,7 @@ for (const jsFile of glob.sync(`${cloneDir}/**/*.js`).concat(glob.sync(`${cloneD
       imp = imp.trim().split(':')[0];
 
       const searchRegex1 = new RegExp(`^export.*${imp}.*$`, 'gm');
-      const searchRegex2 = new RegExp(`^ *${imp}: `, 'gm');
+      const searchRegex2 = new RegExp(`^ *${imp}[:,]`, 'gm');
 
       const searchMatch = aliasJS.match(searchRegex1) || aliasJS.match(searchRegex2);
 
