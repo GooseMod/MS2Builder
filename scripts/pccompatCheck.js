@@ -69,6 +69,14 @@ for (const jsFile of glob.sync(`${cloneDir}/**/*.js`).concat(glob.sync(`${cloneD
           }
         }
 
+        if (requirePath === 'powercord/util') {
+          const webpackJS = readFileSync(join(__dirname, '..', '..', 'GooseMod', 'src', 'util', 'react.js'), 'utf8');
+
+          if (webpackJS.includes(`export function ${imp}`)) {
+            continue;
+          }
+        }
+
         if (requirePath === 'powercord/injector') {
           continue;
         }
