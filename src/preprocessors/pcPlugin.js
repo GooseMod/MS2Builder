@@ -41,7 +41,7 @@ export default (manifestPath, repo) => {
 
   writeFileSync(join(baseDir, `index.js`), content);
 
-  for (const jsFile of glob.sync(`${baseDir}/**/*.js`)) {
+  for (const jsFile of glob.sync(`${baseDir}/**/*.{js,jsx,ts,tsx}`)) {
     console.log(jsFile);
     let content = readFileSync(jsFile, 'utf8');
 
