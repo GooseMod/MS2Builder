@@ -75,5 +75,10 @@ export default [
 
   ['BlueWoIf/StreamerModeOnGoLive', 'b1d20a3147884b310eb62b6388b59aac9bca3eb1', '/manifest.json', 'pcPlugin', {
     authors: ['331677911407132672']
+  }],
+
+  ['Puyodead1/powercord-ownertag', '19052f01cf375f754472eb92ea8c22ff50a4594c', '/manifest.json', 'pcPlugin', {
+    authors: ['213247101314924545'],
+    images: ['https://i.imgur.com/4x8dnFA.png', 'https://i.imgur.com/6NwdauH.png']
   }]
 ];
