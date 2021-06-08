@@ -89,5 +89,9 @@ export default [
 
   ['LoggeL/powercord-duckduckgo', '44dc75a25fbcdcda87d4423166deb1c978396f00', '/manifest.json', 'pcPlugin', {
     authors: ['320909318767509505']
-  }]
+  }],
+
+  ['SammCheese/At-Someone', 'bc6d3193c9f253d14dd00dc0feaafc2f3bff2f0e', '/manifest.json', 'pcPlugin', {
+    authors: ['372148345894076416']
+  }],
 ];
