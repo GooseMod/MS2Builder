@@ -5,8 +5,16 @@ export const registerCommand = ({ command, alias, description, usage, executor }
   // TODO: implement alias
 
   goosemodScope.patcher.commands.add(command, description,
-    async ( { args: [ { text } ] } ) => {
-      const out = await executor(text.split(' ')); // Run original executor func (await incase it's an async function)
+    async (ret) => {
+      // Don't just destructure as using without text arguments returns empty object ({})
+
+      let textGiven = '';
+      if (ret.args) {
+        const { args: [ { text } ] } = ret;
+        textGiven = text;
+      }
+
+      const out = await executor(textGiven.split(' ')); // Run original executor func (await incase it's an async function)
 
       if (!out.send) {
         goosemodScope.patcher.internalMessage(out.result); // PC impl. sends internal message when out.send === false, so we also do the same via our previous Patcher API function
