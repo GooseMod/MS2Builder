@@ -94,4 +94,9 @@ export default [
   ['SammCheese/At-Someone', 'bc6d3193c9f253d14dd00dc0feaafc2f3bff2f0e', '/manifest.json', 'pcPlugin', {
     authors: ['372148345894076416']
   }],
+
+  ['dutake/voice-chat-utilities', 'ec64b0b51ca67d5771e522f609eec4d0343e8ebd', '/manifest.json', 'pcPlugin', {
+    authors: ['640351592037744682'],
+    images: ['https://media.discordapp.net/attachments/755005584322854972/778133667511140372/unknown1.png']
+  }],
 ];
