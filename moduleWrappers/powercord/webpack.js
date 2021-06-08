@@ -27,7 +27,8 @@ module.exports = {
   },
 
   getModuleByDisplayName: (displayName) => {
-    return goosemodScope.webpackModules.findByDisplayName(displayName);
+    // Use custom find instead of GM's findByDisplayName as PC's is case insensitive
+    return goosemodScope.webpackModules.find((x) => x.displayName.toLowerCase() === displayName.toLowerCase);
   },
 
   ...goosemodScope.webpackModules.common // Export common modules (eg: React)
