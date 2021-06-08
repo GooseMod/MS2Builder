@@ -237,4 +237,9 @@ export default [
     authors: ["652801938374656013"],
     images: ["https://raw.githubusercontent.com/schnensch0/zelk/main/preview/server.png","https://raw.githubusercontent.com/schnensch0/zelk/main/preview/profile.png","https://raw.githubusercontent.com/schnensch0/zelk/main/preview/settings.png"]
   }],
+
+  ['NYRI4/Couve', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["264062457448759296","265924886461939712"],
+    images: ["https://cdn.discordapp.com/attachments/539180316447997974/725737819015872562/unknown.png"]
+  }],
 ];
