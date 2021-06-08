@@ -85,5 +85,9 @@ export default [
   ['1XC1XC/ArrowDownForLastMessage', '7292199f10990b282b34807be1529e38e4bcb529', '/manifest.json', 'pcPlugin', {
     authors: ['277567981913899013'],
     images: ['https://cdn.discordapp.com/attachments/831036096962887720/833514474912743454/unknown.png']
+  }],
+
+  ['LoggeL/powercord-duckduckgo', '44dc75a25fbcdcda87d4423166deb1c978396f00', '/manifest.json', 'pcPlugin', {
+    authors: ['320909318767509505']
   }]
 ];
