@@ -91,7 +91,7 @@ export default [
     authors: ['320909318767509505']
   }],
 
-  ['SammCheese/At-Someone', 'bc6d3193c9f253d14dd00dc0feaafc2f3bff2f0e', '/manifest.json', 'pcPlugin', {
+  ['SammCheese/At-Someone', 'b534cd6609fa06bce613913c02035a76b81ea22c', '/manifest.json', 'pcPlugin', {
     authors: ['372148345894076416']
   }],
 
