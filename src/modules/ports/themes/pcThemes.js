@@ -168,11 +168,6 @@ export default [
     images: ["https://nyri4.github.io/LilyPichu/assets/capture.png"]
   }],
 
-  ['JayWilson7/BorderShapes', '', '/powercord_manifest.json', 'pcTheme', {
-    authors: ["681203159158489243"],
-    images: ["https://github.com/JayWilson7/BorderShapes/raw/master/Previews/Preview_1.png","https://github.com/JayWilson7/BorderShapes/raw/master/Previews/Preview_2.png","https://github.com/JayWilson7/BorderShapes/raw/master/Previews/Preview_3.png"]
-  }],
-
   ['NYRI4/Discolored', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["265924886461939712"],
     images: ["https://nyri4.github.io/Discolored/assets/screenshot.png"]
