@@ -237,4 +237,9 @@ export default [
     authors: ["264062457448759296","265924886461939712"],
     images: ["https://cdn.discordapp.com/attachments/539180316447997974/725737819015872562/unknown.png"]
   }],
+
+  ['PhoenixAceVFX/Aroma-White', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["461440763042201620"],
+    images: ["https://raw.githubusercontent.com/PhoenixAceVFX/Aroma-White/main/BDx3p2gh.png"]
+  }],
 ];
