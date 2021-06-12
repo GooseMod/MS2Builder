@@ -99,4 +99,9 @@ export default [
     authors: ['640351592037744682'],
     images: ['https://media.discordapp.net/attachments/755005584322854972/778133667511140372/unknown1.png']
   }],
+
+  ['powerfart-plugins/fix-unread-channels', '07eb0f8109a7741bbefcabc917a785412d495031', '/manifest.json', 'pcPlugin', {
+    authors: ['359208482290925568'],
+    images: ['https://raw.githubusercontent.com/powerfart-plugins/fix-unread-channels/master/preview/gif0.gif']
+  }],
 ];
