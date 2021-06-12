@@ -242,4 +242,9 @@ export default [
     authors: ["461440763042201620"],
     images: ["https://raw.githubusercontent.com/PhoenixAceVFX/Aroma-White/main/BDx3p2gh.png"]
   }],
+
+  ['XYZenix/DTM-08', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["211270674482724864"],
+    images: ["https://cdn.discordapp.com/attachments/733624227378495488/839835186211717120/unknown.png"]
+  }],
 ];
