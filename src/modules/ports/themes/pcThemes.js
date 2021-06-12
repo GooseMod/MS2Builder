@@ -247,4 +247,9 @@ export default [
     authors: ["211270674482724864"],
     images: ["https://cdn.discordapp.com/attachments/733624227378495488/839835186211717120/unknown.png"]
   }],
+
+  ['XYZenix/DTM-16', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["211270674482724864"],
+    images: ["https://media.discordapp.net/attachments/755005710323941386/771068422079250432/unknown.png"]
+  }],
 ];
