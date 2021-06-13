@@ -252,4 +252,9 @@ export default [
     authors: ["211270674482724864"],
     images: ["https://media.discordapp.net/attachments/755005710323941386/771068422079250432/unknown.png"]
   }],
+
+  ['leeprky/Ovel', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["224524143482241035"],
+    images: ["https://media.discordapp.net/attachments/828218219927306261/853635731581960192/Ovel_v1.0.0.png","https://i.imgur.com/3BMUuND.png","https://i.imgur.com/csW8EoK.png","https://i.imgur.com/Otv0JjS.png"]
+  }],
 ];
