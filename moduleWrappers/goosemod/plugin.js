@@ -3,10 +3,21 @@ import showToast from '@goosemod/toast';
 export default class Plugin {
   constructor() {
     this.patches = [];
+    this.stylesheets = [];
   }
 
   enqueueUnpatch(unpatch) {
     this.patches.push(unpatch);
+  }
+
+  addCss(css) {
+    const el = document.createElement('style');
+
+    el.appendChild(document.createTextNode(css)); // Load the stylesheet via style element w/ CSS text
+
+    document.head.appendChild(el);
+  
+    this.stylesheets.push(el); // Push to internal array so we can remove the elements on unload
   }
 
   toast(content, options) {
@@ -17,14 +28,13 @@ export default class Plugin {
   }
   
   goosemodHandlers = {
-    onImport() {
+    onImport: () => {
       this.onImport();
     },
 
-    onRemove() {
-      for (const unpatch of this.patches) {
-        unpatch();
-      }
+    onRemove: () => {
+      this.patches.forEach((x) => x());
+      this.stylesheets.forEach((x) => x.remove());
 
       this.onRemove();
     }
