@@ -113,8 +113,8 @@ export default [
   }, true],
 
   ['PlusInsta/discord-plus', '', '/DiscordPlus.theme.css', 'bdTheme', {
-    authors: ["309931975102300160"],
-    images: ["https://cdn.discordapp.com/attachments/560369937084973067/849296493730856970/dplus_v3.0.1_dark.png","https://cdn.discordapp.com/attachments/560369937084973067/849296501733589012/dplus_v3.0.1_light.png"]
+    authors: ['309931975102300160', '207335168430702602'],
+    images: ["https://cdn.discordapp.com/attachments/560369937084973067/852549506298150922/unknown.png","https://cdn.discordapp.com/attachments/560369937084973067/852549509154471946/unknown.png"]
   }],
 
   ['Tomrdh/discord-addons', '', '/download-themes-here/OperaGxGamingTheme/OperaGxGamingTheme.theme.css', 'bdTheme', {
