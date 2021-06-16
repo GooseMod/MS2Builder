@@ -38,6 +38,7 @@
     "@goosemod/reactUtils": "./moduleWrappers/goosemod/reactUtils.js",
     "@goosemod/toast": "./moduleWrappers/goosemod/toast.js",
     "@goosemod/settings": "./moduleWrappers/goosemod/settings.js",
+    "@goosemod/plugin": "./moduleWrappers/goosemod/plugin.js",
 
     "powercord/entities": "./moduleWrappers/powercord/entities.js",
     "powercord/injector": "./moduleWrappers/powercord/injector.js",
