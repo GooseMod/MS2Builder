@@ -260,6 +260,6 @@ export default [
 
   ['CorellanStoma/CreArts', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["288362986991648778"],
-    images: ["https://user-images.githubusercontent.com/58918358/122546250-0fad7b80-d02f-11eb-9b92-df4268d5fc98.png","https://user-images.githubusercontent.com/58918358/122546272-14722f80-d02f-11eb-9025-f6f351d24fbe.png","https://user-images.githubusercontent.com/58918358/122546285-16d48980-d02f-11eb-86a7-0eee638561d3.png"]
+    images: ["https://user-images.githubusercontent.com/58918358/122546272-14722f80-d02f-11eb-9025-f6f351d24fbe.png","https://user-images.githubusercontent.com/58918358/122546285-16d48980-d02f-11eb-86a7-0eee638561d3.png"]
   }],
 ];
