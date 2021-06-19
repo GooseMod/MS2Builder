@@ -262,4 +262,9 @@ export default [
     authors: ["288362986991648778"],
     images: ["https://user-images.githubusercontent.com/58918358/122546272-14722f80-d02f-11eb-9025-f6f351d24fbe.png","https://user-images.githubusercontent.com/58918358/122546285-16d48980-d02f-11eb-86a7-0eee638561d3.png"]
   }],
+
+  ['mr-miner1/Deep-Dark', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["678541597654253600"],
+    images: ["https://i.imgur.com/erTtLUi.gif"]
+  }],
 ];
