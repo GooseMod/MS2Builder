@@ -267,4 +267,9 @@ export default [
     authors: ["678541597654253600"],
     images: ["https://i.imgur.com/erTtLUi.gif"]
   }],
+
+  ['PrincessAkira/Green-Akali', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["202740603790819328"],
+    images: ["https://host.snens.team/i/FcLwBnjmIqWo.png","https://host.snens.team/i/5EdBAjhcNzmk.png"]
+  }],
 ];
