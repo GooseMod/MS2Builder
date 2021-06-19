@@ -225,7 +225,7 @@ export default [
 
   ['mr-miner1/Better-Badges', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["678541597654253600"],
-    images: ["https://media.discordapp.net/attachments/849254599977992213/849256410751172618/badgespreview.gif"]
+    images: ["https://i.imgur.com/0Fkk8TL.gif"]
   }],
 
   ['schnensch0/zelk', '', '/powercord_manifest.json', 'pcTheme', {
