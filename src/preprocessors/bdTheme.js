@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'fs';
 import generateThemeJS from './genericTheme.js';
 
 export default (themePath, repo) => {
-  const content = readFileSync(themePath, 'utf8').replace(/\\/g, '\\\\').replace(/`/g, '\\`');
+  const content = readFileSync(themePath, 'utf8');
   
   const metaReg = /@([^ ]*) (.*)/g;
 

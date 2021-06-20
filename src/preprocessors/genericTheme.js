@@ -56,7 +56,9 @@ const discordVars = [
   '--deprecated-text-input-prefix'    
 ];
 
-export default (manifest, content, repo) => {
+export default (manifest, _content, repo) => {
+  const content = _content.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$/g, '\\$');
+
   let variables = content.match(/--([^*!\n}]*): ([^*!\n}]*);/g) || [];
   if (variables.length > 0) variables = variables.map((x) => {
     const spl = x.split(':');

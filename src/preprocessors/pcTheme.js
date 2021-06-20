@@ -29,7 +29,7 @@ export default (manifestPath, repo) => {
     pcManifest.theme = cssPath;
   }
 
-  const content = readFileSync(pcManifest.theme, 'utf8').replace(/\\/g, '\\\\').replace(/`/g, '\\`');
+  const content = readFileSync(pcManifest.theme, 'utf8');
 
   const jsCode = generateThemeJS(manifest, content, repo);
 
