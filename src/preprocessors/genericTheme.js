@@ -104,7 +104,7 @@ export default (manifest, _content, repo) => {
             text: '${x[0].replace('--rs-', '--radial-status:-').substring(2).replace(/-/g, ' ').replace(/\w\S*/g, (_) => _[0].toUpperCase() + _.substring(1).toLowerCase()).replace('Rgb', 'RGB').replace('Afk', 'AFK').replace('Dnd', 'DND')}',
   
             oninput: (val) => {
-              ${x[2] === 'color' && x[1][0] !== '#' ? `val = parseInt(val.substring(1, 3), 16).toString() + ', ' + parseInt(val.substring(3, 5), 16).toString() + ', ' + parseInt(val.substring(5, 7), 16).toString()` : ''}
+              ${''/* x[2] === 'color' && x[1][0] !== '#' ? `val = 'rgb(' + parseInt(val.substring(1, 3), 16).toString() + ', ' + parseInt(val.substring(3, 5), 16).toString() + ', ' + parseInt(val.substring(5, 7), 16).toString() + ')'` : '' */}
   
               document.body.style.setProperty('${x[0]}', val);
             },
