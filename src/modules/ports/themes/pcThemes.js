@@ -230,7 +230,7 @@ export default [
 
   ['schnensch0/zelk', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["652801938374656013"],
-    images: ["https://raw.githubusercontent.com/schnensch0/zelk/main/preview/server.png","https://raw.githubusercontent.com/schnensch0/zelk/main/preview/profile.png","https://raw.githubusercontent.com/schnensch0/zelk/main/preview/settings.png"]
+    images: ["https://raw.githubusercontent.com/schnensch0/zelk/main/preview/chat.png","https://raw.githubusercontent.com/schnensch0/zelk/main/preview/profile.png","https://raw.githubusercontent.com/schnensch0/zelk/main/preview/settings.png"]
   }],
 
   ['NYRI4/Couve', '', '/powercord_manifest.json', 'pcTheme', {

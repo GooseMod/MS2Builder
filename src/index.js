@@ -1,5 +1,6 @@
 import ModuleRepos from './modules/index.js';
 import AutoTag from './autoTag.js';
+import ImageCDN from './imageCdn.js';
 
 import Parcel from 'parcel-bundler';
 import axios from 'axios';
@@ -18,6 +19,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const clonesDir = `${__dirname.replace('/src', '')}/clones`;
 
 const distDir = `${__dirname.replace('/src', '')}/dist`;
+global.distDir = distDir;
 
 const modulesDir = `${distDir}/module`;
 
@@ -208,6 +210,8 @@ for (const parentRepo of ModuleRepos) {
     
     if (manifest.images) manifestJson.images = manifest.images;
     if (manifest.dependencies) manifestJson.dependencies = manifest.dependencies;
+
+    manifestJson.images = await ImageCDN(manifestJson);
     
     moduleJson.modules.push(manifestJson);
     
