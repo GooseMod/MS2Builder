@@ -272,4 +272,9 @@ export default [
     authors: ["202740603790819328"],
     images: ["https://host.snens.team/i/FcLwBnjmIqWo.png","https://host.snens.team/i/5EdBAjhcNzmk.png"]
   }],
+
+  ['SlippingGitty/Cozy202K', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["359175647257690113","597072695875600385"],
+    images: ["https://i.imgur.com/MITe9oU.png"]
+  }],
 ];
