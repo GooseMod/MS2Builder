@@ -104,4 +104,9 @@ export default [
     authors: ['359208482290925568'],
     images: ['https://raw.githubusercontent.com/powerfart-plugins/fix-unread-channels/master/preview/gif0.gif']
   }],
+
+  ['relative/quick-reply', 'ee0decc51de631e507df6b04d38da5011e0ca036', '/manifest.json', 'pcPlugin', {
+    authors: ['195313013035761664'],
+    images: []
+  }],
 ];
