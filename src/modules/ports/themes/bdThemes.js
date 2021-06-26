@@ -151,4 +151,9 @@ export default [
     authors: ["402272736665272320"],
     images: ["https://i.imgur.com/4EvvDc8.png","https://i.imgur.com/b0l0uir.png","https://i.imgur.com/O8gNXd9.png"]
   }],
+
+  ['monstrousdev/themes', '', '/theme-files/Reborn.theme.css', 'bdTheme', {
+    authors: ["402272736665272320"],
+    images: ["https://i.imgur.com/09CcRBF.jpg","https://i.imgur.com/sVBauqL.jpg","https://i.imgur.com/cEQaiew.png"]
+  }],
 ];
