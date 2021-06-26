@@ -277,4 +277,9 @@ export default [
     authors: ["359175647257690113","597072695875600385"],
     images: ["https://i.imgur.com/MITe9oU.png"]
   }],
+
+  ['DapperCore/NordCord', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["270189109019017216"],
+    images: ["https://user-images.githubusercontent.com/55637354/123015133-b11d3000-d395-11eb-8817-bec0f1b4077d.png"]
+  }],
 ];
