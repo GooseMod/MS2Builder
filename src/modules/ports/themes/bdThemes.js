@@ -141,4 +141,9 @@ export default [
     authors: ["124276233478471680"],
     images: ["https://user-images.githubusercontent.com/4013216/40872156-c597347a-6617-11e8-9e30-0dce8965bcc6.png","https://user-images.githubusercontent.com/4013216/36956319-bea5497a-1ffb-11e8-862c-d8a926b1f6a1.gif","https://user-images.githubusercontent.com/4013216/36956334-d69b0b82-1ffb-11e8-8860-a171d0887f5c.gif","https://user-images.githubusercontent.com/4013216/35309728-dc958f5c-007b-11e8-8ff7-dee70cc82e22.gif","https://user-images.githubusercontent.com/4013216/40872157-c5a3c4d8-6617-11e8-8dc4-0cb4222286e6.png","https://user-images.githubusercontent.com/4013216/40872158-c5ae8846-6617-11e8-84d8-bb9fb7a701c8.png","https://user-images.githubusercontent.com/4013216/40872159-c5bc4760-6617-11e8-8965-5c3dc75715e8.png","https://user-images.githubusercontent.com/4013216/40872160-c5c7333c-6617-11e8-8d43-03005569e24a.png","https://user-images.githubusercontent.com/4013216/40872161-c5d33d4e-6617-11e8-8b73-7b474325fb79.png","https://user-images.githubusercontent.com/4013216/53679347-a3f64780-3c99-11e9-833b-640bba0b8825.png","https://user-images.githubusercontent.com/4013216/53679536-95a92b00-3c9b-11e9-8c15-e71452e91df7.png"]
   }],
+
+  ['monstrousdev/themes', '', '/theme-files/Black-Hole.theme.css', 'bdTheme', {
+    authors: ["402272736665272320"],
+    images: ["https://i.imgur.com/sLnMnBp.png","https://i.imgur.com/s41A0Ux.png","https://i.imgur.com/L8JamP6.png"]
+  }],
 ];
