@@ -215,7 +215,7 @@ for (const parentRepo of ModuleRepos) {
 
     manifestJson.images = await ImageCDN(manifestJson);
 
-    manifestJson.authors = await Promise.all(manifestJson.authors.map(async (x) => {
+    if (Array.isArray(manifestJson.authors)) manifestJson.authors = await Promise.all(manifestJson.authors.map(async (x) => {
       if (x.match(/^[0-9]{17,18}$/)) {
         return await authorGen(x);
       }
