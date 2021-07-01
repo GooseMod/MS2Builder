@@ -2,7 +2,7 @@ node_modules
 .cache
 
 clones
-src/gh_pat.js
+src/env.js
 # dist
 
 devDist

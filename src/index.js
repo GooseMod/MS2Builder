@@ -1,6 +1,8 @@
 import ModuleRepos from './modules/index.js';
+
 import AutoTag from './autoTag.js';
 import ImageCDN from './imageCdn.js';
+import authorGen from './authorGen.js';
 
 import Parcel from 'parcel-bundler';
 import axios from 'axios';
@@ -12,7 +14,7 @@ import { createHash } from 'crypto';
 import { dirname, sep } from 'path';
 import { fileURLToPath } from 'url';
 
-import githubPAT from './gh_pat.js';
+import Env from './env.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -71,7 +73,7 @@ const getGithubInfo = async (repo) => {
 
   const info = (await axios.get(`https://api.github.com/repos/${repo}`, {
     headers: {
-      'Authorization': `token ${githubPAT}`
+      'Authorization': `token ${Env.github}`
     }
   })).data;
 
@@ -212,6 +214,14 @@ for (const parentRepo of ModuleRepos) {
     if (manifest.dependencies) manifestJson.dependencies = manifest.dependencies;
 
     manifestJson.images = await ImageCDN(manifestJson);
+
+    manifestJson.authors = await Promise.all(manifestJson.authors.map(async (x) => {
+      if (x.match(/^[0-9]{17,18}$/)) {
+        return await authorGen(x);
+      }
+
+      return x;
+    }));
 
     moduleJson.modules.push(manifestJson);
 
