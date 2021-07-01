@@ -165,7 +165,7 @@ export default [
 
   ['NYRI4/LilyPichu', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["265924886461939712"],
-    images: ["https://nyri4.github.io/LilyPichu/assets/capture.png"]
+    images: ["https://nyri4.github.io/LilyPichu/assets/preview.png"]
   }],
 
   ['NYRI4/Discolored', '', '/powercord_manifest.json', 'pcTheme', {
