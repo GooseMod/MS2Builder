@@ -31,7 +31,12 @@ export default (manifest) => {
     });
 
     if (rawExt !== 'gif') {
-      await new Promise((res) => exec(`convert "${rawFile}" -resize x720 -quality 90 "${finalFile}"`, res));
+      try {
+        await new Promise((res) => exec(`convert "${rawFile}" -resize x720 -quality 90 "${finalFile}"`, res));
+      } catch (e) {
+        console.error('Failed to use ImageMagick to resize and compress, copying file as backup');
+        copyFileSync(rawFile, finalFile);
+      }
     } else {
       copyFileSync(rawFile, finalFile);
     }
