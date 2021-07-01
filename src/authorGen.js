@@ -29,7 +29,7 @@ export default async (id) => {
   return { // Use semi-minified keys as to avoid size
     i: id, // id
 
-    n: `${user.username}`, // name
+    n: user.username, // name
 
     a: user.avatar // avatar
   }
