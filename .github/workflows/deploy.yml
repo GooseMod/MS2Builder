@@ -11,6 +11,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - run: |
+      cp CNAME dist/CNAME
+
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
