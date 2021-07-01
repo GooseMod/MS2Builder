@@ -242,5 +242,3 @@ for (const parentRepo of ModuleRepos) {
 }
 
 writeFileSync(`${distDir}/modules.json`, JSON.stringify(oldTotalModulesJson));
-
-copyFileSync(`${__dirname.replace(`${sep}src`, '')}/_headers`, `${distDir}/_headers`);
