@@ -44,23 +44,64 @@
         width: 100%;
 
         background-color: #101418;
+
+        overflow: hidden;
       }
 
-      body {
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
+      .sidebar {
+        display: inline-block;
+        width: 180px;
+        height: 100vh;
+        vertical-align: top;
 
-        padding: 22px;
+        box-sizing: border-box;
+
+        background-color: var(--background-secondary);
+      }
+
+      .sidebar > div {
+        width: 100%;
+
+        padding: 12px 16px;
+
+        color: var(--text-normal);
+        background-color: var(--background-tertiary);
+
+        box-sizing: border-box;
+
+        cursor: pointer;
+      }
+
+      .sidebar > .sidebar-header {
+        cursor: default;
+
+        color: var(--header-primary);
+        background-color: transparent;
+      }
+
+      .sidebar > div.active {
+        background-color: #7289da;
+      }
+
+      .sidebar-button:hover {
+        background-color: #14181C;
       }
 
       .container {
-        width: 85vw;
+        padding: 22px;
 
-        display: flex;
+        width: calc(100vw - 185px);
+        height: 100vh;
+
+        overflow-y: auto;
+
+        display: inline-flex;
         flex-flow: row wrap;
+
         align-items: center;
         justify-content: center;
+
+        box-sizing: border-box;
       }
 
       @media (max-width: 1300px) {
@@ -75,6 +116,54 @@
 
       .flex-break {
         flex-basis: 100%;
+      }
+
+      body.themes .gm-store-card:not(.theme) {
+        display: none;
+      }
+
+      body.plugins .gm-store-card.theme {
+        display: none;
+      }
+
+      .container.repos {
+        display: none;
+      }
+
+      body.repos .container.cards {
+        display: none;
+      }
+
+      body.repos .container.repos {
+        display: inline-flex;
+      }
+
+      .container.repos {
+        align-content: flex-start;
+      }
+
+      .container .repo {
+        width: 300px;
+        height: 200px;
+
+        justify-content: space-between;
+        display: flex;
+        flex-flow: column;
+
+        text-decoration: none;
+      }
+      
+      .repo * {
+        cursor: pointer;
+      }
+
+      .repo > :last-child {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .repo > strong {
+        color: var(--text-normal);
       }
 
 .gm-inline-dropdown {
@@ -105,7 +194,7 @@
   margin-right: 12px;
 }
 
-.gm-store-card {
+.gm-store-card, .repo {
   box-shadow: var(--elevation-medium);
   background-color: var(--background-secondary);
 
@@ -340,8 +429,15 @@
     </style>
   </head>
 
-  <body>
-    <div class="container">
+  <body class="themes">
+    <div class="sidebar">
+      <div class="sidebar-header">GooseMod Store</div>
+      <div class="sidebar-button active">Themes</div>
+      <div class="sidebar-button">Plugins</div>
+      <div class="sidebar-button">Repos</div>
+    </div>
+
+    <div class="container cards">
       <div class="gm-store-search container-cMG81i medium-1LLV3p"><div class="inner-2P4tQO"><input id="search-input" class="input-3Xdcic" placeholder="Search" value=""></div></div>
 
       <div class="gm-inline-dropdown">
@@ -2606,6 +2702,69 @@
 </div>
     </div>
 
+    <div class="container repos">
+      <a href="bdthemes.json" class="repo">
+  <div>
+    <div class="title-31JmR4">Store Core - BD Themes</div>
+    <div class="colorStandard-2KCXvj size14-e6ZScH default-3nhoK- formText-3fs7AJ description-3_Ncsb formText-3fs7AJ modeDefault-3a2Ph1">Auto-ported BetterDiscord themes.</div>
+  </div>
+
+  <div class="colorStandard-2KCXvj size14-e6ZScH default-3nhoK- formText-3fs7AJ description-3_Ncsb formText-3fs7AJ modeDefault-3a2Ph1">
+    <div><strong>31</strong> themes</div>
+    <div><strong>0</strong> plugins</div>
+    <div><strong>21</strong> developers</div>
+  </div>
+</a>
+<a href="goosemod.json" class="repo">
+  <div>
+    <div class="title-31JmR4">Store Core - GooseMod Modules</div>
+    <div class="colorStandard-2KCXvj size14-e6ZScH default-3nhoK- formText-3fs7AJ description-3_Ncsb formText-3fs7AJ modeDefault-3a2Ph1">Officially published GooseMod modules.</div>
+  </div>
+
+  <div class="colorStandard-2KCXvj size14-e6ZScH default-3nhoK- formText-3fs7AJ description-3_Ncsb formText-3fs7AJ modeDefault-3a2Ph1">
+    <div><strong>2</strong> themes</div>
+    <div><strong>15</strong> plugins</div>
+    <div><strong>6</strong> developers</div>
+  </div>
+</a>
+<a href="ms2porter.json" class="repo">
+  <div>
+    <div class="title-31JmR4">Store Core - MS2Porter</div>
+    <div class="colorStandard-2KCXvj size14-e6ZScH default-3nhoK- formText-3fs7AJ description-3_Ncsb formText-3fs7AJ modeDefault-3a2Ph1">Auto-ported MS1 (older) GooseMod modules.</div>
+  </div>
+
+  <div class="colorStandard-2KCXvj size14-e6ZScH default-3nhoK- formText-3fs7AJ description-3_Ncsb formText-3fs7AJ modeDefault-3a2Ph1">
+    <div><strong>17</strong> themes</div>
+    <div><strong>32</strong> plugins</div>
+    <div><strong>14</strong> developers</div>
+  </div>
+</a>
+<a href="pcplugins.json" class="repo">
+  <div>
+    <div class="title-31JmR4">Store Core - PC Plugins</div>
+    <div class="colorStandard-2KCXvj size14-e6ZScH default-3nhoK- formText-3fs7AJ description-3_Ncsb formText-3fs7AJ modeDefault-3a2Ph1">Auto-ported Powercord plugins.</div>
+  </div>
+
+  <div class="colorStandard-2KCXvj size14-e6ZScH default-3nhoK- formText-3fs7AJ description-3_Ncsb formText-3fs7AJ modeDefault-3a2Ph1">
+    <div><strong>0</strong> themes</div>
+    <div><strong>25</strong> plugins</div>
+    <div><strong>21</strong> developers</div>
+  </div>
+</a>
+<a href="pcthemes.json" class="repo">
+  <div>
+    <div class="title-31JmR4">Store Core - PC Themes</div>
+    <div class="colorStandard-2KCXvj size14-e6ZScH default-3nhoK- formText-3fs7AJ description-3_Ncsb formText-3fs7AJ modeDefault-3a2Ph1">Auto-ported Powercord themes.</div>
+  </div>
+
+  <div class="colorStandard-2KCXvj size14-e6ZScH default-3nhoK- formText-3fs7AJ description-3_Ncsb formText-3fs7AJ modeDefault-3a2Ph1">
+    <div><strong>51</strong> themes</div>
+    <div><strong>0</strong> plugins</div>
+    <div><strong>27</strong> developers</div>
+  </div>
+</a>
+    </div>
+
     <script>
       const cards = [...document.getElementsByClassName('gm-store-card')];
 
@@ -2640,6 +2799,16 @@
 
         cards.forEach((x) => { x.style.display = fuzzyReg.test(x.children[2].textContent) || fuzzyReg.test(x.children[3].textContent) ? '' : 'none'; });
       };
+
+      
+      const sidebarButtons = [...document.getElementsByClassName('sidebar-button')];
+
+      sidebarButtons.forEach((x) => x.onclick = () => {
+        sidebarButtons.forEach((y) => y.classList.remove('active'));
+        x.classList.add('active');
+
+        document.body.className = x.textContent.toLowerCase();
+      });
     </script>
   </body>
 </html>
