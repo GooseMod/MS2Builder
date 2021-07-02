@@ -2,13 +2,14 @@ import ModuleRepos from './modules/index.js';
 
 import AutoTag from './autoTag.js';
 import ImageCDN from './imageCdn.js';
-import authorGen from './authorGen.js';
+import AuthorGen from './authorGen.js';
+import SiteGen from './siteGen/index.js';
 
 import Parcel from 'parcel-bundler';
 import axios from 'axios';
 import glob from 'glob';
 
-import { rmSync, mkdirSync, readFileSync, writeFileSync, copyFileSync, existsSync, rmdirSync } from 'fs';
+import { rmSync, mkdirSync, readFileSync, writeFileSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
 
 import { dirname, sep } from 'path';
@@ -80,8 +81,6 @@ const getGithubInfo = async (repo) => {
   githubCache[repo] = info;
   return info;
 };
-
-let oldTotalModulesJson = [];
 
 for (const parentRepo of ModuleRepos) {
   let moduleJson = {
@@ -217,7 +216,7 @@ for (const parentRepo of ModuleRepos) {
 
     if (Array.isArray(manifestJson.authors)) manifestJson.authors = await Promise.all(manifestJson.authors.map(async (x) => {
       if (x.match(/^[0-9]{17,18}$/)) {
-        return await authorGen(x);
+        return await AuthorGen(x);
       }
 
       return x;
@@ -237,8 +236,6 @@ for (const parentRepo of ModuleRepos) {
   moduleJson.modules = moduleJson.modules.filter((x) => x !== null);
 
   writeFileSync(repoJsonPath, JSON.stringify(moduleJson));
-
-  oldTotalModulesJson = oldTotalModulesJson.concat(moduleJson.modules);
 }
 
-writeFileSync(`${distDir}/modules.json`, JSON.stringify(oldTotalModulesJson));
+await SiteGen();

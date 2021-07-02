@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GooseMod Store</title>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <style>
+      :root {
+        --elevation-medium: 0 4px 4px rgba(0,0,0,0.16);
+
+        --background-secondary: #161A1E;
+        --background-secondary-alt: #0A0D0F;
+        --background-tertiary: #181C20;
+
+        --interactive-normal: #b9bbbe;
+
+        --header-primary: #fff;
+        --header-secondary: #b9bbbe;
+        --text-normal: #dcddde;
+      }
+
+      @font-face {
+        font-family: 'Noto Sans';
+        src: url('NotoSans-Medium.ttf') format('truetype');
+      }
+
+      * {
+        font-family: 'Noto Sans', sans-serif;
+      }
+
+      body, html {
+        margin: 0;
+        padding: 0;
+
+        width: 100%;
+
+        background-color: #101418;
+      }
+
+      body {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+
+        padding: 22px;
+      }
+
+      .container {
+        width: 85vw;
+
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 1300px) {
+        .container {
+          width: 100vw;
+        }
+      }
+
+      .container > :not(.gm-store-card) {
+        order: -999999999999;
+      }
+
+      .flex-break {
+        flex-basis: 100%;
+      }
+
+.gm-inline-dropdown {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-left: 12px;
+}
+
+.gm-inline-dropdown > :last-child {
+  width: 120px;
+
+  background-color: var(--background-tertiary);
+  border: none;
+  border-radius: 4px;
+
+  outline: 0px !important;
+
+  padding: 6px;
+  color: var(--text-normal);
+}
+
+.gm-store-search {
+  flex-grow: 1;
+
+  margin-right: 12px;
+}
+
+.gm-store-card {
+  box-shadow: var(--elevation-medium);
+  background-color: var(--background-secondary);
+
+  border-radius: 8px;
+  box-sizing: border-box;
+
+  padding: 12px;
+  margin: 10px;
+
+  width: 330px;
+  height: 380px;
+
+  position: relative;
+}
+
+.gm-store-card > :nth-child(1) {
+  width: calc(100% + 24px);
+  height: 200px;
+
+  border-radius: 8px 8px 0 0;
+
+  margin-top: -12px;
+  margin-left: -12px;
+
+  background-color: var(--background-secondary-alt);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+
+  text-align: center;
+  line-height: 200px;
+
+  color: var(--interactive-normal);
+  font-family: var(--font-display);
+  font-size: 36px;
+}
+
+.gm-store-card > :nth-child(2) {
+  position: absolute;
+  top: 152px;
+  right: 10px;
+
+  opacity: 0.95;
+
+  border-radius: 16px;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  width: fit-content;
+
+  padding-right: 10px;
+}
+
+.gm-store-card > :nth-child(2).no-pfp {
+  padding: 4px 8px;
+}
+
+.gm-store-card > :nth-child(3) {
+  width: 85%;
+  margin-top: 10px;
+
+  overflow: hidden;
+  display: -webkit-box;
+  webkit-line-clamp: 1;
+  webkit-box-orient: vertical;
+}
+
+.gm-store-card > :nth-child(4) {
+  width: 85%;
+  margin-top: 5px;
+
+  overflow: hidden;
+  display: -webkit-box;
+  webkit-line-clamp: 3;
+  webkit-box-orient: vertical;
+
+  clear: both;
+}
+
+.gm-store-card > :nth-child(5) {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  order: 2;
+  margin-left: auto;
+  position: absolute;
+  top: 208px;
+  right: 12px;
+}
+
+.gm-store-card > :nth-child(5) > :nth-child(1) {
+
+}
+
+.gm-store-card > :nth-child(5) > :nth-child(1) > :nth-child(1) {
+  position: relative;
+  top: 7px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.gm-store-card > :nth-child(5) > :nth-child(1) > :nth-child(2) {
+  position: relative;
+  top: 8px;
+  margin-left: 5px;
+}
+
+.gm-store-card > :nth-child(5) > :nth-child(2) {
+  margin-top: 20px;
+}
+
+.gm-store-card > :nth-child(6) {
+  position: absolute;
+  bottom: 12px;
+  width: calc(100% - 32px);
+  display: flex;
+  gap: 5px;
+}
+
+.gm-store-card > :nth-child(6) > :nth-child(1) {
+  display: inline-flex;
+  cursor: pointer;
+  width: 90px;
+}
+
+.gm-store-card > :nth-child(6) > :nth-child(2) {
+  width: auto;
+  margin-left: 14px;
+  min-width: 0px;
+  padding: 2px 5px;
+  color: rgb(221, 221, 221);
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.gm-store-card > :nth-child(6) > :nth-child(3) {
+  margin-top: 4px;
+  position: absolute;
+  right: -10px;
+}
+
+.gm-store-card > :nth-child(6) > :nth-child(3).hide-toggle {
+  display: none;
+}
+
+.container-cMG81i, .inner-2P4tQO {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.container-cMG81i {
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: var(--background-tertiary);
+}
+
+.inner-2P4tQO {
+    position: relative;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 1px;
+    min-width: 0;
+}
+
+.medium-1LLV3p .input-3Xdcic, .medium-1LLV3p .tag-2gZFdE {
+    font-size: 16px;
+    line-height: 32px;
+    height: 30px;
+    padding: 0 8px;
+}
+.input-3Xdcic {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: transparent;
+    border: none;
+    resize: none;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 48px;
+    margin: 1px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: var(--text-normal);
+    outline: 0 !important;
+}
+
+.description-3_Ncsb, .labelDescriptor-1PqHgD {
+    color: var(--header-secondary) !important;
+}
+.modeDefault-3a2Ph1 {
+    cursor: default;
+}
+.description-3_Ncsb {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+.size14-e6ZScH {
+    font-size: 14px;
+    line-height: 18px;
+}
+.colorStandard-2KCXvj {
+    color: var(--text-normal);
+}
+
+.title-31JmR4 {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: block;
+    overflow: hidden;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--header-primary);
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 500;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="gm-store-search container-cMG81i medium-1LLV3p"><div class="inner-2P4tQO"><input id="search-input" class="input-3Xdcic" placeholder="Search" value=""></div></div>
+
+      <div class="gm-inline-dropdown">
+        <div class="colorStandard-2KCXvj size14-e6ZScH default-3nhoK- formText-3fs7AJ description-3_Ncsb formText-3fs7AJ modeDefault-3a2Ph1">Sort by</div>
+        <select id="sort-select">
+          <option>Stars</option>
+          <option>A-Z</option>
+          <option>Last Updated</option>
+        </select>
+      </div>
+
+      <div class="flex-break"></div>
+
+      ALL_CARDS
+    </div>
+
+    <script>
+      const cards = [...document.getElementsByClassName('gm-store-card')];
+
+      const sortSelectEl = document.getElementById('sort-select');
+
+      sortSelectEl.oninput = () => {
+        switch (sortSelectEl.value) {
+          case 'Stars': {
+            cards.forEach((x) => { x.style.order = '-' + x.getAttribute('data-stars'); });
+            break;
+          }
+
+          case 'Last Updated': {
+            cards.forEach((x) => { x.style.order = '-' + x.getAttribute('data-last-updated'); });
+            break;
+          }
+
+          case 'A-Z': {
+            cards.forEach((x) => { x.style.order = ''; });
+            break;
+          }
+        }
+      };
+
+      sortSelectEl.oninput();
+
+
+      const searchInputEl = document.getElementById('search-input');
+
+      searchInputEl.oninput = () => {
+        const fuzzyReg = new RegExp(`.*${searchInputEl.value}.*`, 'i');
+
+        cards.forEach((x) => { x.style.display = fuzzyReg.test(x.children[2].textContent) || fuzzyReg.test(x.children[3].textContent) ? '' : 'none'; });
+      };
+    </script>
+  </body>
+</html>
