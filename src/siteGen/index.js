@@ -1,5 +1,4 @@
 import { readFileSync, writeFileSync, copyFileSync } from "fs";
-
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -55,19 +54,28 @@ export default () => {
 
   let cards = [];
 
+  let name = 'GooseMod Store';
+  let description = 'Browse GooseMod modules';
+
   for (const repo of repos) {
-    const repoName = repo.split('/').pop().split('.')[0];
-    console.log(repo, repoName);
+    console.log(repo);
 
     const json = JSON.parse(readFileSync(repo, 'utf8'));
-    console.log(json);
+
+    if (repos.length === 1) { // 1 repo likely means a custom repo, so use that name and description
+      name = json.meta.name;
+      description = json.meta.description;
+    }
 
     cards = cards.concat(json.modules);
   }
 
   cards = cards.sort((a, b) => a.name.localeCompare(b.name)).map((x) => makeCard(x));
 
-  template = template.replace('ALL_CARDS', cards.join('\n'));
+  template = template
+              .replace('ALL_CARDS', cards.join('\n'))
+              .replaceAll('NAME', name)
+              .replaceAll('DESCRIPTION', description);
 
   writeFileSync(join(global.distDir, 'index.html'), template);
 
