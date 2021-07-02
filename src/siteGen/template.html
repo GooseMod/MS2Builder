@@ -462,12 +462,12 @@
       sortSelectEl.oninput = () => {
         switch (sortSelectEl.value) {
           case 'Stars': {
-            cards.forEach((x) => { x.style.order = 9999999999 - parseInt(x.getAttribute('data-stars')); });
+            cards.forEach((x) => { x.style.order = 999 - parseInt(x.getAttribute('data-stars')); });
             break;
           }
 
           case 'Last Updated': {
-            cards.forEach((x) => { x.style.order = 9999999999 - parseInt(x.getAttribute('data-last-updated')); });
+            cards.forEach((x) => { x.style.order = 3000000000 - parseInt(x.getAttribute('data-last-updated')); });
             break;
           }
 
