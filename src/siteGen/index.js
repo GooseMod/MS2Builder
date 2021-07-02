@@ -55,7 +55,7 @@ export default () => {
   let cards = [];
 
   let name = 'GooseMod Store';
-  let description = 'Browse GooseMod modules';
+  let description = '';
 
   for (const repo of repos) {
     console.log(repo);
@@ -64,11 +64,13 @@ export default () => {
 
     if (repos.length === 1) { // 1 repo likely means a custom repo, so use that name and description
       name = json.meta.name;
-      description = json.meta.description;
+      description = `${json.meta.description} `;
     }
 
     cards = cards.concat(json.modules);
   }
+
+  description += `Browse ${cards.filter((x) => x.tags.includes('theme')).length} themes and ${cards.filter((x) => !x.tags.includes('theme')).length} plugins from ${Object.keys(cards.reduce((acc, x) => { (!Array.isArray(x.authors) ? [ x.authors ] : x.authors).forEach((a) => acc[typeof a === 'object' ? a.i : a] = true); return acc; }, {})).length} developers.`;
 
   cards = cards.sort((a, b) => a.name.localeCompare(b.name)).map((x) => makeCard(x));
 
