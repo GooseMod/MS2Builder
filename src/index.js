@@ -26,6 +26,9 @@ global.distDir = distDir;
 
 const modulesDir = `${distDir}/module`;
 
+await SiteGen();
+process.exit();
+
 const resetDir = (dir) => {
   rmSync(dir, { recursive: true, force: true });
   mkdirSync(dir, { recursive: true });

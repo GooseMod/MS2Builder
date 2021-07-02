@@ -45,7 +45,22 @@ return `<div class="gm-store-card ${m.tags.join(' ')}" data-last-updated=${m.las
     <div class="colorStandard-2KCXvj size14-e6ZScH default-3nhoK- formText-3fs7AJ description-3_Ncsb formText-3fs7AJ modeDefault-3a2Ph1">${m.version === '0' || m.version.toLowerCase().includes('auto') ? '' : `v${m.version}`}</div>
   </div>
 </div>`;
-}
+};
+
+const makeRepo = (r) => {
+  return `<a href="${r.filename}" class="repo">
+  <div>
+    <div class="title-31JmR4">${r.name}</div>
+    <div class="colorStandard-2KCXvj size14-e6ZScH default-3nhoK- formText-3fs7AJ description-3_Ncsb formText-3fs7AJ modeDefault-3a2Ph1">${r.description}</div>
+  </div>
+
+  <div class="colorStandard-2KCXvj size14-e6ZScH default-3nhoK- formText-3fs7AJ description-3_Ncsb formText-3fs7AJ modeDefault-3a2Ph1">
+    <div><strong>${r.themes}</strong> themes</div>
+    <div><strong>${r.plugins}</strong> plugins</div>
+    <div><strong>${r.developers}</strong> developers</div>
+  </div>
+</a>`;
+};
 
 export default () => {
   let template = readFileSync(join(__dirname, 'template.html'), 'utf8');
@@ -53,6 +68,7 @@ export default () => {
   const repos = glob.sync(join(global.distDir, '*.json'));
 
   let cards = [];
+  let metas = [];
 
   let name = 'GooseMod Store';
   let description = '';
@@ -68,6 +84,17 @@ export default () => {
     }
 
     cards = cards.concat(json.modules);
+
+    metas.push({
+      ...json.meta,
+
+      themes: json.modules.filter((x) => x.tags.includes('theme')).length,
+      plugins: json.modules.filter((x) => !x.tags.includes('theme')).length,
+
+      developers: Object.keys(json.modules.reduce((acc, x) => { (!Array.isArray(x.authors) ? [ x.authors ] : x.authors).forEach((a) => acc[typeof a === 'object' ? a.i : a] = true); return acc; }, {})).length,
+
+      filename: repo.split('/').pop()
+    });
   }
 
   description += `Browse ${cards.filter((x) => x.tags.includes('theme')).length} themes and ${cards.filter((x) => !x.tags.includes('theme')).length} plugins from ${Object.keys(cards.reduce((acc, x) => { (!Array.isArray(x.authors) ? [ x.authors ] : x.authors).forEach((a) => acc[typeof a === 'object' ? a.i : a] = true); return acc; }, {})).length} developers.`;
@@ -76,6 +103,7 @@ export default () => {
 
   template = template
               .replace('ALL_CARDS', cards.join('\n'))
+              .replace('REPOS', metas.map((x) => makeRepo(x)).join('\n'))
               .replaceAll('NAME', name)
               .replaceAll('DESCRIPTION', description);
 
