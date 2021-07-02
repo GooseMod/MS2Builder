@@ -3,6 +3,8 @@ name: Deploy to GH Pages
 on:
   push:
     branches: [ main ]
+    paths:
+    - 'dist/**'
 
 jobs:
   build:
