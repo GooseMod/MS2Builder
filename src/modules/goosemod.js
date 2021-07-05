@@ -20,6 +20,7 @@ export default
   ['GooseMod-Modules/UsernameInAuthor', '6f294f70390be4d8c613bcfac0b142e88fe47c5e'],
   ['GooseMod-Modules/StatusInAuthor', '6fe060c93a216bb2d2f1e741ff0e7b9e489e803c'],
   ['GooseMod-Modules/HardcodedColorFixer', '8c45dae017b7c907a4544bb4d3894c544832c61e'],
+  ['GooseMod-Modules/SwitchErrorLookup', '513ea1c4cd6f6ffbb1766a53a8ac08161f8f8f84'],
 
   ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/mock'],
   ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/rpc'],
