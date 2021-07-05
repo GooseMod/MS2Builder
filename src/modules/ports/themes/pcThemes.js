@@ -240,7 +240,7 @@ export default [
 
   ['PhoenixAceVFX/Aroma-White', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["461440763042201620"],
-    images: ["https://raw.githubusercontent.com/PhoenixAceVFX/Aroma-White/main/BDx3p2gh.png"]
+    images: ["https://raw.githubusercontent.com/PhoenixAceVFX/Aroma-White/main/previews/Preview.png"]
   }],
 
   ['XYZenix/DTM-08', '', '/powercord_manifest.json', 'pcTheme', {
