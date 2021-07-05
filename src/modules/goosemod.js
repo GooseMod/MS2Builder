@@ -24,5 +24,5 @@ export default
 
   ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/mock'],
   ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/rpc'],
-  ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/sepia']
+  ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/sepia'],
 ];
