@@ -282,4 +282,9 @@ export default [
     authors: ["270189109019017216"],
     images: ["https://user-images.githubusercontent.com/55637354/123015133-b11d3000-d395-11eb-8817-bec0f1b4077d.png"]
   }],
+
+  ['tazz4843/JetBlack', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["661660243033456652"],
+    images: ["https://i.imgur.com/jtRSsSx.png","https://i.imgur.com/vmlKDR9.png","https://i.imgur.com/vZLTIPY.png","https://i.imgur.com/jIuPuLi.png","https://i.imgur.com/Ugm3Fvx.png"]
+  }],
 ];
