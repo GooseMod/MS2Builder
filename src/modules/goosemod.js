@@ -3,9 +3,9 @@ export default
   // ['GooseMod/GMExampleModule', '9f7b1656845746a9913687e675584780537c3f6d'],
   // ['GooseMod/GMExampleModule', '9f7b1656845746a9913687e675584780537c3f6d', '/subModule'],
 
-  ['Cynosphere/hjonk', '72f63fd08f204b60bb3ba25f66836b9447f623ed', '/createEmoji'],
-  ['Cynosphere/hjonk', '72f63fd08f204b60bb3ba25f66836b9447f623ed', '/oldQuote'],
-  ['Cynosphere/hjonk', '72f63fd08f204b60bb3ba25f66836b9447f623ed', '/timeBarAllActivities'],
+  ['Cynosphere/hjonk', '60de364d901a38bfb92786dfe77b1b1a28386080', '/createEmoji'],
+  ['Cynosphere/hjonk', '60de364d901a38bfb92786dfe77b1b1a28386080', '/oldQuote'],
+  ['Cynosphere/hjonk', '60de364d901a38bfb92786dfe77b1b1a28386080', '/timeBarAllActivities'],
 
   ['Controlfreak707/GM-Copy-Raw', '91a235e09bbb3168c67bc535bdab2a03e88b2a98'],
   ['Controlfreak707/GM-Send-Button', 'e5101713ddee325208b6fb190a07f3ec30373af4'],
