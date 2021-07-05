@@ -1,9 +1,17 @@
 import showToast from '@goosemod/toast';
+import { commands } from '@goosemod/patcher';
 
 export default class Plugin {
   constructor() {
     this.patches = [];
+    this.commands = [];
     this.stylesheets = [];
+  }
+
+  command(...args) {
+    this.commands.push(args[0]);
+
+    commands.add(...args);
   }
 
   enqueueUnpatch(unpatch) {
@@ -35,6 +43,7 @@ export default class Plugin {
     onRemove: () => {
       this.patches.forEach((x) => x());
       this.stylesheets.forEach((x) => x.remove());
+      this.commands.forEach((x) => commands.remove(x));
 
       this.onRemove();
     }
