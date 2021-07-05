@@ -287,4 +287,9 @@ export default [
     authors: ["661660243033456652"],
     images: ["https://i.imgur.com/jtRSsSx.png","https://i.imgur.com/vmlKDR9.png","https://i.imgur.com/vZLTIPY.png","https://i.imgur.com/jIuPuLi.png","https://i.imgur.com/Ugm3Fvx.png"]
   }],
+
+  ['tiredmala/Roundmoled', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["699552486360612954"],
+    images: ["https://user-images.githubusercontent.com/86564702/124396988-04b74400-dcdb-11eb-9e6a-12adde61f4db.png","https://user-images.githubusercontent.com/86564702/124397086-c4a49100-dcdb-11eb-9e65-9763f3a59f0b.png","https://user-images.githubusercontent.com/86564702/124397055-77c0ba80-dcdb-11eb-939c-26bb2cf577cf.png","https://user-images.githubusercontent.com/86564702/124397129-12b99480-dcdc-11eb-8c48-546d2fb1dd46.png","https://user-images.githubusercontent.com/86564702/124397131-164d1b80-dcdc-11eb-8aaa-d0c2e46ece24.png","https://user-images.githubusercontent.com/86564702/124397065-8c9d4e00-dcdb-11eb-8289-a0234c56f751.png","https://user-images.githubusercontent.com/86564702/124397078-a8a0ef80-dcdb-11eb-9226-fca4659e1d9f.png"]
+  }],
 ];
