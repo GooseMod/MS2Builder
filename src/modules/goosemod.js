@@ -6,6 +6,7 @@ export default
   ['Cynosphere/hjonk', '60de364d901a38bfb92786dfe77b1b1a28386080', '/createEmoji'],
   ['Cynosphere/hjonk', '60de364d901a38bfb92786dfe77b1b1a28386080', '/oldQuote'],
   ['Cynosphere/hjonk', '60de364d901a38bfb92786dfe77b1b1a28386080', '/timeBarAllActivities'],
+  ['Cynosphere/hjonk', '217e60fc0c3c66992bd05221bada284094623340', '/spotifyControls'],
 
   ['Controlfreak707/GM-Copy-Raw', '91a235e09bbb3168c67bc535bdab2a03e88b2a98'],
   ['Controlfreak707/GM-Send-Button', 'e5101713ddee325208b6fb190a07f3ec30373af4'],
