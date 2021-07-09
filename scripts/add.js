@@ -104,7 +104,7 @@ if (shouldCommit) {
 
   await exec(`git add dist ${file}`);
 
-  await exec(`git commit -m "[(Auto) Add Theme (${type2.toUpperCase()}Theme)] ${repo}"`);
+  await exec(`git commit -m "[Add Theme (${type2.toUpperCase()})] ${repo}"`);
 
   console.log('Pushing...');
 
