@@ -297,4 +297,9 @@ export default [
     authors: ["224524143482241035"],
     images: ["https://i.imgur.com/lYarXcO.png","https://i.imgur.com/ZULLdm4.png"]
   }],
+
+  ['hyblocker/pixelcord', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["346338830011596800"],
+    images: ["https://media.discordapp.net/attachments/755005710323941386/862762903400087592/8IWogua0cV.gif"]
+  }],
 ];
