@@ -156,4 +156,9 @@ export default [
     authors: ["402272736665272320"],
     images: ["https://i.imgur.com/09CcRBF.jpg","https://i.imgur.com/sVBauqL.jpg","https://i.imgur.com/cEQaiew.png"]
   }],
+
+  ['TakosThings/Metro-for-BetterDiscord', '', '/dist/Metro_for_Discord.theme.css', 'bdTheme', {
+    authors: ["124017508662378500"],
+    images: ["https://i.imgur.com/qfCvxrB.png"]
+  }],
 ];
