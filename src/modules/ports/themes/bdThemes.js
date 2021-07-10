@@ -166,4 +166,9 @@ export default [
     authors: ["258334777046859776"],
     images: ["https://raw.githubusercontent.com/Kayno0o/vibrant-glass-theme/main/images/preview1.png","https://raw.githubusercontent.com/Kayno0o/vibrant-glass-theme/main/images/preview2.png","https://raw.githubusercontent.com/Kayno0o/vibrant-glass-theme/main/images/preview3.png","https://raw.githubusercontent.com/Kayno0o/vibrant-glass-theme/main/images/preview4.png"]
   }],
+
+  ['Xhylo/VSCC.theme.css', '', '/VSC-Cord.theme.css', 'bdTheme', {
+    authors: ["536197278126309397"],
+    images: ["https://imgur.com/a/bxaQJpB.gif","https://cdn.discordapp.com/attachments/862688548187799565/863271688212840468/23.png","https://cdn.discordapp.com/attachments/862688548187799565/863063369765224498/unknown.png"]
+  }],
 ];
