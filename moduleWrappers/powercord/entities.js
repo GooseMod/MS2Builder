@@ -43,7 +43,7 @@ export class Plugin {
 
     return { // Basic wrapper with renamed functions
       get: store.getSetting,
-      set: store.setSetting,
+      set: store.updateSetting,
       delete: store.deleteSetting,
 
       getKeys: store.getKeys,
