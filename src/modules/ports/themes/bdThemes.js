@@ -161,4 +161,9 @@ export default [
     authors: ["124017508662378500"],
     images: ["https://i.imgur.com/qfCvxrB.png"]
   }],
+
+  ['Kayno0o/vibrant-glass-theme', '', '/glass_local.theme.css', 'bdTheme', {
+    authors: ["258334777046859776"],
+    images: ["https://raw.githubusercontent.com/Kayno0o/vibrant-glass-theme/main/images/preview1.png","https://raw.githubusercontent.com/Kayno0o/vibrant-glass-theme/main/images/preview2.png","https://raw.githubusercontent.com/Kayno0o/vibrant-glass-theme/main/images/preview3.png","https://raw.githubusercontent.com/Kayno0o/vibrant-glass-theme/main/images/preview4.png"]
+  }],
 ];
