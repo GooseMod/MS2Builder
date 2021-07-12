@@ -302,4 +302,9 @@ export default [
     authors: ["346338830011596800"],
     images: ["https://media.discordapp.net/attachments/755005710323941386/862762903400087592/8IWogua0cV.gif"]
   }],
+
+  ['CITIZENSIXTYNINE/Drakula', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["452283991006117908"],
+    images: ["https://raw.githubusercontent.com/CITIZENSIXTYNINE/Drakula/mistress/ast/FrontPage-v2.png"]
+  }],
 ];
