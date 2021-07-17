@@ -3,7 +3,7 @@ import sass from 'sass';
 
 import generateThemeJS from './genericTheme.js';
 
-export default (manifestPath, repo) => {
+export default async (manifestPath, repo) => {
   const pcManifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
 
   let manifest = {
@@ -31,7 +31,7 @@ export default (manifestPath, repo) => {
 
   const content = readFileSync(pcManifest.theme, 'utf8');
 
-  const jsCode = generateThemeJS(manifest, content, repo);
+  const jsCode = await generateThemeJS(manifest, content, repo);
 
   writeFileSync(`${manifestPath}/goosemodModule.json`, JSON.stringify(manifest));
   writeFileSync(`${manifestPath}/index.js`, jsCode);

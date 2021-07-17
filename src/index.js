@@ -155,7 +155,7 @@ for (const parentRepo of ModuleRepos) {
     const commitTimestamp = await new Promise((res) => exec(`git log -1 --format="%at" | xargs -I{} date -d @{} +%s`, (err, stdout) => res(stdout.trim())));
 
     if (preprocessor) {
-      const preOut = (await import(`./preprocessors/${preprocessor}.js`)).default(`${cloneDir}${moduleDir}`, repo);
+      const preOut = await (await import(`./preprocessors/${preprocessor}.js`)).default(`${cloneDir}${moduleDir}`, repo);
 
       if (preOut !== undefined) {
         moduleDir = preOut;

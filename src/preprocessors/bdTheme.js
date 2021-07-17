@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'fs';
 
 import generateThemeJS from './genericTheme.js';
 
-export default (themePath, repo) => {
+export default async (themePath, repo) => {
   const content = readFileSync(themePath, 'utf8');
   
   const metaReg = /@([^ ]*) (.*)/g;
@@ -47,7 +47,7 @@ export default (themePath, repo) => {
   rmSync(themePath);
   mkdirSync(themePath);
 
-  const jsCode = generateThemeJS(manifest, content, repo);
+  const jsCode = await generateThemeJS(manifest, content, repo);
 
   writeFileSync(`${themePath}/goosemodModule.json`, JSON.stringify(manifest));
   writeFileSync(`${themePath}/index.js`, jsCode);

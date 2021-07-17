@@ -1,3 +1,4 @@
+import axios from 'axios';
 
 const discordVars = [
   '--header-primary',
@@ -56,10 +57,31 @@ const discordVars = [
   '--deprecated-text-input-prefix'    
 ];
 
-export default (manifest, _content, repo) => {
+const imagePaletteVars = [
+  '--background-primary',
+  '--background-secondary',
+  '--background-secondary-alt',
+  '--background-tertiary',
+  '--background-accent',
+  '--background-floating',
+];
+
+export default async (manifest, _content, repo) => {
   const content = _content.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$/g, '\\$');
 
-  let variables = content.match(/--([^*!\n}]*): ([^*!\n}]*);/g) || [];
+  let variables = content.match(/--([^*!\n}]*): ([^*\n}]*);/g) || [];
+
+  let imports = content.match(/@import url\(['"`]?(.*)['"`]?\);/g) || [];
+  for (const x of imports) {
+    const url = x.replace(/@import url\(['"`]?/, '').replace(/['"`]?\);/, '');
+
+    console.log(x, url);
+
+    const imported = (await axios.get(url)).data;
+
+    variables = variables.concat(imported.match(/--([^*!\n}]*): ([^*\n}]*);/g) || []);
+  }
+
   if (variables.length > 0) variables = variables.map((x) => {
     const spl = x.split(':');
 
@@ -74,6 +96,28 @@ export default (manifest, _content, repo) => {
 
     return [name, val, type];
   });
+
+  const imagePalette = [];
+
+  for (const wanted of imagePaletteVars) {
+    const v = variables.find((x) => x[0] === wanted);
+
+    if (!v) {
+      console.log('aborting color palette image, could not find var', wanted);
+      break;
+    }
+
+    while (v[1].startsWith('var(')) {
+      v[1] = variables.find((y) => y[0] === v[1].slice(4, -1))[1];
+    }
+  
+    imagePalette.push([ v[0], v[1] ]);
+  }
+
+  if (imagePalette.length === imagePaletteVars.length) {
+    if (!repo[4].images) repo[4].images = [];
+    repo[4].images.push(imagePalette);
+  }
 
   // Filter out Discord standard vars, and duplicate names
   if (variables.length > 0) variables = variables.filter((x, i, s) => !discordVars.includes(x[0]) && !x[1].includes('var(') && !x[0].includes('glasscord') && s.indexOf(s.find((y) => y[0] === x[0])) === i);
