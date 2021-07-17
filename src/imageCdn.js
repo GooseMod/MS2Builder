@@ -5,9 +5,9 @@ import { exec } from 'child_process';
 import axios from 'axios';
 
 export default (manifest) => {
-  return manifest.images ? Promise.all(manifest.images.map(async (x, i) => {
-    const baseDir = join(distDir, 'img', manifest.name);
+  const baseDir = join(distDir, 'img', manifest.name);
 
+  return manifest.images ? Promise.all(manifest.images.map(async (x, i) => {
     const rawFile = join(baseDir, x.split('/').pop());
     const rawExt = rawFile.split('.').pop();
 
@@ -15,6 +15,19 @@ export default (manifest) => {
     const finalFile = join(baseDir, finalName);
 
     mkdirSync(baseDir, { recursive: true });
+
+    if (!x.includes('http')) {
+      console.log('color', x, i, finalFile);
+
+      try {
+        await new Promise((res) => exec(`convert -size 330x200 xc:${x.replace('(', '\\(').replace(')', '\\)')} "${finalFile}"`, res));
+      } catch (e) {
+        console.error('Failed to use ImageMagick to resize and compress, copying file as backup');
+        // copyFileSync(rawFile, finalFile);
+      }
+
+      return `/img/${manifest.name}/${finalName}`;
+    }
 
     console.log(x, i, rawFile, finalFile);
 
