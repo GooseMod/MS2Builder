@@ -73,7 +73,8 @@ export default async (manifest, _content, repo) => {
 
   let imports = content.match(/@import url\(['"`]?(.*)['"`]?\);/g) || [];
   for (const x of imports) {
-    const url = x.replace(/@import url\(['"`]?/, '').replace(/['"`]?\);/, '');
+    let url = x.replace(/@import url\(['"`]?/, '').replace(/['"`]?\);/, '');
+    if (url.startsWith('//')) url = 'https:' + url;
 
     console.log(x, url);
 
