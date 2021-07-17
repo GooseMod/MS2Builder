@@ -78,7 +78,13 @@ export default async (manifest, _content, repo) => {
 
     console.log(x, url);
 
-    const imported = (await axios.get(url)).data;
+    let imported;
+    try {
+      imported = (await axios.get(url)).data;
+    } catch (e) {
+      console.log('failed to get css for', url);
+      continue;
+    }
 
     variables = variables.concat(imported.match(/--([^*!\n}]*): ([^*\n}]*);/g) || []);
   }
