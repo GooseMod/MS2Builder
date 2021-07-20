@@ -114,8 +114,20 @@ export default async (manifest, _content, repo) => {
       break;
     }
 
+    let abortNoVal = false;
+
     while (v[1].startsWith('var(')) {
-      v[1] = variables.find((y) => y[0] === v[1].slice(4, -1))[1];
+      v[1] = variables.find((y) => y[0] === v[1].slice(4, -1))?.[1];
+
+      if (!v[1]) {
+        abortNoVal = true;
+        break;
+      }
+    }
+
+    if (abortNoVal) {
+      console.log('aborting color palette image, could not find var substitute', wanted);
+      break;
     }
   
     imagePalette.push([ v[0], v[1] ]);
