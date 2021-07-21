@@ -33,7 +33,7 @@ function e(e,r,t,n,o,c,u){try{var i=e[c](u),a=i.value}catch(f){return void t(f)}
 },{}],"../../../moduleWrappers/powercord/injector.js":[function(require,module,exports) {
 module.exports=goosemodScope.patcher;
 },{}],"../../../moduleWrappers/electron/clipboard.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.readText=exports.writeText=void 0;var e=function(e){return DiscordNative.clipboard.copy(e)};exports.writeText=e;var r=function(){return DiscordNative.clipboard.read()};exports.readText=r;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.readText=exports.writeText=void 0;var e=goosemod.webpackModules.findByProps("SUPPORTS_COPY","copy"),r=e.copy,t=function(e){return r(e)};exports.writeText=t;var o=function(){return DiscordNative.clipboard.read()};exports.readText=o;
 },{}],"../../../moduleWrappers/electron/shell.js":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.openExternal=void 0;var e=function(e){window.open(e)};exports.openExternal=e;
 },{}],"../../../moduleWrappers/electron/index.js":[function(require,module,exports) {

@@ -54,7 +54,7 @@ export default [
 
   ['SlippingGitty/WinClassic', '', '/WinClassic.theme.css', 'bdTheme', {
     authors: ['359175647257690113', '324260038736871426', '224565309133029379'],
-    images: ['https://files.catbox.moe/qcjfyz.png']
+    images: []
   }],
 
   ['rmkx/rmkx.github.io', '', '/LlunaPlena/LlunaPlena.theme.css', 'bdTheme', {
