@@ -33,7 +33,7 @@ module.exports=goosemodScope.patcher;
 },{}],"manifest.json":[function(require,module,exports) {
 module.exports={name:"Copy Role Color",version:"1.1.0",description:"Adds the Copy Color option to the role context menu.",author:"Antonio32A#1337 (166630166825664512)",license:"MIT",shorthand:"copy-role-color"};
 },{}],"../../../moduleWrappers/electron/clipboard.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.readText=exports.writeText=void 0;var e=function(e){return DiscordNative.clipboard.copy(e)};exports.writeText=e;var r=function(){return DiscordNative.clipboard.read()};exports.readText=r;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.readText=exports.writeText=void 0;var e=goosemod.webpackModules.findByProps("SUPPORTS_COPY","copy"),r=e.copy,t=function(e){return r(e)};exports.writeText=t;var o=function(){return DiscordNative.clipboard.read()};exports.readText=o;
 },{}],"../../../moduleWrappers/electron/shell.js":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.openExternal=void 0;var e=function(e){window.open(e)};exports.openExternal=e;
 },{}],"../../../moduleWrappers/electron/index.js":[function(require,module,exports) {
