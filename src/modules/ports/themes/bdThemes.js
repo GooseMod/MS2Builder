@@ -22,7 +22,7 @@ export default [
     authors: ['359175647257690113']
   }],
 
-  ['DiscordStyles/Slate', '', '/Slate.theme.css', 'bdTheme', {
+  ['DiscordStyles/Slate', '', '/dist/Slate.theme.css', 'bdTheme', {
     authors: ['254362351170617345', '174868361040232448'],
     images: ['https://i.imgur.com/GEcQZhN.png']
   }],
