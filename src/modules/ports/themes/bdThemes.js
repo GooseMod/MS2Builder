@@ -27,27 +27,27 @@ export default [
     images: ['https://i.imgur.com/GEcQZhN.png']
   }],
 
-  ['DiscordStyles/RadialStatus', '', '/RadialStatus.theme.css', 'bdTheme', {
+  ['DiscordStyles/RadialStatus', '', '/dist/RadialStatus.theme.css', 'bdTheme', {
     authors: ['174868361040232448'],
     images: ['https://i.imgur.com/4zZU4iw.jpg']
   }],
 
-  ['DiscordStyles/HorizontalServerList', '', '/HorizontalServerList.theme.css', 'bdTheme', {
+  ['DiscordStyles/HorizontalServerList', '', '/dist/HorizontalServerList.theme.css', 'bdTheme', {
     authors: ['174868361040232448'],
     images: ['https://i.imgur.com/ygGh3hy.jpg']
   }],
 
-  ['DiscordStyles/SimplyDark', '', '/SimplyDark.theme.css', 'bdTheme', {
+  ['DiscordStyles/SimplyDark', '', '/dist/SimplyDark.theme.css', 'bdTheme', {
     authors: ['174868361040232448'],
     images: ['https://i.imgur.com/PZsOQ3d.jpg', 'https://i.imgur.com/jinqkHx.jpg', 'https://i.imgur.com/9HRBSYP.jpg', 'https://i.imgur.com/YlWfkMd.jpg']
   }],
 
-  ['DiscordStyles/FrostedGlass', '', '/FrostedGlass.theme.css', 'bdTheme', {
+  ['DiscordStyles/FrostedGlass', '', '/dist/FrostedGlass.theme.css', 'bdTheme', {
     authors: ['174868361040232448'],
     images: ['https://i.imgur.com/Gr8JJAv.jpg', 'https://i.imgur.com/xnUQ1Ek.jpg', 'https://i.imgur.com/qfMW8HI.jpg']
   }],
 
-  ['DiscordStyles/MinimalCord', '', '/MinimalCord.theme.css', 'bdTheme', {
+  ['DiscordStyles/MinimalCord', '', '/dist/MinimalCord.theme.css', 'bdTheme', {
     authors: ['174868361040232448'],
     images: ['https://i.imgur.com/W33dgMJ.png', 'https://i.imgur.com/vtPiMFw.png']
   }],
