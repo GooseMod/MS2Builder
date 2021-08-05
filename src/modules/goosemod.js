@@ -14,7 +14,7 @@ export default
   ['Controlfreak707/GM-Better-Animations', '501ec6031ec2e559f1e3fce89237c043f6120c63', undefined, undefined, { tags: ['ui', 'theme'] }],
   ['Controlfreak707/GM-Channel-Icons', '83049d7bf164e14e6322e55f5c17151e18ca5ec3'],
 
-  ['TechnoJo4/GM-MessageClickActions', '3dbadf674f451d5d115aa9cb842172415d91ccbc'],
+  ['TechnoJo4/GM-MessageClickActions', '115d761c7233f030b4bb81d0e38c764992c3406e'],
 
   ['GooseMod-Modules/CopyAvatarURL', '8c02c9b5dabc04f8a41cbfa519e58c00b1895a23'],
   ['GooseMod-Modules/CustomCSS', '64969856598a2cc2980988046e0ff266d64fa943'],
