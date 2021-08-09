@@ -317,4 +317,9 @@ export default [
     authors: ["678541597654253600"],
     images: ["https://i.imgur.com/neZqbTO.png","https://i.imgur.com/zrcG74M.png","https://i.imgur.com/KRAZe43.png"]
   }],
+
+  ['zerol1ght/chatty-edit', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["297352068858118147"],
+    images: ["https://i.imgur.com/CVI0sUh.png"]
+  }],
 ];
