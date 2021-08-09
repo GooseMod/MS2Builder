@@ -25,6 +25,6 @@ export default
   ['GooseMod-Modules/Fucklytics', 'c9aeed413b45c07236eb1ec243c09432365dac5b'],
 
   ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/mock'],
-  ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/rpc'],
+  ['mugman174/togoosestore', '679c649f9198b1f3717430fdd17db5eb14e9c089', '/rpc'],
   ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/sepia'],
 ];
