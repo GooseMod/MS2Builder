@@ -70,9 +70,9 @@ export default [
     images: ['https://media.discordapp.net/attachments/755005710323941386/811325025025785886/2021-02-16_14-51.png']
   }],
 
-  ['BrendanWalter/Nebula4', '', '/powercord_manifest.json', 'pcTheme', {
+  ['Loremly/Nebula', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['597072695875600385'],
-    images: ['https://i.imgur.com/vcoREaX.png']
+    images: ['https://i.imgur.com/NEPCkF2.png']
   }],
 
   ['cainy-a/LunaCord', '', '/powercord_manifest.json', 'pcTheme', {
