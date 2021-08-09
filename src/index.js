@@ -176,6 +176,8 @@ for (const parentRepo of ModuleRepos) {
 
     const outPath = `${modulesDir}/${outFile}`;
     let jsCode = readFileSync(outPath, 'utf8');
+    
+    jsCode = jsCode.replace('typeof define&&define.amd?define(function(){return l}):', ''); // Stop letting Parcel try and use UMD/AMD define, breaks BD compat with modules
 
     jsCode = `${jsCode};parcelRequire('${bundle.entryAsset.basename}').default`; // Make eval return the index module's default export
 
