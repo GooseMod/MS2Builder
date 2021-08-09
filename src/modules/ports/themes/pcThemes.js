@@ -213,15 +213,15 @@ export default [
     images: ["https://i.vgy.me/k2KPcP.png"]
   }],
 
-  ['kreat0/the-nightowl', '', '/powercord_manifest.json', 'pcTheme', {
+  /* ['kreat0/the-nightowl', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["647480386577760256"],
     images: ["https://raw.githubusercontent.com/kreat0/the-nightowl/master/assets/screenshot.png"]
-  }],
+  }], */
 
-  ['kixt0/shuttle', '', '/manifest.json', 'pcTheme', {
+  /* ['kixt0/shuttle', '', '/manifest.json', 'pcTheme', {
     authors: ["452289159399342090"],
     images: ["https://raw.githubusercontent.com/kixt0/shuttle/main/docs/screenshot.png"]
-  }],
+  }], */
 
   ['mr-miner1/Better-Badges', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["678541597654253600"],
