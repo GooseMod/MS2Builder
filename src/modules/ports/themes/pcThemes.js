@@ -325,6 +325,6 @@ export default [
 
   ['Dyzean/Simplify', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["354831939099688962"],
-    images: ["https://i.imgur.com/CVI0sUh.png"]
+    images: ["https://images-ext-2.discordapp.net/external/Cu3-pzVwI0zHrQ5PC7dHusRnQg5WjoxPc_DM9H_bhko/https/is.gd/6xWLPD%2A%2A"]
   }],
 ];
