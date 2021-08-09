@@ -100,6 +100,10 @@ if (shouldCommit) {
 
   await exec(`node src/index.js`);
 
+  console.log('Signing...');
+  
+  await exec(`bash sign.sh`);
+
   console.log('Committing...');
 
   await exec(`git add dist ${file}`);

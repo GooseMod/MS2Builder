@@ -307,4 +307,9 @@ export default [
     authors: ["452283991006117908"],
     images: ["https://raw.githubusercontent.com/CITIZENSIXTYNINE/Drakula/mistress/ast/FrontPage-v2.png"]
   }],
+
+  ['ilyBenny/bubblecord', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["227009692646375424"],
+    images: ["https://images-ext-2.discordapp.net/external/twXX1wAKwkOFOGhYGsC-THEer08ueWoqSR0ZX75fhbU/https/hypixel.lol/raw/pvHqSfcO.png"]
+  }],
 ];
