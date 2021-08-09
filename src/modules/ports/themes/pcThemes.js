@@ -312,4 +312,9 @@ export default [
     authors: ["227009692646375424"],
     images: ["https://images-ext-2.discordapp.net/external/twXX1wAKwkOFOGhYGsC-THEer08ueWoqSR0ZX75fhbU/https/hypixel.lol/raw/pvHqSfcO.png"]
   }],
+
+  ['mr-miner1/cooler-activity-status', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["678541597654253600"],
+    images: ["https://i.imgur.com/neZqbTO.png","https://i.imgur.com/zrcG74M.png","https://i.imgur.com/KRAZe43.png"]
+  }],
 ];
