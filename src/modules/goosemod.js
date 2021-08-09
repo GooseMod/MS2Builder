@@ -27,4 +27,6 @@ export default
   ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/mock'],
   ['mugman174/togoosestore', '679c649f9198b1f3717430fdd17db5eb14e9c089', '/rpc'],
   ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/sepia'],
+
+  ['xirreal/GM-AuroraGSI', 'bbdb264807f976725af74a863f30d64f43fbfb6f'],
 ];
