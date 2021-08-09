@@ -322,4 +322,9 @@ export default [
     authors: ["297352068858118147"],
     images: ["https://i.imgur.com/CVI0sUh.png"]
   }],
+
+  ['Dyzean/Simplify', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["354831939099688962"],
+    images: ["https://i.imgur.com/CVI0sUh.png"]
+  }],
 ];
