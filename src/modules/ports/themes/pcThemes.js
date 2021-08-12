@@ -300,7 +300,7 @@ export default [
 
   ['hyblocker/pixelcord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["346338830011596800"],
-    images: ["https://media.discordapp.net/attachments/755005710323941386/862762903400087592/8IWogua0cV.gif"]
+    images: ["https://github.com/hyblocker/pixelcord/blob/main/screenshots/animations.gif?raw=true", "https://github.com/hyblocker/pixelcord/blob/main/screenshots/settings.png?raw=true", "https://github.com/hyblocker/pixelcord/blob/main/screenshots/user_popout.png?raw=true", "https://github.com/hyblocker/pixelcord/blob/main/screenshots/light_mode.png?raw=true", "https://github.com/hyblocker/pixelcord/blob/main/screenshots/goosemod.png?raw=true"]
   }],
 
   ['CITIZENSIXTYNINE/Drakula', '', '/powercord_manifest.json', 'pcTheme', {
@@ -310,7 +310,7 @@ export default [
 
   ['ilyBenny/bubblecord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["227009692646375424"],
-    images: ["https://images-ext-2.discordapp.net/external/twXX1wAKwkOFOGhYGsC-THEer08ueWoqSR0ZX75fhbU/https/hypixel.lol/raw/pvHqSfcO.png"]
+    images: ["https://images-ext-2.discordapp.net/external/twXX1wAKwkOFOGhYGsC-THEer08ueWoqSR0ZX75fhbU/https/hypixel.lol/raw/pvHqSfcO.png","https://media.discordapp.net/attachments/874338745862750248/875027849642401842/unknown.png","https://media.discordapp.net/attachments/874338745862750248/875028341885911090/unknown.png"]
   }],
 
   ['mr-miner1/cooler-activity-status', '', '/powercord_manifest.json', 'pcTheme', {
