@@ -300,7 +300,7 @@ export default [
 
   ['hyblocker/pixelcord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["346338830011596800"],
-    images: ["https://github.com/hyblocker/pixelcord/blob/main/screenshots/animations.gif?raw=true", "https://github.com/hyblocker/pixelcord/blob/main/screenshots/settings.png?raw=true", "https://github.com/hyblocker/pixelcord/blob/main/screenshots/user_popout.png?raw=true", "https://github.com/hyblocker/pixelcord/blob/main/screenshots/light_mode.png?raw=true", "https://github.com/hyblocker/pixelcord/blob/main/screenshots/goosemod.png?raw=true"]
+    images: ["https://raw.githubusercontent.com/hyblocker/pixelcord/main/screenshots/animations.gif", "https://raw.githubusercontent.com/hyblocker/pixelcord/main/screenshots/settings.png", "https://raw.githubusercontent.com/hyblocker/pixelcord/main/screenshots/user_popout.png", "https://raw.githubusercontent.com/hyblocker/pixelcord/main/screenshots/light_mode.png", "https://raw.githubusercontent.com/hyblocker/pixelcord/main/screenshots/goosemod.png"]
   }],
 
   ['CITIZENSIXTYNINE/Drakula', '', '/powercord_manifest.json', 'pcTheme', {
