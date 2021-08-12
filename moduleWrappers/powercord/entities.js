@@ -15,13 +15,6 @@ export class Plugin {
     this.stylesheets.push(el); // Push to internal array so we can remove the elements on unload
   }
 
-  delayedConstructor() { // Run funcs which rely on after eval (GooseMod sets keys on this class with more info, mostly metadata)
-    if (this.delayedConstructed) return;
-    this.delayedConstructed = true;
-
-    Settings.makeStore(this.entityID);
-  }
-
   // Supposed to return PC manifest, which we don't store so return a rough one based on GM metadata
   get manifest() {
     return {
@@ -55,7 +48,7 @@ export class Plugin {
   get goosemodHandlers() {
     return {
       onImport: () => {
-        this.delayedConstructor();
+        Settings.makeStore(this.entityID);
 
         this.startPlugin.bind(this)();
       },
@@ -64,7 +57,10 @@ export class Plugin {
         this.stylesheets.forEach((x) => x.remove()); // Remove loaded stylesheets which were added with Plugin.loadStylesheet
 
         this.pluginWillUnload.bind(this)();
-      }
+      },
+
+      getSettings: () => Settings.settingStores[this.entityID].store,
+      loadSettings: (storeBase) => Settings.settingStores[this.entityID].store = (storeBase || {})
     };
   }
 }
