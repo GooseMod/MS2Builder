@@ -332,4 +332,9 @@ export default [
     authors: ["751092600890458203"],
     images: ["https://raw.githubusercontent.com/Pukimaa/Space-Cadet/master/assets/preview.png"]
   }],
+
+  ['Dyzean/Tokyo-Night', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["354831939099688962"],
+    images: ["https://cdn.discordapp.com/attachments/852892028231876638/874529433061568533/c.png"]
+  }],
 ];
