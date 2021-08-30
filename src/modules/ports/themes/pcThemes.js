@@ -337,4 +337,9 @@ export default [
     authors: ["354831939099688962"],
     images: ["https://cdn.discordapp.com/attachments/852892028231876638/874529433061568533/c.png"]
   }],
+
+  ['leeprky/MicrosoftTeams', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["224524143482241035"],
+    images: ["https://cdn.discordapp.com/attachments/826113708957761556/878973579084062730/unknown.png"]
+  }],
 ];
