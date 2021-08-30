@@ -3,9 +3,9 @@ export default
   // ['GooseMod/GMExampleModule', '9f7b1656845746a9913687e675584780537c3f6d'],
   // ['GooseMod/GMExampleModule', '9f7b1656845746a9913687e675584780537c3f6d', '/subModule'],
 
-  ['Cynosphere/hjonk', '60de364d901a38bfb92786dfe77b1b1a28386080', '/createEmoji'],
-  ['Cynosphere/hjonk', '60de364d901a38bfb92786dfe77b1b1a28386080', '/oldQuote'],
-  ['Cynosphere/hjonk', '60de364d901a38bfb92786dfe77b1b1a28386080', '/timeBarAllActivities'],
+  ['Cynosphere/hjonk', 'b1c9bc1b9027efdcb4a72254e96ceb087ae65529', '/createEmoji'],
+  ['Cynosphere/hjonk', 'b1c9bc1b9027efdcb4a72254e96ceb087ae65529', '/oldQuote'],
+  ['Cynosphere/hjonk', 'b1c9bc1b9027efdcb4a72254e96ceb087ae65529', '/timeBarAllActivities'],
   ['Cynosphere/hjonk', 'b1c9bc1b9027efdcb4a72254e96ceb087ae65529', '/spotifyControls'],
 
   ['Controlfreak707/GM-Copy-Raw', '91a235e09bbb3168c67bc535bdab2a03e88b2a98'],
@@ -16,7 +16,7 @@ export default
 
   ['TechnoJo4/GM-MessageClickActions', '115d761c7233f030b4bb81d0e38c764992c3406e'],
 
-  ['GooseMod-Modules/CopyAvatarURL', '8c02c9b5dabc04f8a41cbfa519e58c00b1895a23'],
+  ['GooseMod-Modules/CopyAvatarURL', '053dd5c8f8e2f7dcf00c57afb895ad62710ebfeb'],
   ['GooseMod-Modules/CustomCSS', '64969856598a2cc2980988046e0ff266d64fa943'],
   ['GooseMod-Modules/UsernameInAuthor', '6f294f70390be4d8c613bcfac0b142e88fe47c5e'],
   ['GooseMod-Modules/StatusInAuthor', '6fe060c93a216bb2d2f1e741ff0e7b9e489e803c'],
@@ -24,10 +24,10 @@ export default
   ['GooseMod-Modules/SwitchErrorLookup', '80d7485654b951423c5f458cc2743879ab521f2a'],
   ['GooseMod-Modules/Fucklytics', 'c9aeed413b45c07236eb1ec243c09432365dac5b'],
 
-  ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/mock'],
-  ['mugman174/togoosestore', '679c649f9198b1f3717430fdd17db5eb14e9c089', '/rpc'],
-  ['mugman174/togoosestore', '4b3f9c355eac9abeace174a261519ab992135ff3', '/sepia'],
+  ['mugman174/togoosestore', '577a1f564879290c50824756b8128bcf4455d796', '/mock'],
+  ['mugman174/togoosestore', '577a1f564879290c50824756b8128bcf4455d796', '/rpc'],
+  ['mugman174/togoosestore', '577a1f564879290c50824756b8128bcf4455d796', '/sepia'],
 
   ['xirreal/GM-AuroraGSI', 'bbdb264807f976725af74a863f30d64f43fbfb6f'],
-  ['xirreal/GM-Emote-As-URL', '4f203a042b7a32b0af9facdccc0ae21131cf6205'],
+  ['xirreal/GM-Emote-As-URL', '19d36aac905c293a487d9219da920e4f157f276d'],
 ];

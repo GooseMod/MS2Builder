@@ -1,9 +1,9 @@
 export default [
-  ['RazerMoon/muteNewGuild', 'a8ea528e67089ea00a457623cebbef6a670127fc', '/manifest.json', 'pcPlugin', {
+  ['RazerMoon/muteNewGuild', 'dc843236c17fa6e43f689320d1b07d3eecd7d28a', '/manifest.json', 'pcPlugin', {
     authors: ['162970149857656832']
   }],
 
-  ['amitpalbadhan/LaTeX-Cord', 'e56ae2019d9af9022ea4b278ab2b34ee61880789', '/manifest.json', 'pcPlugin', {
+  ['amitpalbadhan/LaTeX-Cord', 'b1b0083c1990c7aea14d19d3a5bdbb3c73654737', '/manifest.json', 'pcPlugin', {
     authors: ['510591410362122252']
   }],
 
@@ -15,7 +15,7 @@ export default [
     authors: ['562415519454461962']
   }],
 
-  ['RazerMoon/vcTimer', '6619cd9b24ce6337d9e93940d12031d9ce40dd2e', '/manifest.json', 'pcPlugin', {
+  ['RazerMoon/vcTimer', '2a1860380b442f15070173a6f3c678bf60873eb1', '/manifest.json', 'pcPlugin', {
     authors: ['162970149857656832']
   }],
 
@@ -41,11 +41,11 @@ export default [
     authors: ['162970149857656832']
   }],
 
-  ['Vendicated/PowercordTwemojiEverywhere', '5d9009e80ad63d2a882fb80afa92170f47ca18a2', '/manifest.json', 'pcPlugin', {
+  ['Vendicated/PowercordTwemojiEverywhere', '76ac2c69d7ddb47170caa53002e30dd779033dab', '/manifest.json', 'pcPlugin', {
     authors: ['343383572805058560']
   }],
 
-  ['Vendicated/PowercordReacter', 'f2577849d3f0fa74beb5ba40cb880a6e3fe662b7', '/manifest.json', 'pcPlugin', {
+  ['Vendicated/PowercordReacter', '608cb297f58e31ae002f2cab5ea5c4d3314b70d3', '/manifest.json', 'pcPlugin', {
     authors: ['343383572805058560']
   }],
 
@@ -59,7 +59,7 @@ export default [
     images: ['https://cdn.discordapp.com/attachments/723241105323327581/792496211298353192/unknown.png']
   }],
 
-  ['TaiAurori/custom-timestamps', '76aba236933ef6c45fac006474ac2b9e334888c3', '/manifest.json', 'pcPlugin', {
+  ['TaiAurori/custom-timestamps', 'b2da3cbad71dbd06bd904853d9f01b755e00eebf', '/manifest.json', 'pcPlugin', {
     authors: ['334469240394481667'],
     images: ['https://raw.githubusercontent.com/TaiAurori/custom-timestamps/master/screenshots/preview-1.png']
   }],
@@ -77,12 +77,12 @@ export default [
     authors: ['331677911407132672']
   }],
 
-  ['Puyodead1/powercord-ownertag', '19052f01cf375f754472eb92ea8c22ff50a4594c', '/manifest.json', 'pcPlugin', {
+  ['Puyodead1/powercord-ownertag', 'e29a51d4ff6f50a0547dbf932ec2cf38fb8030f4', '/manifest.json', 'pcPlugin', {
     authors: ['213247101314924545'],
     images: ['https://i.imgur.com/4x8dnFA.png', 'https://i.imgur.com/6NwdauH.png']
   }],
 
-  ['1XC1XC/ArrowDownForLastMessage', '7292199f10990b282b34807be1529e38e4bcb529', '/manifest.json', 'pcPlugin', {
+  ['1XC1XC/ArrowDownForLastMessage', '315e70400b8c14ec71c89b4366b9fe72fd22e735', '/manifest.json', 'pcPlugin', {
     authors: ['277567981913899013'],
     images: ['https://cdn.discordapp.com/attachments/831036096962887720/833514474912743454/unknown.png']
   }],
@@ -91,7 +91,7 @@ export default [
     authors: ['320909318767509505']
   }],
 
-  ['SammCheese/At-Someone', 'b534cd6609fa06bce613913c02035a76b81ea22c', '/manifest.json', 'pcPlugin', {
+  ['SammCheese/At-Someone', '761a83990366e9d7aabc45d6604c6b45a7e56637', '/manifest.json', 'pcPlugin', {
     authors: ['372148345894076416']
   }],
 
