@@ -1,41 +1,1602 @@
 parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcelRequire,u="function"==typeof require&&require;function f(t,n){if(!r[t]){if(!e[t]){var i="function"==typeof parcelRequire&&parcelRequire;if(!n&&i)return i(t,!0);if(o)return o(t,!0);if(u&&"string"==typeof t)return u(t);var c=new Error("Cannot find module '"+t+"'");throw c.code="MODULE_NOT_FOUND",c}p.resolve=function(r){return e[t][1][r]||r},p.cache={};var l=r[t]=new f.Module(t);e[t][0].call(l.exports,p,l,l.exports,this)}return r[t].exports;function p(e){return f(p.resolve(e))}}f.isParcelRequire=!0,f.Module=function(e){this.id=e,this.bundle=f,this.exports={}},f.modules=e,f.cache=r,f.parent=o,f.register=function(r,t){e[r]=[function(e,r){r.exports=t},{}]};for(var c=0;c<t.length;c++)try{f(t[c])}catch(e){i||(i=e)}if(t.length){var l=f(t[t.length-1]);"object"==typeof exports&&"undefined"!=typeof module?module.exports=l:"function"==n&&(this[n]=l)}if(parcelRequire=f,i)throw i;return f}({"../../../moduleWrappers/powercord/global/commands.js":[function(require,module,exports) {
-"use strict";function e(e,n){return a(e)||o(e,n)||t(e,n)||r()}function r(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}function t(e,r){if(e){if("string"==typeof e)return n(e,r);var t=Object.prototype.toString.call(e).slice(8,-1);return"Object"===t&&e.constructor&&(t=e.constructor.name),"Map"===t||"Set"===t?Array.from(e):"Arguments"===t||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t)?n(e,r):void 0}}function n(e,r){(null==r||r>e.length)&&(r=e.length);for(var t=0,n=new Array(r);t<r;t++)n[t]=e[t];return n}function o(e,r){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(e)){var t=[],n=!0,o=!1,a=void 0;try{for(var i,s=e[Symbol.iterator]();!(n=(i=s.next()).done)&&(t.push(i.value),!r||t.length!==r);n=!0);}catch(u){o=!0,a=u}finally{try{n||null==s.return||s.return()}finally{if(o)throw a}}return t}}function a(e){if(Array.isArray(e))return e}function i(e,r,t,n,o,a,i){try{var s=e[a](i),u=s.value}catch(c){return void t(c)}s.done?r(u):Promise.resolve(u).then(n,o)}function s(e){return function(){var r=this,t=arguments;return new Promise(function(n,o){var a=e.apply(r,t);function s(e){i(a,n,o,s,u,"next",e)}function u(e){i(a,n,o,s,u,"throw",e)}s(void 0)})}}Object.defineProperty(exports,"__esModule",{value:!0}),exports.unregisterCommand=exports.registerCommand=void 0;var u=goosemodScope.webpackModules.findByProps("sendMessage","receiveMessage").sendMessage,c=goosemodScope.webpackModules.findByProps("getChannelId").getChannelId,d=function(r){var t=r.command,n=(r.alias,r.description),o=(r.usage,r.executor);goosemodScope.patcher.commands.add(t,n,function(){var r=s(regeneratorRuntime.mark(function r(t){var n,a,i,s;return regeneratorRuntime.wrap(function(r){for(;;)switch(r.prev=r.next){case 0:return n="",t.args&&(a=e(t.args,1),i=a[0].text,n=i),r.next=4,o(n.split(" "));case 4:if((s=r.sent).send){r.next=8;break}return goosemodScope.patcher.internalMessage(s.result),r.abrupt("return");case 8:u(c(),{content:s.result,tts:!1,invalidEmojis:[],validNonShortcutEmojis:[]});case 9:case"end":return r.stop()}},r)}));return function(e){return r.apply(this,arguments)}}(),[{type:3,required:!1,name:"args",description:"Arguments for PC command"}])};exports.registerCommand=d;var m=function(e){goosemodScope.patcher.commands.remove(e)};exports.unregisterCommand=m;
+const sendMessage = goosemodScope.webpackModules.findByProps('sendMessage', 'receiveMessage').sendMessage;
+const getChannelId = goosemodScope.webpackModules.findByProps('getChannelId').getChannelId;
+
+export const registerCommand = ({ command, alias, description, usage, executor }) => {
+  // TODO: implement alias
+
+  goosemodScope.patcher.commands.add(command, description,
+    async (ret) => {
+      // Don't just destructure as using without text arguments returns empty object ({})
+
+      let textGiven = '';
+      if (ret.args) {
+        const { args: [ { text } ] } = ret;
+        textGiven = text;
+      }
+
+      const out = await executor(textGiven.split(' ')); // Run original executor func (await incase it's an async function)
+
+      if (!out.send) {
+        goosemodScope.patcher.internalMessage(out.result); // PC impl. sends internal message when out.send === false, so we also do the same via our previous Patcher API function
+
+        return;
+      }
+
+      // When send is true, we send it as a message via sendMessage
+
+      sendMessage(getChannelId(), {
+        content: out.result,
+
+        tts: false,
+        invalidEmojis: [],
+        validNonShortcutEmojis: []
+      });
+    }, [
+    { type: 3, required: false, name: 'args', description: 'Arguments for PC command' } // Argument for any string for compat. with PC's classical commands
+  ]);
+};
+
+export const unregisterCommand = (command) => {
+  goosemodScope.patcher.commands.remove(command);
+};
 },{}],"../../../moduleWrappers/powercord/global/notices.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.sendToast=void 0;var e=function(e,o){o.header;var t=o.content;o.type,o.buttons;goosemodScope.showToast(t)};exports.sendToast=e;
+export const sendToast = (_id, { header, content, type, buttons }) => {
+  // TODO: implement full toast in future instead of just small current GM toast
+
+  goosemodScope.showToast(content);
+};
 },{}],"../../../moduleWrappers/powercord/util/settings.js":[function(require,module,exports) {
-"use strict";function t(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function e(t,e,r){return e in t?Object.defineProperty(t,e,{value:r,enumerable:!0,configurable:!0,writable:!0}):t[e]=r,t}Object.defineProperty(exports,"__esModule",{value:!0}),exports.makeStore=exports.settingStores=void 0;var r={};exports.settingStores=r;var n=function(t){r[t]=new o};exports.makeStore=n;var o=function r(){var n=this;t(this,r),e(this,"getSetting",function(t,e){var r;return null!==(r=n.store[t])&&void 0!==r?r:e}),e(this,"updateSetting",function(t,e){return void 0===e?n.toggleSetting(t):(n.store[t]=e,n.store[t])}),e(this,"toggleSetting",function(t){return n.store[t]=!n.store[t],n.store[t]}),e(this,"deleteSetting",function(t){delete n.store[t]}),e(this,"getKeys",function(){return Object.keys(n.store)}),this.store={}};
+export const settingStores = {};
+
+export const makeStore = (key) => {
+  settingStores[key] = new SimpleStore();
+};
+
+class SimpleStore {
+  constructor() {
+    this.store = {};
+  }
+
+  getSetting = (key, defaultValue) => {
+    return this.store[key] ?? defaultValue;
+  }
+
+  updateSetting = (key, value) => {
+    if (value === undefined) {
+      return this.toggleSetting(key);
+    }
+
+    this.store[key] = value;
+
+    return this.store[key];
+  }
+
+  toggleSetting = (key) => {
+    this.store[key] = !this.store[key];
+
+    return this.store[key];
+  }
+
+  deleteSetting = (key) => {
+    delete this.store[key];
+  }
+
+  getKeys = () => Object.keys(this.store)
+}
 },{}],"../../../moduleWrappers/powercord/global/settings.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.unregisterSettings=exports.registerSettings=void 0;var e=r(require("../util/settings"));function t(){if("function"!=typeof WeakMap)return null;var e=new WeakMap;return t=function(){return e},e}function r(e){if(e&&e.__esModule)return e;if(null===e||"object"!=typeof e&&"function"!=typeof e)return{default:e};var r=t();if(r&&r.has(e))return r.get(e);var n={},o=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var i in e)if(Object.prototype.hasOwnProperty.call(e,i)){var c=o?Object.getOwnPropertyDescriptor(e,i):null;c&&(c.get||c.set)?Object.defineProperty(n,i,c):n[i]=e[i]}return n.default=e,r&&r.set(e,n),n}function n(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),r.push.apply(r,n)}return r}function o(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?n(Object(r),!0).forEach(function(t){i(e,t,r[t])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):n(Object(r)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))})}return e}function i(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}var c=function(t,r){var n=r.label,i=r.render,c=r.category,s=goosemodScope.webpackModules.common.React,u=goosemodScope.webpackModules.findByDisplayName("SettingsView"),a=goosemodScope.webpackModules.findByDisplayName("FormTitle"),p=goosemodScope.webpackModules.findByDisplayName("FormSection");e.settingStores[c]||e.makeStore(c),goosemodScope.patcher.inject(t,u.prototype,"getPredicateSections",function(t,r){var u=r.find(function(e){return"logout"===e.section});if(!u)return r;var f="function"==typeof n?n():n;return r.splice(r.indexOf(u)-1,0,{section:f,label:f,predicate:function(){},element:function(){return s.createElement(p,{},s.createElement(a,{tag:"h2"},f),s.createElement(i,o({},e.settingStores[c])))}}),r})};exports.registerSettings=c;var s=function(e){goosemodScope.patcher.uninject(e)};exports.unregisterSettings=s;
+import * as Settings from '../util/settings';
+
+export const registerSettings = (id, { label, render, category }) => {
+  const { React } = goosemodScope.webpackModules.common;
+
+  const SettingsView = goosemodScope.webpackModules.findByDisplayName('SettingsView');
+
+  const FormTitle = goosemodScope.webpackModules.findByDisplayName('FormTitle');
+  const FormSection = goosemodScope.webpackModules.findByDisplayName('FormSection');
+
+  if (!Settings.settingStores[category]) Settings.makeStore(category);
+
+  goosemodScope.patcher.inject(id, SettingsView.prototype, 'getPredicateSections', (_, sections) => {
+    const logout = sections.find((c) => c.section === 'logout');
+    if (!logout) return sections;
+
+    const finalLabel = typeof label === 'function' ? label() : label;
+
+    sections.splice(sections.indexOf(logout) - 1, 0,
+      {
+        section: finalLabel,
+        label: finalLabel,
+        predicate: () => { },
+        element: () => React.createElement(FormSection, { },
+          React.createElement(FormTitle, { tag: 'h2' }, finalLabel),
+
+          React.createElement(render, {
+            ...Settings.settingStores[category]
+          })
+        )
+      }
+    );
+
+    return sections;
+  });
+};
+
+export const unregisterSettings = (id) => {
+  goosemodScope.patcher.uninject(id);
+};
 },{"../util/settings":"../../../moduleWrappers/powercord/util/settings.js"}],"../../../moduleWrappers/powercord/global/index.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=o(require("./commands.js")),t=o(require("./notices.js")),r=o(require("./settings.js"));function n(){if("function"!=typeof WeakMap)return null;var e=new WeakMap;return n=function(){return e},e}function o(e){if(e&&e.__esModule)return e;if(null===e||"object"!=typeof e&&"function"!=typeof e)return{default:e};var t=n();if(t&&t.has(e))return t.get(e);var r={},o=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var i in e)if(Object.prototype.hasOwnProperty.call(e,i)){var u=o?Object.getOwnPropertyDescriptor(e,i):null;u&&(u.get||u.set)?Object.defineProperty(r,i,u):r[i]=e[i]}return r.default=e,t&&t.set(e,r),r}var i={api:{commands:e,notices:t,settings:r}};exports.default=i;
+import * as commands from './commands.js';
+import * as notices from './notices.js';
+import * as settings from './settings.js';
+
+export default {
+  api: {
+    commands,
+    notices,
+    settings
+  }
+};
 },{"./commands.js":"../../../moduleWrappers/powercord/global/commands.js","./notices.js":"../../../moduleWrappers/powercord/global/notices.js","./settings.js":"../../../moduleWrappers/powercord/global/settings.js"}],"../../../moduleWrappers/powercord/entities.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.Plugin=void 0;var e=n(require("./util/settings"));function t(){if("function"!=typeof WeakMap)return null;var e=new WeakMap;return t=function(){return e},e}function n(e){if(e&&e.__esModule)return e;if(null===e||"object"!=typeof e&&"function"!=typeof e)return{default:e};var n=t();if(n&&n.has(e))return n.get(e);var r={},i=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var o in e)if(Object.prototype.hasOwnProperty.call(e,o)){var s=i?Object.getOwnPropertyDescriptor(e,o):null;s&&(s.get||s.set)?Object.defineProperty(r,o,s):r[o]=e[o]}return r.default=e,n&&n.set(e,r),r}function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function o(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}var s=function(){function t(){r(this,t),this.stylesheets=[]}return o(t,[{key:"loadStylesheet",value:function(e){var t=document.createElement("style");t.appendChild(document.createTextNode(e)),document.head.appendChild(t),this.stylesheets.push(t)}},{key:"manifest",get:function(){return{name:this.name,description:this.description,version:this.version,author:this.authors.toString(),license:"Unknown"}}},{key:"entityID",get:function(){return this.name}},{key:"settings",get:function(){var t=e.settingStores[this.entityID];return{get:t.getSetting,set:t.updateSetting,delete:t.deleteSetting,getKeys:t.getKeys,connectStore:function(){}}}},{key:"goosemodHandlers",get:function(){var t=this;return{onImport:function(){e.makeStore(t.entityID),t.startPlugin.bind(t)()},onRemove:function(){t.stylesheets.forEach(function(e){return e.remove()}),t.pluginWillUnload.bind(t)()},getSettings:function(){return e.settingStores[t.entityID].store},loadSettings:function(n){return e.settingStores[t.entityID].store=n||{}}}}}]),t}();exports.Plugin=s;
+import * as Settings from './util/settings';
+
+export class Plugin {
+  constructor() {
+    this.stylesheets = [];
+  }
+
+  loadStylesheet(css) {
+    const el = document.createElement('style');
+
+    el.appendChild(document.createTextNode(css)); // Load the stylesheet via style element w/ CSS text
+
+    document.head.appendChild(el);
+  
+    this.stylesheets.push(el); // Push to internal array so we can remove the elements on unload
+  }
+
+  // Supposed to return PC manifest, which we don't store so return a rough one based on GM metadata
+  get manifest() {
+    return {
+      name: this.name,
+      description: this.description,
+      version: this.version,
+
+      author: this.authors.toString(),
+      license: 'Unknown'
+    }
+  }
+
+  get entityID() {
+    return this.name;
+  }
+
+  get settings() {
+    const store = Settings.settingStores[this.entityID];
+
+    return { // Basic wrapper with renamed functions
+      get: store.getSetting,
+      set: store.updateSetting,
+      delete: store.deleteSetting,
+
+      getKeys: store.getKeys,
+
+      connectStore: () => {} // Unneeded util func, but here incase it is attempted to be called
+    };
+  }
+
+  get goosemodHandlers() {
+    return {
+      onImport: () => {
+        Settings.makeStore(this.entityID);
+
+        this.startPlugin.bind(this)();
+      },
+
+      onRemove: () => {
+        this.stylesheets.forEach((x) => x.remove()); // Remove loaded stylesheets which were added with Plugin.loadStylesheet
+
+        this.pluginWillUnload.bind(this)();
+      },
+
+      getSettings: () => Settings.settingStores[this.entityID].store,
+      loadSettings: (storeBase) => Settings.settingStores[this.entityID].store = (storeBase || {})
+    };
+  }
+}
+
 },{"./util/settings":"../../../moduleWrappers/powercord/util/settings.js"}],"../../../moduleWrappers/powercord/components/settings/divider.js":[function(require,module,exports) {
-"use strict";function e(t){return(e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(t)}function t(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){for(var o=0;o<t.length;o++){var r=t[o];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function r(e,t,r){return t&&o(e.prototype,t),r&&o(e,r),e}function n(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&u(e,t)}function u(e,t){return(u=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function c(e){var t=a();return function(){var o,r=l(e);if(t){var n=l(this).constructor;o=Reflect.construct(r,arguments,n)}else o=r.apply(this,arguments);return i(this,o)}}function i(t,o){return!o||"object"!==e(o)&&"function"!=typeof o?f(t):o}function f(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function a(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(e){return!1}}function l(e){return(l=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var p=goosemodScope.webpackModules.common.React,s=goosemodScope.webpackModules.findByDisplayName("FormDivider"),y=goosemodScope.webpackModules.findByProps("dividerDefault","titleDefault"),b=function(e){n(u,p.PureComponent);var o=c(u);function u(){return t(this,u),o.apply(this,arguments)}return r(u,[{key:"render",value:function(){return p.createElement(s,{className:y.dividerDefault})}}]),u}();exports.default=b;
+const { React } = goosemodScope.webpackModules.common;
+
+const FormDivider = goosemodScope.webpackModules.findByDisplayName('FormDivider');
+const SettingsFormClasses = goosemodScope.webpackModules.findByProps('dividerDefault', 'titleDefault');
+
+export default class Divider extends React.PureComponent {
+  render() {
+    return React.createElement(FormDivider, {
+      className: SettingsFormClasses.dividerDefault
+    });
+  }
+}
 },{}],"../../../moduleWrappers/powercord/components/settings/formItem.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=t(require("./divider"));function t(e){return e&&e.__esModule?e:{default:e}}function o(e){return(o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function n(e,t){for(var o=0;o<t.length;o++){var r=t[o];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function i(e,t,o){return t&&n(e.prototype,t),o&&n(e,o),e}function c(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&u(e,t)}function u(e,t){return(u=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function p(e){var t=a();return function(){var o,r=l(e);if(t){var n=l(this).constructor;o=Reflect.construct(r,arguments,n)}else o=r.apply(this,arguments);return s(this,o)}}function s(e,t){return!t||"object"!==o(t)&&"function"!=typeof t?f(e):t}function f(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function a(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(e){return!1}}function l(e){return(l=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}var y=goosemodScope.webpackModules.common.React,d=goosemodScope.webpackModules.findByDisplayName("FormItem"),m=goosemodScope.webpackModules.findByDisplayName("FormText"),b=goosemodScope.webpackModules.findByDisplayName("Flex"),h=goosemodScope.webpackModules.findByProps("marginTop20","marginBottom20"),g=goosemodScope.webpackModules.findByProps("formText","description"),v=function(t){c(n,y.PureComponent);var o=p(n);function n(){return r(this,n),o.apply(this,arguments)}return i(n,[{key:"render",value:function(){var t=this;return y.createElement(d,{title:this.props.title,required:this.props.required,className:[b.Direction.VERTICAL,b.Justify.START,b.Align.STRETCH,b.Wrap.NO_WRAP,h.marginBottom20].join(" "),onClick:function(){t.props.onClick()}},this.props.children,this.props.note&&y.createElement(m,{className:g.description+(this.props.noteHasMargin?" "+h.marginTop8:"")},this.props.note),y.createElement(e.default))}}]),n}();exports.default=v;
+const { React } = goosemodScope.webpackModules.common;
+
+import Divider from './divider';
+
+const OriginalFormItem = goosemodScope.webpackModules.findByDisplayName('FormItem');
+const OriginalFormText = goosemodScope.webpackModules.findByDisplayName('FormText');
+
+const Flex = goosemodScope.webpackModules.findByDisplayName('Flex');
+const Margins = goosemodScope.webpackModules.findByProps('marginTop20', 'marginBottom20');
+const FormClasses = goosemodScope.webpackModules.findByProps('formText', 'description');
+
+export default class FormItem extends React.PureComponent {
+  render() {
+    return React.createElement(OriginalFormItem, {
+        title: this.props.title,
+        required: this.props.required,
+        className: [Flex.Direction.VERTICAL, Flex.Justify.START, Flex.Align.STRETCH, Flex.Wrap.NO_WRAP, Margins.marginBottom20].join(' '),
+        onClick: () => {
+          this.props.onClick();
+        }
+      },
+
+      this.props.children,
+
+      this.props.note && React.createElement(OriginalFormText, {
+        className: FormClasses.description + (this.props.noteHasMargin ? (' ' + Margins.marginTop8) : '')
+      }, this.props.note),
+
+      React.createElement(Divider)
+    );
+  }
+}
 },{"./divider":"../../../moduleWrappers/powercord/components/settings/divider.js"}],"../../../moduleWrappers/powercord/components/settings/textInput.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=t(require("./formItem"));function t(e){return e&&e.__esModule?e:{default:e}}function r(e){return(r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function n(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),r.push.apply(r,n)}return r}function o(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?n(Object(r),!0).forEach(function(t){c(e,t,r[t])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):n(Object(r)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))})}return e}function c(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function u(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function f(e,t,r){return t&&i(e.prototype,t),r&&i(e,r),e}function p(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&a(e,t)}function a(e,t){return(a=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function l(e){var t=b();return function(){var r,n=O(e);if(t){var o=O(this).constructor;r=Reflect.construct(n,arguments,o)}else r=n.apply(this,arguments);return s(this,r)}}function s(e,t){return!t||"object"!==r(t)&&"function"!=typeof t?y(e):t}function y(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function b(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(e){return!1}}function O(e){return(O=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}var d=goosemodScope.webpackModules.common.React,h=goosemodScope.webpackModules.findByDisplayName("TextInput"),m=function(t){p(n,d.PureComponent);var r=l(n);function n(){return u(this,n),r.apply(this,arguments)}return f(n,[{key:"render",value:function(){var t=this.props.children;return delete this.props.children,d.createElement(e.default,{title:t,note:this.props.note,required:this.props.required,noteHasMargin:!0},d.createElement(h,o({},this.props)))}}]),n}();exports.default=m;
+const { React } = goosemodScope.webpackModules.common;
+
+import FormItem from './formItem';
+
+const OriginalTextInput = goosemodScope.webpackModules.findByDisplayName('TextInput');
+
+export default class TextInput extends React.PureComponent {
+  render() {
+    const title = this.props.children;
+    delete this.props.children;
+
+    return React.createElement(FormItem, {
+        title,
+        note: this.props.note,
+        required: this.props.required,
+
+        noteHasMargin: true
+      },
+
+      React.createElement(OriginalTextInput, {
+        ...this.props
+      })
+    );
+  }
+}
 },{"./formItem":"../../../moduleWrappers/powercord/components/settings/formItem.js"}],"../../../moduleWrappers/powercord/components/settings/sliderInput.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=t(require("./formItem"));function t(e){return e&&e.__esModule?e:{default:e}}function r(e){return(r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function o(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var o=Object.getOwnPropertySymbols(e);t&&(o=o.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),r.push.apply(r,o)}return r}function n(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?o(Object(r),!0).forEach(function(t){c(e,t,r[t])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):o(Object(r)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))})}return e}function c(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function u(e,t){for(var r=0;r<t.length;r++){var o=t[r];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}function f(e,t,r){return t&&u(e.prototype,t),r&&u(e,r),e}function p(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&s(e,t)}function s(e,t){return(s=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function a(e){var t=b();return function(){var r,o=m(e);if(t){var n=m(this).constructor;r=Reflect.construct(o,arguments,n)}else r=o.apply(this,arguments);return l(this,r)}}function l(e,t){return!t||"object"!==r(t)&&"function"!=typeof t?y(e):t}function y(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function b(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(e){return!1}}function m(e){return(m=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}var d=goosemodScope.webpackModules.common.React,O=goosemodScope.webpackModules.findByDisplayName("Slider"),h=goosemodScope.webpackModules.findByProps("marginTop20","marginBottom20"),g=function(t){p(o,d.PureComponent);var r=a(o);function o(){return i(this,o),r.apply(this,arguments)}return f(o,[{key:"render",value:function(){var t=this.props.children;return delete this.props.children,d.createElement(e.default,{title:t,note:this.props.note,required:this.props.required},d.createElement(O,n(n({},this.props),{},{className:h.marginTop20+(this.props.className?" "+this.props.className:"")})))}}]),o}();exports.default=g;
+const { React } = goosemodScope.webpackModules.common;
+
+import FormItem from './formItem';
+
+const OriginalSlider = goosemodScope.webpackModules.findByDisplayName('Slider');
+const Margins = goosemodScope.webpackModules.findByProps('marginTop20', 'marginBottom20');
+
+export default class TextInput extends React.PureComponent {
+  render() {
+    const title = this.props.children;
+    delete this.props.children;
+
+    return React.createElement(FormItem, {
+        title,
+        note: this.props.note,
+        required: this.props.required
+      },
+
+      React.createElement(OriginalSlider, {
+        ...this.props,
+        className: Margins.marginTop20 + (this.props.className ? (' ' + this.props.className) : '')
+      })
+    );
+  }
+}
 },{"./formItem":"../../../moduleWrappers/powercord/components/settings/formItem.js"}],"../../../moduleWrappers/powercord/components/settings/buttonItem.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=t(require("./divider"));function t(e){return e&&e.__esModule?e:{default:e}}function o(e){return(o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function n(e,t){for(var o=0;o<t.length;o++){var r=t[o];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function i(e,t,o){return t&&n(e.prototype,t),o&&n(e,o),e}function c(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&s(e,t)}function s(e,t){return(s=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function l(e){var t=a();return function(){var o,r=f(e);if(t){var n=f(this).constructor;o=Reflect.construct(r,arguments,n)}else o=r.apply(this,arguments);return p(this,o)}}function p(e,t){return!t||"object"!==o(t)&&"function"!=typeof t?u(e):t}function u(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function a(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(e){return!1}}function f(e){return(f=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}var d=goosemodScope.webpackModules.common.React,y=goosemodScope.webpackModules.findByProps("Sizes","Colors","Looks","DropdownSizes"),m=goosemodScope.webpackModules.findByDisplayName("FormItem"),b=goosemodScope.webpackModules.findByDisplayName("FormText"),h=goosemodScope.webpackModules.findByDisplayName("Flex"),w=goosemodScope.webpackModules.findByProps("marginTop20","marginBottom20"),S=goosemodScope.webpackModules.findByProps("title","dividerDefault"),g=goosemodScope.webpackModules.findByProps("formText","placeholder"),v=goosemodScope.webpackModules.findByDisplayName("Tooltip"),E=function(t){c(n,d.PureComponent);var o=l(n);function n(){return r(this,n),o.apply(this,arguments)}return i(n,[{key:"render",value:function(){var t=this,o=this.props.children;return delete this.props.children,d.createElement(m,{className:[h.Direction.VERTICAL,h.Justify.START,h.Align.STRETCH,h.Wrap.NO_WRAP,w.marginBottom20].join(" ")},d.createElement("div",{style:{display:"flex",justifyContent:"space-between"}},d.createElement("div",{},d.createElement("div",{className:S.labelRow,style:{marginBottom:"4px"}},d.createElement("label",{class:S.title},o)),d.createElement(b,{className:g.description},this.props.note)),d.createElement(v,{text:this.props.tooltipText,position:this.props.tooltipPosition,shouldShow:""!==this.props.tooltipText},function(){return d.createElement(y,{color:t.props.success?y.Colors.GREEN:t.props.color||y.Colors.BRAND,disabled:t.props.disabled,onClick:function(){return t.props.onClick()}},t.props.button)})),d.createElement(e.default))}}]),n}();exports.default=E;
+const { React } = goosemodScope.webpackModules.common;
+
+import Divider from './divider';
+
+const Button = goosemodScope.webpackModules.findByProps('Sizes', 'Colors', 'Looks', 'DropdownSizes');
+
+const FormItem = goosemodScope.webpackModules.findByDisplayName('FormItem');
+const FormText = goosemodScope.webpackModules.findByDisplayName('FormText');
+
+const Flex = goosemodScope.webpackModules.findByDisplayName('Flex');
+const Margins = goosemodScope.webpackModules.findByProps('marginTop20', 'marginBottom20');
+
+const FormClasses = goosemodScope.webpackModules.findByProps('title', 'dividerDefault');
+const FormTextClasses = goosemodScope.webpackModules.findByProps('formText', 'placeholder');
+
+const Tooltip = goosemodScope.webpackModules.findByDisplayName('Tooltip');
+
+
+export default class ButtonItem extends React.PureComponent {
+  render() {
+    const title = this.props.children;
+    delete this.props.children;
+
+    return React.createElement(FormItem, {
+        className: [Flex.Direction.VERTICAL, Flex.Justify.START, Flex.Align.STRETCH, Flex.Wrap.NO_WRAP, Margins.marginBottom20].join(' '),
+      },
+
+      React.createElement('div', {
+          style: {
+            display: 'flex',
+            justifyContent: 'space-between'
+          }
+        },
+
+        React.createElement('div', {},
+          React.createElement('div', {
+              className: FormClasses.labelRow,
+              style: {
+                marginBottom: '4px'
+              }
+            },
+
+            React.createElement('label', {
+              class: FormClasses.title
+            }, title)
+          ),
+
+          React.createElement(FormText, {
+            className: FormTextClasses.description
+          }, this.props.note)
+        ),
+
+        React.createElement(Tooltip, {
+          text: this.props.tooltipText,
+          position: this.props.tooltipPosition,
+          shouldShow: this.props.tooltipText !== ''
+        }, () => React.createElement(Button,
+          {
+            color: this.props.success ? Button.Colors.GREEN : (this.props.color || Button.Colors.BRAND),
+            disabled: this.props.disabled,
+
+            onClick: () => this.props.onClick()
+          },
+          this.props.button
+        )),
+      ),
+
+      React.createElement(Divider)
+    );
+  }
+}
 },{"./divider":"../../../moduleWrappers/powercord/components/settings/divider.js"}],"../../../moduleWrappers/powercord/components/settings/category.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=t(require("./formItem"));function t(e){return e&&e.__esModule?e:{default:e}}function r(e){return(r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function n(e){return u(e)||c(e)||i(e)||o()}function o(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}function i(e,t){if(e){if("string"==typeof e)return a(e,t);var r=Object.prototype.toString.call(e).slice(8,-1);return"Object"===r&&e.constructor&&(r=e.constructor.name),"Map"===r||"Set"===r?Array.from(e):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?a(e,t):void 0}}function c(e){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(e))return Array.from(e)}function u(e){if(Array.isArray(e))return a(e)}function a(e,t){(null==t||t>e.length)&&(t=e.length);for(var r=0,n=new Array(t);r<t;r++)n[r]=e[r];return n}function l(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function f(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function p(e,t,r){return t&&f(e.prototype,t),r&&f(e,r),e}function s(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&y(e,t)}function y(e,t){return(y=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function d(e){var t=h();return function(){var r,n=v(e);if(t){var o=v(this).constructor;r=Reflect.construct(n,arguments,o)}else r=n.apply(this,arguments);return m(this,r)}}function m(e,t){return!t||"object"!==r(t)&&"function"!=typeof t?b(e):t}function b(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function h(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(e){return!1}}function v(e){return(v=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}var g=goosemodScope.webpackModules.common.React,w=goosemodScope.webpackModules.findByProps("title","dividerDefault"),S=goosemodScope.webpackModules.findByProps("formText","placeholder"),O=goosemodScope.webpackModules.findByDisplayName("FormText"),j=function(t){s(o,g.PureComponent);var r=d(o);function o(){return l(this,o),r.apply(this,arguments)}return p(o,[{key:"render",value:function(){var t=this,r=this.props.opened?this.props.children:[];return g.createElement.apply(g,[e.default,{title:g.createElement("div",{},g.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 24 24",width:"24",height:"24",style:{transform:this.props.opened?"rotate(90deg)":"",marginRight:"10px"}},g.createElement("path",{fill:"var(--header-primary)",d:"M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"})),g.createElement("label",{class:w.title,style:{textTransform:"none",display:"inline",verticalAlign:"top"}},this.props.name,g.createElement(O,{className:S.description,style:{marginLeft:"34px"}},this.props.description))),onClick:function(){t.props.onChange(!t.props.opened)}}].concat(n(r)))}}]),o}();exports.default=j;
+const { React } = goosemodScope.webpackModules.common;
+
+import FormItem from './formItem';
+
+const FormClasses = goosemodScope.webpackModules.findByProps('title', 'dividerDefault');
+const FormTextClasses = goosemodScope.webpackModules.findByProps('formText', 'placeholder');
+
+const FormText = goosemodScope.webpackModules.findByDisplayName('FormText');
+
+export default class Category extends React.PureComponent {
+  render() {
+    const children = this.props.opened ? this.props.children : [];
+
+    return React.createElement(FormItem, {
+        title: React.createElement('div', {},
+          React.createElement('svg', {
+            xmlns: "http://www.w3.org/2000/svg",
+            viewBox: "0 0 24 24",
+            width: "24",
+            height: "24",
+            style: {
+              transform: this.props.opened ? 'rotate(90deg)' : '',
+              marginRight: '10px'
+            }
+          },
+            React.createElement('path', {
+              fill: 'var(--header-primary)',
+              d: 'M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z'
+            }),
+          ),
+
+          React.createElement('label', {
+            class: FormClasses.title,
+            style: {
+              textTransform: 'none',
+              display: 'inline',
+              verticalAlign: 'top',
+            }
+          },
+            this.props.name,
+
+            React.createElement(FormText, {
+              className: FormTextClasses.description,
+              style: {
+                marginLeft: '34px'
+              }
+            }, this.props.description)
+          ),
+        ),
+
+        onClick: () => {
+          this.props.onChange(!this.props.opened);
+        }
+      },
+
+      ...children
+    );
+  }
+}
 },{"./formItem":"../../../moduleWrappers/powercord/components/settings/formItem.js"}],"../../../moduleWrappers/powercord/components/settings/switchItem.js":[function(require,module,exports) {
-"use strict";function e(t){return(e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(t)}function t(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),r.push.apply(r,n)}return r}function r(e){for(var r=1;r<arguments.length;r++){var o=null!=arguments[r]?arguments[r]:{};r%2?t(Object(o),!0).forEach(function(t){n(e,t,o[t])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(o)):t(Object(o)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(o,t))})}return e}function n(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function c(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function u(e,t,r){return t&&c(e.prototype,t),r&&c(e,r),e}function i(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&f(e,t)}function f(e,t){return(f=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function a(e){var t=s();return function(){var r,n=y(e);if(t){var o=y(this).constructor;r=Reflect.construct(n,arguments,o)}else r=n.apply(this,arguments);return p(this,r)}}function p(t,r){return!r||"object"!==e(r)&&"function"!=typeof r?l(t):r}function l(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function s(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(e){return!1}}function y(e){return(y=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var b=goosemodScope.webpackModules.common.React,O=goosemodScope.webpackModules.findByDisplayName("SwitchItem"),h=function(e){i(n,b.Component);var t=a(n);function n(e){var r;o(this,n);var c=e.onChange;return e.onChange=function(e){c(e),r.props.value=e,r.forceUpdate()},r=t.call(this,e)}return u(n,[{key:"render",value:function(){return b.createElement(O,r({},this.props))}}]),n}();exports.default=h;
+const { React } = goosemodScope.webpackModules.common;
+const SwitchItem = goosemodScope.webpackModules.findByDisplayName('SwitchItem');
+
+export default class SwitchItemContainer extends React.Component {
+  constructor(props) {
+    const originalHandler = props.onChange;
+    props.onChange = (e) => {
+      originalHandler(e);
+
+      this.props.value = e;
+      this.forceUpdate();
+    };
+
+    super(props);
+  }
+
+  render() {
+    return React.createElement(SwitchItem, {
+      ...this.props
+    });
+  }
+}
 },{}],"../../../moduleWrappers/powercord/components/settings/index.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),Object.defineProperty(exports,"FormItem",{enumerable:!0,get:function(){return e.default}}),Object.defineProperty(exports,"TextInput",{enumerable:!0,get:function(){return t.default}}),Object.defineProperty(exports,"SliderInput",{enumerable:!0,get:function(){return r.default}}),Object.defineProperty(exports,"Divider",{enumerable:!0,get:function(){return u.default}}),Object.defineProperty(exports,"ButtonItem",{enumerable:!0,get:function(){return n.default}}),Object.defineProperty(exports,"Category",{enumerable:!0,get:function(){return i.default}}),Object.defineProperty(exports,"SwitchItem",{enumerable:!0,get:function(){return o.default}});var e=f(require("./formItem")),t=f(require("./textInput")),r=f(require("./sliderInput")),u=f(require("./divider")),n=f(require("./buttonItem")),i=f(require("./category")),o=f(require("./switchItem"));function f(e){return e&&e.__esModule?e:{default:e}}
+export { default as FormItem } from './formItem';
+export { default as TextInput } from './textInput';
+export { default as SliderInput } from './sliderInput';
+export { default as Divider } from './divider';
+export { default as ButtonItem } from './buttonItem';
+export { default as Category } from './category';
+export { default as SwitchItem } from './switchItem';
 },{"./formItem":"../../../moduleWrappers/powercord/components/settings/formItem.js","./textInput":"../../../moduleWrappers/powercord/components/settings/textInput.js","./sliderInput":"../../../moduleWrappers/powercord/components/settings/sliderInput.js","./divider":"../../../moduleWrappers/powercord/components/settings/divider.js","./buttonItem":"../../../moduleWrappers/powercord/components/settings/buttonItem.js","./category":"../../../moduleWrappers/powercord/components/settings/category.js","./switchItem":"../../../moduleWrappers/powercord/components/settings/switchItem.js"}],"../../../moduleWrappers/powercord/webpack.js":[function(require,module,exports) {
-function e(e,r){var o=Object.keys(e);if(Object.getOwnPropertySymbols){var t=Object.getOwnPropertySymbols(e);r&&(t=t.filter(function(r){return Object.getOwnPropertyDescriptor(e,r).enumerable})),o.push.apply(o,t)}return o}function r(r){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?e(Object(n),!0).forEach(function(e){o(r,e,n[e])}):Object.getOwnPropertyDescriptors?Object.defineProperties(r,Object.getOwnPropertyDescriptors(n)):e(Object(n)).forEach(function(e){Object.defineProperty(r,e,Object.getOwnPropertyDescriptor(n,e))})}return r}function o(e,r,o){return r in e?Object.defineProperty(e,r,{value:o,enumerable:!0,configurable:!0,writable:!0}):e[r]=o,e}var t=function(e){if(Array.isArray(e)){var r=e;e=function(e){return r.every(function(r){return e[r]||e.__proto__&&e.__proto__[r]})}}return e};module.exports=r({getModule:function(e,r,o){e=t(e);var n=goosemodScope.webpackModules.find(e);return r?new Promise(function(e){return e(n)}):n},getAllModules:function(e){return e=t(e),goosemodScope.webpackModules.findAll(e)},getModuleByDisplayName:function(e){return goosemodScope.webpackModules.find(function(r){return r.displayName&&r.displayName.toLowerCase()===e.toLowerCase()})}},goosemodScope.webpackModules.common);
+const makeFinalFilter = (filter) => {
+  if (Array.isArray(filter)) {
+    const subs = filter;
+    filter = (mod) => subs.every((s) => mod[s] || (mod.__proto__ && mod.__proto__[s]));
+  }
+
+  return filter;
+};
+
+module.exports = {
+  getModule: (filter, retry, _forever) => { // Ignoring retry and forever arguments for basic implementation
+    filter = makeFinalFilter(filter);
+
+    const result = goosemodScope.webpackModules.find(filter);
+
+    if (!retry) { // retry = false: sync, retry = true: async (returns Promise)
+      return result;
+    }
+
+    return new Promise((res) => res(result));
+  },
+
+  getAllModules: (filter) => {
+    filter = makeFinalFilter(filter);
+
+    return goosemodScope.webpackModules.findAll(filter);
+  },
+
+  getModuleByDisplayName: (displayName) => {
+    // Use custom find instead of GM's findByDisplayName as PC's is case insensitive
+    return goosemodScope.webpackModules.find((x) => x.displayName && x.displayName.toLowerCase() === displayName.toLowerCase());
+  },
+
+  ...goosemodScope.webpackModules.common // Export common modules (eg: React)
+};
 },{}],"../../../moduleWrappers/powercord/injector.js":[function(require,module,exports) {
-module.exports=goosemodScope.patcher;
+module.exports = goosemodScope.patcher; // GM's Patcher main functions (inject, uninject) have very similar syntax to PC's Injector as it was initially based on PC's design (however was later changed to use patch func)
 },{}],"../../../moduleWrappers/powercord/util.js":[function(require,module,exports) {
-function e(e,r,t,n,o,c,u){try{var i=e[c](u),a=i.value}catch(f){return void t(f)}i.done?r(a):Promise.resolve(a).then(n,o)}function r(r){return function(){var t=this,n=arguments;return new Promise(function(o,c){var u=r.apply(t,n);function i(r){e(u,o,c,i,a,"next",r)}function a(r){e(u,o,c,i,a,"throw",r)}i(void 0)})}}function t(e,r){var t=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);r&&(n=n.filter(function(r){return Object.getOwnPropertyDescriptor(e,r).enumerable})),t.push.apply(t,n)}return t}function n(e){for(var r=1;r<arguments.length;r++){var n=null!=arguments[r]?arguments[r]:{};r%2?t(Object(n),!0).forEach(function(r){o(e,r,n[r])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):t(Object(n)).forEach(function(r){Object.defineProperty(e,r,Object.getOwnPropertyDescriptor(n,r))})}return e}function o(e,r,t){return r in e?Object.defineProperty(e,r,{value:t,enumerable:!0,configurable:!0,writable:!0}):e[r]=t,e}var c=function(e){return new Promise(function(r){return setTimeout(r,e)})};module.exports=n({sleep:c,waitFor:function(){var e=r(regeneratorRuntime.mark(function e(r){var t;return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:if(!(t=document.querySelector(r))){e.next=4;break}return e.abrupt("return",t);case 4:return e.next=6,c(5);case 6:e.next=0;break;case 8:case"end":return e.stop()}},e)}));return function(r){return e.apply(this,arguments)}}()},goosemodScope.reactUtils);
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+module.exports = {
+  sleep,
+
+  waitFor: async (query) => {
+    while (true) {
+      const el = document.querySelector(query);
+      if (el) return el;
+
+      await sleep(5);
+    }
+  },
+
+  ...goosemodScope.reactUtils // Export GooseMod React utils
+};
 },{}],"Components/Settings.jsx":[function(require,module,exports) {
-"use strict";var e=t(require("_powercord/global"));function t(e){return e&&e.__esModule?e:{default:e}}function o(e){return(o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function r(e,t){for(var o=0;o<t.length;o++){var n=t[o];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function s(e,t,o){return t&&r(e.prototype,t),o&&r(e,o),e}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&i(e,t)}function i(e,t){return(i=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function l(e){var t=c();return function(){var o,n=p(e);if(t){var r=p(this).constructor;o=Reflect.construct(n,arguments,r)}else o=n.apply(this,arguments);return g(this,o)}}function g(e,t){return!t||"object"!==o(t)&&"function"!=typeof t?u(e):t}function u(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function c(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(e){return!1}}function p(e){return(p=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}require.cache["powercord/entities"]=require("powercord/entities"),require.cache["powercord/components/settings"]=require("powercord/components/settings"),require.cache["powercord/webpack"]=require("powercord/webpack");var f=require("powercord/webpack"),h=f.React,m=require("powercord/components/settings"),d=m.SwitchItem,w=m.TextInput,C=m.ColorPickerInput;module.exports=function(e){a(o,h.PureComponent);var t=l(o);function o(){return n(this,o),t.apply(this,arguments)}return s(o,[{key:"render",value:function(){var e=this;return h.createElement("div",null,h.createElement(d,{value:this.props.getSetting("showOwnerTag",!0),onChange:function(){e.props.toggleSetting("showOwnerTag",!0)},note:"If disabled, owner tags won't show anywhere"},"Show Owner Tags"),h.createElement(d,{value:this.props.getSetting("showAdminTags",!0),onChange:function(){e.props.toggleSetting("showAdminTags",!0)},note:"If disabled, admin tags won't be shown anywhere. Admin tags look for the Administrator permission"},"Show Admin Tags"),h.createElement(d,{value:this.props.getSetting("showModTags",!0),onChange:function(){e.props.toggleSetting("showModTags",!0)},note:"If disabled, mod tags won't be shown anywhere. Mod tags look for kick/ban members and manage message permission"},"Show Mod Tags"),h.createElement(d,{value:this.props.getSetting("showStaffTags",!0),onChange:function(){e.props.toggleSetting("showStaffTags",!0)},note:"If disabled, staff tags won't be shown anywhere. Staff tags look for manage channels, manage server, or manage roles"},"Show Staff Tags"),h.createElement(d,{value:this.props.getSetting("displayMessages",!0),onChange:function(){e.props.toggleSetting("displayMessages",!0)},note:"If disabled, badges won't be shown in chat."},"Show in Chat"),h.createElement(d,{value:this.props.getSetting("showCrowns",!1),onChange:function(){e.props.toggleSetting("showCrowns",!1)},note:"If enabled, Crowns will be displayed instead of Tags"},"Show crowns instead of Tags"),h.createElement(d,{value:this.props.getSetting("displayMembers",!0),onChange:function(){e.props.toggleSetting("displayMembers",!0)},note:"If disabled, badges won't be shown in the member list."},"Show in Member List"),h.createElement(d,{value:this.props.getSetting("showForBots",!0),onChange:function(){e.props.toggleSetting("showForBots",!0)},note:"If disabled, badges won't be shown anywhere for bots. (WIP)"},"Show for Bots"),h.createElement(d,{value:this.props.getSetting("customTagColors",!1),onChange:function(){e.props.toggleSetting("customTagColors",!1)},note:"Enable to select custom colors for tags. Enable to show settings."},"Change Tag Colors"),this.props.getSetting("customTagColors")&&h.createElement(h.Fragment,null,h.createElement(d,{value:this.props.getSetting("useCustomOwnerColor",!1),onChange:function(){e.props.toggleSetting("useCustomOwnerColor")},note:"If enabled, custom colors entered below will be used (if color box is empty, highest role color is used)"},"Use Custom Owner Color"),this.props.getSetting("useCustomOwnerColor")&&h.createElement(C,{note:"Overrides owner tags color. By default, uses the color of the user's highest role.",onChange:function(t){return e.props.updateSetting("ownerTagColor",t?e._numberToHex(t):null)},default:parseInt("ED9F1B",16),value:this.getColorSetting("ownerTagColor")},"Owner Tag Color"),this.props.getSetting("useCustomOwnerColor")&&h.createElement(d,{value:this.props.getSetting("GroupOwnerColor",!0),onChange:function(){e.props.toggleSetting("GroupOwnerColor",!0)},note:"If enabled, Group Owner tag color will be same as Server Owner tag color"},"Use Custom Group owner Color"),h.createElement(d,{value:this.props.getSetting("useCustomAdminColor",!1),onChange:function(){e.props.toggleSetting("useCustomAdminColor")},note:"If enabled, custom colors entered below will be used (if color box is empty, highest role color is used)"},"Use Custom Admin Color"),this.props.getSetting("useCustomAdminColor")&&h.createElement(C,{note:"Overrides admin tags color. By default, uses the color of the user's highest role.",onChange:function(t){return e.props.updateSetting("adminTagColor",t?e._numberToHex(t):null)},default:parseInt("B4B4B4",16),value:this.getColorSetting("adminTagColor")},"Admin Tag Color"),h.createElement(d,{value:this.props.getSetting("useCustomStaffColor",!1),onChange:function(){e.props.toggleSetting("useCustomStaffColor")},note:"If enabled, custom colors entered below will be used (if color box is empty, highest role color is used)"},"Use Custom Staff Color"),this.props.getSetting("useCustomStaffColor")&&h.createElement(C,{note:"Overrides staff tags color. By default, uses the color of the user's highest role.",onChange:function(t){return e.props.updateSetting("staffTagColor",t?e._numberToHex(t):null)},default:parseInt("8D5C51",16),value:this.getColorSetting("staffTagColor")},"Staff Tag Color"),h.createElement(d,{value:this.props.getSetting("useCustomModColor",!1),onChange:function(){e.props.toggleSetting("useCustomModColor")},note:"If enabled, custom colors entered below will be used (if color box is empty, highest role color is used)"},"Use Custom Mod Color"),this.props.getSetting("useCustomModColor")&&h.createElement(C,{note:"Overrides mod tags color. By default, uses the color of the user's highest role.",onChange:function(t){return e.props.updateSetting("modTagColor",t?e._numberToHex(t):null)},default:parseInt("C8682E",16),value:this.getColorSetting("modTagColor")},"Mod Tag Color")),h.createElement(d,{value:this.props.getSetting("customTagText",!1),onChange:function(){e.props.toggleSetting("customTagText")},note:"Enables customizing text of the tags. Enable to show settings."},"Enable Custom Tag Text"),this.props.getSetting("customTagText")&&h.createElement(h.Fragment,null,h.createElement(w,{note:"Changing this will change the text shown in Owner Tags",onChange:function(t){return e.props.updateSetting("ownerTagText",t)},defaultValue:this.props.getSetting("ownerTagText","Owner"),required:!0},"Owner Tag Text"),h.createElement(w,{note:"Changing this will change the text shown in Admin Tags",onChange:function(t){return e.props.updateSetting("adminTagText",t)},defaultValue:this.props.getSetting("adminTagText","Admin"),required:!0},"Admin Tag Text"),h.createElement(w,{note:"Changing this will change the text shown in Mod Tags",onChange:function(t){return e.props.updateSetting("modTagText",t)},defaultValue:this.props.getSetting("modTagText","Mod"),required:!0},"Mod Tag Text"),h.createElement(w,{note:"Changing this will change the text shown in Staff Tags",onChange:function(t){return e.props.updateSetting("staffTagText",t)},defaultValue:this.props.getSetting("staffTagText","Staff"),required:!0},"Staff Tag Text")),h.createElement("div",{style:{color:"white"}},h.createElement("p",null,"Owner: Is the owner of a Server or Group Chat"),h.createElement("p",null,"Admin: Has the Administrator permission"),h.createElement("p",null,"Mod: Has one of the following permissions",h.createElement("ul",null,h.createElement("li",null,"- Kick Members"),h.createElement("li",null,"- Ban Members"),h.createElement("li",null,"- Manage Messages"))),h.createElement("p",null,"Staff: Has one of the following permissions",h.createElement("ul",null,h.createElement("li",null,"- Manage Server"),h.createElement("li",null,"- Manage Channels"),h.createElement("li",null,"- Manage Roles")))))}},{key:"getTagTextSetting",value:function(e,t){var o=this.props.getSetting(e);return o||t}},{key:"getColorSetting",value:function(e){var t=this.props.getSetting(e);return t?parseInt(t.slice(1),16):0}},{key:"_numberToHex",value:function(e){var t=(65280&e)>>>8,o=255&e;return"#".concat(((16711680&e)>>>16).toString(16).padStart(2,"0")).concat(t.toString(16).padStart(2,"0")).concat(o.toString(16).padStart(2,"0"))}}]),o}();
+import powercord from '_powercord/global';
+require.cache['powercord/entities'] = require('powercord/entities');
+require.cache['powercord/components/settings'] = require('powercord/components/settings');
+require.cache['powercord/webpack'] = require('powercord/webpack');
+
+/* eslint-disable indent */
+/* Essential Packages */
+const { React } = require('powercord/webpack');
+
+/* Plugin Specific Packages */
+// There are many more componenets available in "powercord/components/settings".
+const {
+    SwitchItem,
+    TextInput,
+    ColorPickerInput,
+    Button,
+    FormNotice,
+    Card,
+    Clickable,
+    Switch,
+    Spinner,
+    FormTitle,
+    HeaderBar,
+    TabBar,
+    Flex
+} = require('powercord/components/settings');
+
+module.exports = class Settings extends React.PureComponent {
+    /**
+     * Renderer, this is what's being executed on line 22 of index.js
+     * The example here displays a toggle between displaying a cat or a dog.
+     * */
+
+    render() {
+        return (
+            <div>
+                <SwitchItem
+                    value={this.props.getSetting('showOwnerTag', true)}
+                    onChange={() => {
+                        this.props.toggleSetting('showOwnerTag', true);
+                    }}
+                    note="If disabled, owner tags won't show anywhere"
+                >
+                    Show Owner Tags
+                </SwitchItem>
+                <SwitchItem
+                    value={this.props.getSetting('showAdminTags', true)}
+                    onChange={() => {
+                        this.props.toggleSetting('showAdminTags', true);
+                    }}
+                    note="If disabled, admin tags won't be shown anywhere. Admin tags look for the Administrator permission"
+                >
+                    Show Admin Tags
+                </SwitchItem>
+                <SwitchItem
+                    value={this.props.getSetting('showModTags', true)}
+                    onChange={() => {
+                        this.props.toggleSetting('showModTags', true);
+                    }}
+                    note="If disabled, mod tags won't be shown anywhere. Mod tags look for kick/ban members and manage message permission"
+                >
+                    Show Mod Tags
+                </SwitchItem>
+                <SwitchItem
+                    value={this.props.getSetting('showStaffTags', true)}
+                    onChange={() => {
+                        this.props.toggleSetting('showStaffTags', true);
+                    }}
+                    note="If disabled, staff tags won't be shown anywhere. Staff tags look for manage channels, manage server, or manage roles"
+                >
+                    Show Staff Tags
+                </SwitchItem>
+                <SwitchItem
+                    value={this.props.getSetting('displayMessages', true)}
+                    onChange={() => {
+                        this.props.toggleSetting('displayMessages', true);
+                    }}
+                    note="If disabled, badges won't be shown in chat."
+                >
+                    Show in Chat
+                </SwitchItem>
+
+                <SwitchItem
+                    value={this.props.getSetting('showCrowns', false)}
+                    onChange={() => {
+                        this.props.toggleSetting('showCrowns', false);
+                    }}
+                    note='If enabled, Crowns will be displayed instead of Tags'
+                >
+                    Show crowns instead of Tags
+                </SwitchItem>
+
+                <SwitchItem
+                    value={this.props.getSetting('displayMembers', true)}
+                    onChange={() => {
+                        this.props.toggleSetting('displayMembers', true);
+                    }}
+                    note="If disabled, badges won't be shown in the member list."
+                >
+                    Show in Member List
+                </SwitchItem>
+                {/* <SwitchItem
+                    value={this.props.getSetting('showForBots', true)}
+                    onChange={() => {
+                        this.props.toggleSetting('showForBots', true);
+                    }}
+                    note="If disabled, badges won't be shown anywhere for bots. (WIP)"
+                >
+                    Show for Bots
+                </SwitchItem> */}
+
+                <SwitchItem
+                    value={this.props.getSetting('customTagColors', false)}
+                    onChange={() => {
+                        this.props.toggleSetting('customTagColors', false);
+                    }}
+                    note='Enable to select custom colors for tags. Enable to show settings.'
+                >
+                    Change Tag Colors
+                </SwitchItem>
+
+                {this.props.getSetting('customTagColors') && (
+                    <>
+                        <SwitchItem
+                            value={this.props.getSetting(
+                                'useCustomOwnerColor',
+                                false
+                            )}
+                            onChange={() => {
+                                this.props.toggleSetting('useCustomOwnerColor');
+                            }}
+                            note='If enabled, custom colors entered below will be used (if color box is empty, highest role color is used)'
+                        >
+                            Use Custom Owner Color
+                        </SwitchItem>
+                        {this.props.getSetting('useCustomOwnerColor') && (
+                            <ColorPickerInput
+                                note={
+                                    "Overrides owner tags color. By default, uses the color of the user's highest role."
+                                }
+                                onChange={c =>
+                                    this.props.updateSetting(
+                                        'ownerTagColor',
+                                        c ? this._numberToHex(c) : null
+                                    )
+                                }
+                                default={parseInt('ED9F1B', 16)}
+                                value={this.getColorSetting('ownerTagColor')}
+                            >
+                                Owner Tag Color
+                            </ColorPickerInput>
+                        )}
+                        {this.props.getSetting('useCustomOwnerColor') && (
+                            <SwitchItem
+                                value={this.props.getSetting(
+                                    'GroupOwnerColor',
+                                    true
+                                )}
+                                onChange={() => {
+                                    this.props.toggleSetting(
+                                        'GroupOwnerColor',
+                                        true
+                                    );
+                                }}
+                                note='If enabled, Group Owner tag color will be same as Server Owner tag color'
+                            >
+                                Use Custom Group owner Color
+                            </SwitchItem>
+                        )}
+
+                        <SwitchItem
+                            value={this.props.getSetting(
+                                'useCustomAdminColor',
+                                false
+                            )}
+                            onChange={() => {
+                                this.props.toggleSetting('useCustomAdminColor');
+                            }}
+                            note='If enabled, custom colors entered below will be used (if color box is empty, highest role color is used)'
+                        >
+                            Use Custom Admin Color
+                        </SwitchItem>
+                        {this.props.getSetting('useCustomAdminColor') && (
+                            <ColorPickerInput
+                                note={
+                                    "Overrides admin tags color. By default, uses the color of the user's highest role."
+                                }
+                                onChange={c =>
+                                    this.props.updateSetting(
+                                        'adminTagColor',
+                                        c ? this._numberToHex(c) : null
+                                    )
+                                }
+                                default={parseInt('B4B4B4', 16)}
+                                value={this.getColorSetting('adminTagColor')}
+                            >
+                                Admin Tag Color
+                            </ColorPickerInput>
+                        )}
+
+                        <SwitchItem
+                            value={this.props.getSetting(
+                                'useCustomStaffColor',
+                                false
+                            )}
+                            onChange={() => {
+                                this.props.toggleSetting('useCustomStaffColor');
+                            }}
+                            note='If enabled, custom colors entered below will be used (if color box is empty, highest role color is used)'
+                        >
+                            Use Custom Staff Color
+                        </SwitchItem>
+                        {this.props.getSetting('useCustomStaffColor') && (
+                            <ColorPickerInput
+                                note={
+                                    "Overrides staff tags color. By default, uses the color of the user's highest role."
+                                }
+                                onChange={c =>
+                                    this.props.updateSetting(
+                                        'staffTagColor',
+                                        c ? this._numberToHex(c) : null
+                                    )
+                                }
+                                default={parseInt('8D5C51', 16)}
+                                value={this.getColorSetting('staffTagColor')}
+                            >
+                                Staff Tag Color
+                            </ColorPickerInput>
+                        )}
+
+                        <SwitchItem
+                            value={this.props.getSetting(
+                                'useCustomModColor',
+                                false
+                            )}
+                            onChange={() => {
+                                this.props.toggleSetting('useCustomModColor');
+                            }}
+                            note='If enabled, custom colors entered below will be used (if color box is empty, highest role color is used)'
+                        >
+                            Use Custom Mod Color
+                        </SwitchItem>
+                        {this.props.getSetting('useCustomModColor') && (
+                            <ColorPickerInput
+                                note={
+                                    "Overrides mod tags color. By default, uses the color of the user's highest role."
+                                }
+                                onChange={c =>
+                                    this.props.updateSetting(
+                                        'modTagColor',
+                                        c ? this._numberToHex(c) : null
+                                    )
+                                }
+                                default={parseInt('C8682E', 16)}
+                                value={this.getColorSetting('modTagColor')}
+                            >
+                                Mod Tag Color
+                            </ColorPickerInput>
+                        )}
+                    </>
+                )}
+
+                <SwitchItem
+                    value={this.props.getSetting('customTagText', false)}
+                    onChange={() => {
+                        this.props.toggleSetting('customTagText');
+                    }}
+                    note='Enables customizing text of the tags. Enable to show settings.'
+                >
+                    Enable Custom Tag Text
+                </SwitchItem>
+
+                {this.props.getSetting('customTagText') && (
+                    <>
+                        <TextInput
+                            note={
+                                'Changing this will change the text shown in Owner Tags'
+                            }
+                            onChange={c =>
+                                this.props.updateSetting('ownerTagText', c)
+                            }
+                            defaultValue={this.props.getSetting(
+                                'ownerTagText',
+                                'Owner'
+                            )}
+                            required={true}
+                        >
+                            Owner Tag Text
+                        </TextInput>
+                        <TextInput
+                            note={
+                                'Changing this will change the text shown in Admin Tags'
+                            }
+                            onChange={c =>
+                                this.props.updateSetting('adminTagText', c)
+                            }
+                            defaultValue={this.props.getSetting(
+                                'adminTagText',
+                                'Admin'
+                            )}
+                            required={true}
+                        >
+                            Admin Tag Text
+                        </TextInput>
+                        <TextInput
+                            note={
+                                'Changing this will change the text shown in Mod Tags'
+                            }
+                            onChange={c =>
+                                this.props.updateSetting('modTagText', c)
+                            }
+                            defaultValue={this.props.getSetting(
+                                'modTagText',
+                                'Mod'
+                            )}
+                            required={true}
+                        >
+                            Mod Tag Text
+                        </TextInput>
+                        <TextInput
+                            note={
+                                'Changing this will change the text shown in Staff Tags'
+                            }
+                            onChange={c =>
+                                this.props.updateSetting('staffTagText', c)
+                            }
+                            defaultValue={this.props.getSetting(
+                                'staffTagText',
+                                'Staff'
+                            )}
+                            required={true}
+                        >
+                            Staff Tag Text
+                        </TextInput>
+                    </>
+                )}
+
+                <div style={{ color: 'white' }}>
+                    <p>Owner: Is the owner of a Server or Group Chat</p>
+                    <p>Admin: Has the Administrator permission</p>
+
+                    <p>
+                        Mod: Has one of the following permissions
+                        <ul>
+                            <li>- Kick Members</li>
+                            <li>- Ban Members</li>
+                            <li>- Manage Messages</li>
+                        </ul>
+                    </p>
+
+                    <p>
+                        Staff: Has one of the following permissions
+                        <ul>
+                            <li>- Manage Server</li>
+                            <li>- Manage Channels</li>
+                            <li>- Manage Roles</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        );
+    }
+
+    getTagTextSetting(setting, def) {
+        const string = this.props.getSetting(setting);
+        return string ? string : def;
+    }
+
+    getColorSetting(setting) {
+        const hex = this.props.getSetting(setting);
+        return hex ? parseInt(hex.slice(1), 16) : 0;
+    }
+
+    _numberToHex(color) {
+        const r = (color & 0xff0000) >>> 16;
+        const g = (color & 0xff00) >>> 8;
+        const b = color & 0xff;
+        return `#${r.toString(16).padStart(2, '0')}${g
+            .toString(16)
+            .padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+    }
+};
+
 },{"_powercord/global":"../../../moduleWrappers/powercord/global/index.js","powercord/entities":"../../../moduleWrappers/powercord/entities.js","powercord/components/settings":"../../../moduleWrappers/powercord/components/settings/index.js","powercord/webpack":"../../../moduleWrappers/powercord/webpack.js"}],"Components/Tag.jsx":[function(require,module,exports) {
-"use strict";var e=t(require("_powercord/global"));function t(e){return e&&e.__esModule?e:{default:e}}function r(e){return(r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function n(e,t){for(var r=0;r<t.length;r++){var o=t[r];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}function c(e,t,r){return t&&n(e.prototype,t),r&&n(e,r),e}function s(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&i(e,t)}function i(e,t){return(i=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function u(e){var t=f();return function(){var r,o=l(e);if(t){var n=l(this).constructor;r=Reflect.construct(o,arguments,n)}else r=o.apply(this,arguments);return a(this,r)}}function a(e,t){return!t||"object"!==r(t)&&"function"!=typeof t?p(e):t}function p(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function f(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(e){return!1}}function l(e){return(l=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}require.cache["powercord/entities"]=require("powercord/entities"),require.cache["powercord/components/settings"]=require("powercord/components/settings"),require.cache["powercord/webpack"]=require("powercord/webpack");var y=require("powercord/webpack"),h=y.React,m={NONE:"None",STAFF:"Staff",MOD:"Mod",ADMIN:"Admin",SOWNER:"Server Owner",GOWNER:"Group Owner"},d={staff:"Staff",mod:"Mod",admin:"Admin",owner:"Owner"},b=function(e){s(r,h.PureComponent);var t=u(r);function r(e){var n;return o(this,r),(n=t.call(this,e)).state={userType:m.NONE},n}return c(r,[{key:"getTagText",value:function(e){var t=this.props.settings.get("customTagText",!1),r=this.props.settings.get("".concat(e,"TagText"));return t?r:d[e]}},{key:"render",value:function(){return this.props.className&&this.props.userType?this.props.userType===m.SOWNER||this.props.userType===m.GOWNER?h.createElement("div",{className:"".concat(this.props.className)},this.getTagText("owner")):this.props.userType===m.ADMIN?h.createElement("div",{className:"".concat(this.props.className)},this.getTagText("admin")):this.props.userType===m.MOD?h.createElement("div",{className:"".concat(this.props.className)},this.getTagText("mod")):this.props.userType===m.STAFF?h.createElement("div",{className:"".concat(this.props.className)},this.getTagText("staff")):null:null}}]),r}();b.cache={},module.exports=b;
+import powercord from '_powercord/global';
+require.cache['powercord/entities'] = require('powercord/entities');
+require.cache['powercord/components/settings'] = require('powercord/components/settings');
+require.cache['powercord/webpack'] = require('powercord/webpack');
+
+const { React } = require('powercord/webpack');
+
+const userTypes = {
+    NONE: 'None',
+    STAFF: 'Staff',
+    MOD: 'Mod',
+    ADMIN: 'Admin',
+    SOWNER: 'Server Owner',
+    GOWNER: 'Group Owner'
+};
+const DEFAULT_TAG_TEXTS = {
+    staff: 'Staff',
+    mod: 'Mod',
+    admin: 'Admin',
+    owner: 'Owner'
+};
+
+class Tag extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = { userType: userTypes.NONE };
+    }
+
+    getTagText(tagType) {
+        const customTextEnabled = this.props.settings.get(
+            'customTagText',
+            false
+        );
+        const tagText = this.props.settings.get(`${tagType}TagText`);
+        return customTextEnabled ? tagText : DEFAULT_TAG_TEXTS[tagType];
+    }
+
+    render() {
+        if (!this.props.className || !this.props.userType) return null;
+        if (
+            this.props.userType === userTypes.SOWNER ||
+            this.props.userType === userTypes.GOWNER
+        ) {
+            return (
+                <div className={`${this.props.className}`}>
+                    {this.getTagText('owner')}
+                </div>
+            );
+        } else if (this.props.userType === userTypes.ADMIN) {
+            return (
+                <div className={`${this.props.className}`}>
+                    {this.getTagText('admin')}
+                </div>
+            );
+        } else if (this.props.userType === userTypes.MOD) {
+            return (
+                <div className={`${this.props.className}`}>
+                    {this.getTagText('mod')}
+                </div>
+            );
+        } else if (this.props.userType === userTypes.STAFF) {
+            return (
+                <div className={`${this.props.className}`}>
+                    {this.getTagText('staff')}
+                </div>
+            );
+        }
+        return null;
+    }
+}
+
+Tag.cache = {};
+module.exports = Tag;
+
 },{"_powercord/global":"../../../moduleWrappers/powercord/global/index.js","powercord/entities":"../../../moduleWrappers/powercord/entities.js","powercord/components/settings":"../../../moduleWrappers/powercord/components/settings/index.js","powercord/webpack":"../../../moduleWrappers/powercord/webpack.js"}],"index.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=t(require("_powercord/global"));function t(e){return e&&e.__esModule?e:{default:e}}function r(e){return(r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function n(e,t,r,n,o,i,s){try{var a=e[i](s),l=a.value}catch(u){return void r(u)}a.done?t(l):Promise.resolve(l).then(n,o)}function o(e){return function(){var t=this,r=arguments;return new Promise(function(o,i){var s=e.apply(t,r);function a(e){n(s,o,i,a,l,"next",e)}function l(e){n(s,o,i,a,l,"throw",e)}a(void 0)})}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function s(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function a(e,t,r){return t&&s(e.prototype,t),r&&s(e,r),e}function l(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&u(e,t)}function u(e,t){return(u=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function c(e){var t=p();return function(){var r,n=d(e);if(t){var o=d(this).constructor;r=Reflect.construct(n,arguments,o)}else r=n.apply(this,arguments);return g(this,r)}}function g(e,t){return!t||"object"!==r(t)&&"function"!=typeof t?f(e):t}function f(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function p(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(e){return!1}}function d(e){return(d=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function h(e,t){var r;if("undefined"==typeof Symbol||null==e[Symbol.iterator]){if(Array.isArray(e)||(r=m(e))||t&&e&&"number"==typeof e.length){r&&(e=r);var n=0,o=function(){};return{s:o,n:function(){return n>=e.length?{done:!0}:{done:!1,value:e[n++]}},e:function(e){throw e},f:o}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var i,s=!0,a=!1;return{s:function(){r=e[Symbol.iterator]()},n:function(){var e=r.next();return s=e.done,e},e:function(e){a=!0,i=e},f:function(){try{s||null==r.return||r.return()}finally{if(a)throw i}}}}function m(e,t){if(e){if("string"==typeof e)return y(e,t);var r=Object.prototype.toString.call(e).slice(8,-1);return"Object"===r&&e.constructor&&(r=e.constructor.name),"Map"===r||"Set"===r?Array.from(e):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?y(e,t):void 0}}function y(e,t){(null==t||t>e.length)&&(t=e.length);for(var r=0,n=new Array(t);r<t;r++)n[r]=e[r];return n}require.cache["powercord/entities"]=require("powercord/entities"),require.cache["powercord/components/settings"]=require("powercord/components/settings"),require.cache["powercord/webpack"]=require("powercord/webpack");var C=require("powercord/entities"),v=C.Plugin,T=require("powercord/injector"),w=T.inject,b=T.uninject,S=require("powercord/util"),E=S.findInReactTree,N=require("powercord/webpack"),O=N.React,M=N.getModule,A=N.getModuleByDisplayName,R=N.constants,x=M(["getChannel"],!1),_=x.getChannel,I=M(["getLastSelectedChannelId"],!1),L=I.getChannelId,D=M(["getGuild"],!1),j=D.getGuild,k=M(function(e){return e.default&&e.default.getMember},!1),B=k.default.getMember,G=R.Permissions,H=function(e){for(var t={},r=0,n=Object.keys(G);r<n.length;r++){var o=n[r];o.startsWith("all")||e&G[o]&&(t[o]=!0)}return t},q={NONE:"None",STAFF:"Staff",MOD:"Mod",ADMIN:"Admin",SOWNER:"Server Owner",GOWNER:"Group Owner"};function P(e,t){var r=0,n=B(e.id,t);if(e&&n){if(e.ownerId===t)r=G.ADMINISTRATOR;else{var o;r|=null===(o=e.roles[e.id])||void 0===o?void 0:o.permissions;var i,s=h(n.roles);try{for(s.s();!(i=s.n()).done;){var a,l=i.value;r|=null===(a=e.roles[l])||void 0===a?void 0:a.permissions}}catch(u){s.e(u)}finally{s.f()}}if((r&G.ADMINISTRATOR)===G.ADMINISTRATOR)return Object.values(G).reduce(function(e,t){return e|t},0)}return r}var F=M(["TooltipContainer"],!1).TooltipContainer,W=require("./Components/Settings.jsx"),V=require("./Components/Tag"),z=new(function(t){l(n,v);var r=c(n);function n(){return i(this,n),r.apply(this,arguments)}return a(n,[{key:"startPlugin",value:function(){var t=o(regeneratorRuntime.mark(function t(){return regeneratorRuntime.wrap(function(t){for(;;)switch(t.prev=t.next){case 0:this.loadStylesheet(".ownertag {\n    color: #fff;\n}\n\n.ownertag-list {\n    color: #fff;\n    margin-left: 5px;\n}\n\n.botText-1526X_ {\n    color: inherit;\n}\n\n.ownerIcon-2NH9FM.icon-1A2_vz {\n    display: none;\n}\n\n/* .ownertag.botTagRegular-2HEhHi:hover,\n.ownertag-list.botTagRegular-2HEhHi:hover {\n    background-color: transparent !important;\n} */\n\n.OwnerTag-13h21hk {\n    display: inline;\n}\n"),e.default.api.settings.registerSettings(this.entityID,{category:this.entityID,label:this.manifest.name,render:W}),this.injectMessages(),this.injectMembers();case 4:case"end":return t.stop()}},t,this)}));return function(){return t.apply(this,arguments)}}()},{key:"injectMessages",value:function(){var e=o(regeneratorRuntime.mark(function e(){var t,r,n,o,i;return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return t=this,r=M(["MessageTimestamp"],!1)||M(function(e){return"function"==typeof((null==e?void 0:e.__powercordOriginal_default)||e.default)&&((null==e?void 0:e.__powercordOriginal_default)||e.default).toString().includes("showTimestampOnHover")},!1),e.next=4,M(["botTagRegular"]);case 4:return n=e.sent,e.next=7,M(["botTagCozy"]);case 7:return o=e.sent,e.next=10,M(["rem"]);case 10:i=e.sent,w("ownertag-messages",r,"default",function(e,r){if(!t.settings.get("displayMessages",!0))return r;var s,a=e[0].message.author.id,l=E(r,function(e){var t;return Array.isArray(null===(t=e.props)||void 0===t?void 0:t.children)&&e.props.children.find(function(e){var t;return null==e?void 0:null===(t=e.props)||void 0===t?void 0:t.message})}),u=_(L());if(u){var c=j(u.guild_id);if(c){var g=B(c.id,a);if(!g)return r;var f=P(c,a),p=H(f);if(c.ownerId===a){var d=t.settings.get("ownerTagColor","#ED9F1B"),h=t.settings.get("useCustomOwnerColor");s={userType:t.settings.get("showOwnerTags",!0)?q.SOWNER:q.NONE,color:h&&d?d:g.colorString,textColor:t._numberToTextColor(h&&d?d:g.colorString)}}else if(p.ADMINISTRATOR){var m=t.settings.get("adminTagColor","#B4B4B4"),y=t.settings.get("useCustomAdminColor");s={userType:t.settings.get("showAdminTags",!0)?q.ADMIN:q.NONE,color:y&&m?m:g.colorString,textColor:t._numberToTextColor(y&&m?m:g.colorString)}}else if(p.MANAGE_SERVER||p.MANAGE_CHANNELS||p.MANAGE_ROLES){var C=t.settings.get("staffTagColor","#8D5C51"),v=t.settings.get("useCustomStaffColor");s={userType:t.settings.get("showStaffTags",!0)?q.STAFF:q.NONE,color:v&&C?C:g.colorString,textColor:t._numberToTextColor(v&&C?C:g.colorString)}}else if(p.KICK_MEMBERS||p.BAN_MEMBERS||p.MANAGE_MESSAGES){var T=t.settings.get("modTagColor","#C8682E"),w=t.settings.get("useCustomModColor");s={userType:t.settings.get("showModTags",!0)?q.MOD:q.NONE,color:w&&T?T:g.colorString,textColor:t._numberToTextColor(w&&T?T:g.colorString)}}}else if(3===u.type&&u.ownerId===a){var b=t.settings.get("ownerTagColor","#ED9F1B"),S=t.settings.get("useCustomOwnerColor");s={userType:q.GOWNER,color:S&&b?b:null}}if(s&&s.userType!==q.NONE)if(t.settings.get("showCrowns",!1)){var N=O.createElement(F,{text:"".concat(s.userType),className:"OwnerTag-13h21hk"},O.createElement("svg",{className:"".concat(o.botTagCozy," ").concat(n.botTagRegular," ").concat(i.rem," ownertag"),"aria-label":"".concat(s.userType),"aria-hidden":"false",width:14,height:14,viewBox:"0 0 16 16",style:{color:s.color,backgroundColor:"transparent"}},O.createElement("path",{fillRule:"evenodd",clipRule:"evenodd",d:"M13.6572 5.42868C13.8879 5.29002 14.1806 5.30402 14.3973 5.46468C14.6133 5.62602 14.7119 5.90068 14.6473 6.16202L13.3139 11.4954C13.2393 11.7927 12.9726 12.0007 12.6666 12.0007H3.33325C3.02725 12.0007 2.76058 11.792 2.68592 11.4954L1.35258 6.16202C1.28792 5.90068 1.38658 5.62602 1.60258 5.46468C1.81992 5.30468 2.11192 5.29068 2.34325 5.42868L5.13192 7.10202L7.44592 3.63068C7.46173 3.60697 7.48377 3.5913 7.50588 3.57559C7.5192 3.56612 7.53255 3.55663 7.54458 3.54535L6.90258 2.90268C6.77325 2.77335 6.77325 2.56068 6.90258 2.43135L7.76458 1.56935C7.89392 1.44002 8.10658 1.44002 8.23592 1.56935L9.09792 2.43135C9.22725 2.56068 9.22725 2.77335 9.09792 2.90268L8.45592 3.54535C8.46794 3.55686 8.48154 3.56651 8.49516 3.57618C8.51703 3.5917 8.53897 3.60727 8.55458 3.63068L10.8686 7.10202L13.6572 5.42868ZM2.66667 12.6673H13.3333V14.0007H2.66667V12.6673Z",fill:"currentColor","aria-hidden":"true"})));l.props.children.push(N)}else{var M=O.createElement("span",{className:"".concat(o.botTagCozy," ").concat(n.botTagRegular," ").concat(i.rem," ownertag"),style:{backgroundColor:s.color,color:s.textColor}},O.createElement(V,{className:n.botText,userType:s.userType,settings:t.settings}));l.props.children.push(M)}return r}});case 12:case"end":return e.stop()}},e,this)}));return function(){return e.apply(this,arguments)}}()},{key:"injectMembers",value:function(){var e=o(regeneratorRuntime.mark(function e(){var t,r,n,o;return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return t=this,e.next=3,A("MemberListItem");case 3:return r=e.sent,e.next=6,M(["botTagRegular"]);case 6:return n=e.sent,e.next=9,M(["rem"]);case 9:o=e.sent,w("ownertag-members",r.prototype,"renderDecorators",function(e,r){if(!t.settings.get("displayMembers",!0))return r;var i,s=this.props.user.id,a=j(this.props.channel.guild_id);if(a){var l=B(a.id,s),u=P(a,s),c=H(u);if(a.ownerId===s){var g=t.settings.get("ownerTagColor","#ED9F1B"),f=t.settings.get("useCustomOwnerColor");i={userType:t.settings.get("showOwnerTags",!0)?q.SOWNER:q.NONE,color:f&&g?g:l.colorString,textColor:t._numberToTextColor(f&&g?g:l.colorString)}}else if(c.ADMINISTRATOR){var p=t.settings.get("adminTagColor","#B4B4B4"),d=t.settings.get("useCustomAdminColor");i={userType:t.settings.get("showAdminTags",!0)?q.ADMIN:q.NONE,color:d&&p?p:l.colorString,textColor:t._numberToTextColor(d&&p?p:l.colorString)}}else if(c.MANAGE_SERVER||c.MANAGE_CHANNELS||c.MANAGE_ROLES){var h=t.settings.get("staffTagColor","#8D5C51"),m=t.settings.get("useCustomStaffColor");i={userType:t.settings.get("showStaffTags",!0)?q.STAFF:q.NONE,color:m&&h?h:l.colorString,textColor:t._numberToTextColor(m&&h?h:l.colorString)}}else if(c.KICK_MEMBERS||c.BAN_MEMBERS||c.MANAGE_MESSAGES){var y=t.settings.get("modTagColor","#C8682E"),C=t.settings.get("useCustomModColor");i={userType:t.settings.get("showModTags",!0)?q.MOD:q.NONE,color:C&&y?y:l.colorString,textColor:t._numberToTextColor(C&&y?y:l.colorString)}}}else if(3===this.props.channel.type&&this.props.channel.ownerId===s){var v=t.settings.get("ownerTagColor","#ED9F1B"),T=t.settings.get("useCustomOwnerColor");i={userType:q.GOWNER,color:T&&v?v:null}}if(i&&i.userType!==q.NONE)if(t.settings.get("showCrowns",!1)){var w=O.createElement(F,{text:"".concat(i.userType),className:"OwnerTag-13h21hk"},O.createElement("svg",{className:"".concat(o.botTag," ").concat(n.botTagRegular," ").concat(o.px," ownertag-list"),"aria-label":"".concat(i.userType),"aria-hidden":"false",width:14,height:14,viewBox:"0 0 16 16",style:{color:i.color,backgroundColor:"transparent"}},O.createElement("path",{fillRule:"evenodd",clipRule:"evenodd",d:"M13.6572 5.42868C13.8879 5.29002 14.1806 5.30402 14.3973 5.46468C14.6133 5.62602 14.7119 5.90068 14.6473 6.16202L13.3139 11.4954C13.2393 11.7927 12.9726 12.0007 12.6666 12.0007H3.33325C3.02725 12.0007 2.76058 11.792 2.68592 11.4954L1.35258 6.16202C1.28792 5.90068 1.38658 5.62602 1.60258 5.46468C1.81992 5.30468 2.11192 5.29068 2.34325 5.42868L5.13192 7.10202L7.44592 3.63068C7.46173 3.60697 7.48377 3.5913 7.50588 3.57559C7.5192 3.56612 7.53255 3.55663 7.54458 3.54535L6.90258 2.90268C6.77325 2.77335 6.77325 2.56068 6.90258 2.43135L7.76458 1.56935C7.89392 1.44002 8.10658 1.44002 8.23592 1.56935L9.09792 2.43135C9.22725 2.56068 9.22725 2.77335 9.09792 2.90268L8.45592 3.54535C8.46794 3.55686 8.48154 3.56651 8.49516 3.57618C8.51703 3.5917 8.53897 3.60727 8.55458 3.63068L10.8686 7.10202L13.6572 5.42868ZM2.66667 12.6673H13.3333V14.0007H2.66667V12.6673Z",fill:"currentColor","aria-hidden":"true"}))),b=r.props.children.length;r.props.children[b]=r.props.children[b-1],r.props.children[b-1]=w}else{var S=O.createElement("span",{className:"".concat(o.botTag," ").concat(n.botTagRegular," ").concat(o.px," ownertag-list"),style:{backgroundColor:i.color,color:i.textColor}},O.createElement(V,{className:n.botText,userType:i.userType,settings:t.settings})),E=r.props.children.length;r.props.children[E]=r.props.children[E-1],r.props.children[E-1]=S}return r});case 11:case"end":return e.stop()}},e,this)}));return function(){return e.apply(this,arguments)}}()},{key:"pluginWillUnload",value:function(){e.default.api.settings.unregisterSettings(this.entityID),b("ownertag-members"),b("ownertag-messages")}},{key:"_numberToTextColor",value:function(e){if(e){var t=parseInt(e.slice(1),16);return 255-(.299*((16711680&t)>>>16)+.587*((65280&t)>>>8)+.114*(255&t))<105?"#000000":"#ffffff"}}}]),n}());exports.default=z;
+import powercord from '_powercord/global';
+require.cache['powercord/entities'] = require('powercord/entities');
+require.cache['powercord/components/settings'] = require('powercord/components/settings');
+require.cache['powercord/webpack'] = require('powercord/webpack');
+
+/* Essential Packages */
+const { Plugin } = require('powercord/entities');
+const { inject, uninject } = require('powercord/injector');
+const { findInReactTree } = require('powercord/util');
+const {
+    React,
+    getModule,
+    getModuleByDisplayName,
+    constants
+} = require('powercord/webpack');
+
+/* Plugin Specific Packages */
+const { getChannel } = getModule(['getChannel'], false);
+const { getChannelId } = getModule(['getLastSelectedChannelId'], false);
+const { getGuild } = getModule(['getGuild'], false);
+// const { getUser } = getModule(['getUser'], false);
+const {
+    default: { getMember }
+} = getModule(m => m.default && m.default.getMember, false);
+
+const Permissions = constants.Permissions;
+
+const parseBitFieldPermissions = allowed => {
+    const permissions = {};
+    for (const perm of Object.keys(Permissions)) {
+        if (!perm.startsWith('all')) {
+            if (BigInt(allowed) & BigInt(Permissions[perm])) {
+                permissions[perm] = true;
+            }
+        }
+    }
+    return permissions;
+};
+
+const userTypes = {
+    NONE: 'None',
+    STAFF: 'Staff',
+    MOD: 'Mod',
+    ADMIN: 'Admin',
+    SOWNER: 'Server Owner',
+    GOWNER: 'Group Owner'
+};
+
+const DEFAULT_TAG_TEXTS = {
+    staff: 'Staff',
+    mod: 'Mod',
+    admin: 'Admin',
+    owner: 'Owner'
+};
+
+function getPermissionsRaw(guild, user_id) {
+    let permissions = 0n;
+
+    const member = getMember(guild.id, user_id);
+
+    if (guild && member) {
+        if (guild.ownerId === user_id) {
+            permissions = BigInt(Permissions.ADMINISTRATOR);
+        } else {
+            /* @everyone is not inlcuded in the member's roles */
+            permissions |= BigInt(guild.roles[guild.id]?.permissions);
+
+            for (const roleId of member.roles) {
+                const rolePerms = guild.roles[roleId]?.permissions;
+                if (rolePerms !== undefined) {
+                    permissions |= BigInt(rolePerms);
+                }
+            }
+        }
+
+        /* If they have administrator they have every permission */
+        if (
+            (BigInt(permissions) & BigInt(Permissions.ADMINISTRATOR)) ===
+            BigInt(Permissions.ADMINISTRATOR)
+        ) {
+            return Object.values(Permissions).reduce((a, b) => BigInt(a) | BigInt(b), 0n);
+        }
+    }
+
+    return permissions;
+}
+
+const Tooltip = getModule(['TooltipContainer'], false).TooltipContainer;
+
+/* Settings */
+const Settings = require('./Components/Settings.jsx');
+const Tag = require('./Components/Tag');
+
+export default new class OwnerTag extends Plugin {
+    /* Entry Point */
+    async startPlugin() {
+        this.loadStylesheet(`.ownertag {
+    color: #fff;
+}
+
+.ownertag-list {
+    color: #fff;
+    margin-left: 5px;
+}
+
+.botText-1526X_ {
+    color: inherit;
+}
+
+.ownerIcon-2NH9FM.icon-1A2_vz {
+    display: none;
+}
+
+/* .ownertag.botTagRegular-2HEhHi:hover,
+.ownertag-list.botTagRegular-2HEhHi:hover {
+    background-color: transparent !important;
+} */
+
+.OwnerTag-13h21hk {
+    display: inline;
+}
+`);
+        /* Register Settings */
+        powercord.api.settings.registerSettings(this.entityID, {
+            category: this.entityID,
+            label: this.manifest.name, // Label that appears in the settings menu
+            render: Settings // The React component to render. In this case, the imported Settings file
+        });
+
+        this.injectMessages();
+        this.injectMembers();
+    }
+
+    getTagText(tagType) {
+        switch (tagType) {
+            case userTypes.ADMIN:
+                tagType = 'admin';
+                break;
+            case userTypes.GOWNER:
+            case userTypes.SOWNER:
+                tagType = 'owner';
+                break;
+            case userTypes.MOD:
+                tagType = 'mod';
+                break;
+            case userTypes.STAFF:
+                tagType = 'staff';
+                break;
+        }
+        const customTextEnabled = this.settings.get('customTagText', false);
+        const tagText = this.settings.get(`${tagType}TagText`);
+        return customTextEnabled ? tagText : DEFAULT_TAG_TEXTS[tagType];
+    }
+
+    async injectMessages() {
+        console.log('Injecting messages');
+        const _this = this;
+        const MessageTimestamp =
+            getModule(['MessageTimestamp'], false) ||
+            getModule(
+                m =>
+                    typeof (m?.__powercordOriginal_default || m.default) ===
+                        'function' &&
+                    (m?.__powercordOriginal_default || m.default)
+                        .toString()
+                        .includes('showTimestampOnHover'),
+                false
+            ); // credit to M|-|4r13y ツ#1051 for this snippet
+        const botTagRegularClasses = await getModule(['botTagRegular']);
+        const botTagCozyClasses = await getModule(['botTagCozy']);
+        const remClasses = await getModule(['rem']);
+
+        /**
+         * The following injects a function into the specified module.
+         * Parameter 1: The InjectionID, used to uninject.
+         * 2: The module you want to inject into.
+         * 3: The function name you want to target.
+         * 4: The function you want to inject.
+         */
+        inject(
+            'ownertag-messages',
+            MessageTimestamp,
+            'default',
+            (args, res) => {
+                if (!_this.settings.get('displayMessages', true)) {
+                    return res;
+                }
+                const id = args[0].message.author.id;
+                // const user = await getUser(id)
+                // if (!user) return;
+                // if (!_this.settings.get('showBots', true) && user.bot) {
+                //     return;
+                // }
+
+                const header = findInReactTree(
+                    res,
+                    e =>
+                        Array.isArray(e.props?.children) &&
+                        e.props.children.find(c => c?.props?.message)
+                );
+                let data;
+
+                const channel = getChannel(getChannelId());
+                if (!channel) {
+                    return;
+                }
+                const guild = getGuild(channel.guild_id);
+                if (guild) {
+                    const member = getMember(guild.id, id);
+                    if (!member) {
+                        return res;
+                    }
+                    const permissions = getPermissionsRaw(guild, id);
+                    const parsedPermissions =
+                        parseBitFieldPermissions(permissions);
+
+                    if (guild.ownerId === id) {
+                        // is guild owner
+                        const tagColor = _this.settings.get(
+                            'ownerTagColor',
+                            '#ED9F1B'
+                        );
+                        const useCustomColor = _this.settings.get(
+                            'useCustomOwnerColor'
+                        );
+                        data = {
+                            userType: _this.settings.get('showOwnerTags', true)
+                                ? userTypes.SOWNER
+                                : userTypes.NONE,
+                            color:
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString,
+                            textColor: _this._numberToTextColor(
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString
+                            )
+                        };
+                    } else if (parsedPermissions['ADMINISTRATOR']) {
+                        const tagColor = _this.settings.get(
+                            'adminTagColor',
+                            '#B4B4B4'
+                        );
+                        const useCustomColor = _this.settings.get(
+                            'useCustomAdminColor'
+                        );
+                        data = {
+                            userType: _this.settings.get('showAdminTags', true)
+                                ? userTypes.ADMIN
+                                : userTypes.NONE,
+                            color:
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString,
+                            textColor: _this._numberToTextColor(
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString
+                            )
+                        };
+                    } else if (
+                        parsedPermissions['MANAGE_SERVER'] ||
+                        parsedPermissions['MANAGE_CHANNELS'] ||
+                        parsedPermissions['MANAGE_ROLES']
+                    ) {
+                        const tagColor = _this.settings.get(
+                            'staffTagColor',
+                            '#8D5C51'
+                        );
+                        const useCustomColor = _this.settings.get(
+                            'useCustomStaffColor'
+                        );
+                        data = {
+                            userType: _this.settings.get('showStaffTags', true)
+                                ? userTypes.STAFF
+                                : userTypes.NONE,
+                            color:
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString,
+                            textColor: _this._numberToTextColor(
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString
+                            )
+                        };
+                    } else if (
+                        parsedPermissions['KICK_MEMBERS'] ||
+                        parsedPermissions['BAN_MEMBERS'] ||
+                        parsedPermissions['MANAGE_MESSAGES']
+                    ) {
+                        const tagColor = _this.settings.get(
+                            'modTagColor',
+                            '#C8682E'
+                        );
+                        const useCustomColor =
+                            _this.settings.get('useCustomModColor');
+                        data = {
+                            userType: _this.settings.get('showModTags', true)
+                                ? userTypes.MOD
+                                : userTypes.NONE,
+                            color:
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString,
+                            textColor: _this._numberToTextColor(
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString
+                            )
+                        };
+                    }
+                } else if (channel.type === 3 && channel.ownerId === id) {
+                    // group channel
+                    const tagColor = _this.settings.get(
+                        'ownerTagColor',
+                        '#ED9F1B'
+                    );
+                    const useCustomColor = _this.settings.get(
+                        'useCustomOwnerColor'
+                    );
+                    data = {
+                        userType: userTypes.GOWNER,
+                        color: useCustomColor && tagColor ? tagColor : null
+                    };
+                }
+
+                //const element = React.createElement(Tag, { userid: id });
+                if (data && data.userType !== userTypes.NONE) {
+                    // const textColor = _this.settings.get('textColor');
+                    if (_this.settings.get('showCrowns', false)) {
+                        const element = React.createElement(
+                            Tooltip,
+                            {
+                                text: `${data.userType}`,
+                                className: 'OwnerTag-13h21hk'
+                            },
+                            React.createElement(
+                                'svg',
+                                {
+                                    className: `${botTagCozyClasses.botTagCozy} ${botTagRegularClasses.botTagRegular} ${remClasses.rem} ownertag`,
+                                    'aria-label': `${data.userType}`,
+                                    'aria-hidden': 'false',
+                                    width: 14,
+                                    height: 14,
+                                    viewBox: '0 0 16 16',
+                                    style: {
+                                        color: data.color,
+                                        backgroundColor: 'transparent'
+                                    }
+                                },
+                                React.createElement('path', {
+                                    fillRule: 'evenodd',
+                                    clipRule: 'evenodd',
+                                    d: 'M13.6572 5.42868C13.8879 5.29002 14.1806 5.30402 14.3973 5.46468C14.6133 5.62602 14.7119 5.90068 14.6473 6.16202L13.3139 11.4954C13.2393 11.7927 12.9726 12.0007 12.6666 12.0007H3.33325C3.02725 12.0007 2.76058 11.792 2.68592 11.4954L1.35258 6.16202C1.28792 5.90068 1.38658 5.62602 1.60258 5.46468C1.81992 5.30468 2.11192 5.29068 2.34325 5.42868L5.13192 7.10202L7.44592 3.63068C7.46173 3.60697 7.48377 3.5913 7.50588 3.57559C7.5192 3.56612 7.53255 3.55663 7.54458 3.54535L6.90258 2.90268C6.77325 2.77335 6.77325 2.56068 6.90258 2.43135L7.76458 1.56935C7.89392 1.44002 8.10658 1.44002 8.23592 1.56935L9.09792 2.43135C9.22725 2.56068 9.22725 2.77335 9.09792 2.90268L8.45592 3.54535C8.46794 3.55686 8.48154 3.56651 8.49516 3.57618C8.51703 3.5917 8.53897 3.60727 8.55458 3.63068L10.8686 7.10202L13.6572 5.42868ZM2.66667 12.6673H13.3333V14.0007H2.66667V12.6673Z',
+                                    fill: 'currentColor',
+                                    'aria-hidden': 'true'
+                                })
+                            )
+                        );
+                        header.props.children.push(element);
+                    } else {
+                        const element = React.createElement(
+                            'span',
+                            {
+                                className: `${botTagCozyClasses.botTagCozy} ${botTagRegularClasses.botTagRegular} ${remClasses.rem} ownertag`,
+                                style: {
+                                    backgroundColor: data.color,
+                                    color: data.textColor
+                                }
+                            },
+                            React.createElement(Tag, {
+                                className: botTagRegularClasses.botText,
+                                userType: data.userType,
+                                settings: _this.settings
+                            })
+                        );
+                        header.props.children.push(element);
+                    }
+                }
+
+                return res;
+            }
+        );
+    }
+
+    async injectMembers() {
+        console.log('Injecting members');
+        const _this = this;
+        const MemberListItem = await getModuleByDisplayName('MemberListItem');
+        const botTagRegularClasses = await getModule(['botTagRegular']);
+        const remClasses = await getModule(['rem']);
+
+        inject(
+            'ownertag-members',
+            MemberListItem.prototype,
+            'renderDecorators',
+            function (args, res) {
+                if (!_this.settings.get('displayMembers', true)) {
+                    return res;
+                }
+
+                const id = this.props.user.id;
+                // const user = getUser(id);
+                // if (!user) return;
+                // if (!_this.settings.get('showBots', true) && user.bot) {
+                //     return;
+                // }
+                let data;
+
+                const guild = getGuild(this.props.channel.guild_id);
+                if (guild) {
+                    const member = getMember(guild.id, id);
+                    const permissions = getPermissionsRaw(guild, id);
+                    const parsedPermissions =
+                        parseBitFieldPermissions(permissions);
+
+                    if (guild.ownerId === id) {
+                        // is guild owner
+                        const tagColor = _this.settings.get(
+                            'ownerTagColor',
+                            '#ED9F1B'
+                        );
+                        const useCustomColor = _this.settings.get(
+                            'useCustomOwnerColor'
+                        );
+                        data = {
+                            userType: _this.settings.get('showOwnerTags', true)
+                                ? userTypes.SOWNER
+                                : userTypes.NONE,
+                            color:
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString,
+                            textColor: _this._numberToTextColor(
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString
+                            )
+                        };
+                    } else if (parsedPermissions['ADMINISTRATOR']) {
+                        const tagColor = _this.settings.get(
+                            'adminTagColor',
+                            '#B4B4B4'
+                        );
+                        const useCustomColor = _this.settings.get(
+                            'useCustomAdminColor'
+                        );
+                        data = {
+                            userType: _this.settings.get('showAdminTags', true)
+                                ? userTypes.ADMIN
+                                : userTypes.NONE,
+                            color:
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString,
+                            textColor: _this._numberToTextColor(
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString
+                            )
+                        };
+                    } else if (
+                        parsedPermissions['MANAGE_SERVER'] ||
+                        parsedPermissions['MANAGE_CHANNELS'] ||
+                        parsedPermissions['MANAGE_ROLES']
+                    ) {
+                        const tagColor = _this.settings.get(
+                            'staffTagColor',
+                            '#8D5C51'
+                        );
+                        const useCustomColor = _this.settings.get(
+                            'useCustomStaffColor'
+                        );
+                        data = {
+                            userType: _this.settings.get('showStaffTags', true)
+                                ? userTypes.STAFF
+                                : userTypes.NONE,
+                            color:
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString,
+                            textColor: _this._numberToTextColor(
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString
+                            )
+                        };
+                    } else if (
+                        parsedPermissions['KICK_MEMBERS'] ||
+                        parsedPermissions['BAN_MEMBERS'] ||
+                        parsedPermissions['MANAGE_MESSAGES']
+                    ) {
+                        const tagColor = _this.settings.get(
+                            'modTagColor',
+                            '#C8682E'
+                        );
+                        const useCustomColor =
+                            _this.settings.get('useCustomModColor');
+                        data = {
+                            userType: _this.settings.get('showModTags', true)
+                                ? userTypes.MOD
+                                : userTypes.NONE,
+                            color:
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString,
+                            textColor: _this._numberToTextColor(
+                                useCustomColor && tagColor
+                                    ? tagColor
+                                    : member.colorString
+                            )
+                        };
+                    }
+                } else if (
+                    this.props.channel.type === 3 &&
+                    this.props.channel.ownerId === id
+                ) {
+                    // group channel
+                    const tagColor = _this.settings.get(
+                        'ownerTagColor',
+                        '#ED9F1B'
+                    );
+                    const useCustomColor = _this.settings.get(
+                        'useCustomOwnerColor'
+                    );
+                    data = {
+                        userType: userTypes.GOWNER,
+                        color: useCustomColor && tagColor ? tagColor : null
+                    };
+                }
+
+                if (data && data.userType !== userTypes.NONE) {
+                    if (_this.settings.get('showCrowns', false)) {
+                        const element = React.createElement(
+                            Tooltip,
+                            {
+                                text: _this.getTagText(data.userType),
+                                className: 'OwnerTag-13h21hk'
+                            },
+                            React.createElement(
+                                'svg',
+                                {
+                                    className: `${remClasses.botTag} ${botTagRegularClasses.botTagRegular} ${remClasses.px} ownertag-list`,
+                                    'aria-label': `${data.userType}`,
+                                    'aria-hidden': 'false',
+                                    width: 14,
+                                    height: 14,
+                                    viewBox: '0 0 16 16',
+                                    style: {
+                                        color: data.color,
+                                        backgroundColor: 'transparent'
+                                    }
+                                },
+                                React.createElement('path', {
+                                    fillRule: 'evenodd',
+                                    clipRule: 'evenodd',
+                                    d: 'M13.6572 5.42868C13.8879 5.29002 14.1806 5.30402 14.3973 5.46468C14.6133 5.62602 14.7119 5.90068 14.6473 6.16202L13.3139 11.4954C13.2393 11.7927 12.9726 12.0007 12.6666 12.0007H3.33325C3.02725 12.0007 2.76058 11.792 2.68592 11.4954L1.35258 6.16202C1.28792 5.90068 1.38658 5.62602 1.60258 5.46468C1.81992 5.30468 2.11192 5.29068 2.34325 5.42868L5.13192 7.10202L7.44592 3.63068C7.46173 3.60697 7.48377 3.5913 7.50588 3.57559C7.5192 3.56612 7.53255 3.55663 7.54458 3.54535L6.90258 2.90268C6.77325 2.77335 6.77325 2.56068 6.90258 2.43135L7.76458 1.56935C7.89392 1.44002 8.10658 1.44002 8.23592 1.56935L9.09792 2.43135C9.22725 2.56068 9.22725 2.77335 9.09792 2.90268L8.45592 3.54535C8.46794 3.55686 8.48154 3.56651 8.49516 3.57618C8.51703 3.5917 8.53897 3.60727 8.55458 3.63068L10.8686 7.10202L13.6572 5.42868ZM2.66667 12.6673H13.3333V14.0007H2.66667V12.6673Z',
+                                    fill: 'currentColor',
+                                    'aria-hidden': 'true'
+                                })
+                            )
+                        );
+                        const size = res.props.children.length;
+                        res.props.children[size] = res.props.children[size - 1];
+                        res.props.children[size - 1] = element;
+                    } else {
+                        const element = React.createElement(
+                            'span',
+                            {
+                                className: `${remClasses.botTag} ${botTagRegularClasses.botTagRegular} ${remClasses.px} ownertag-list`,
+                                style: {
+                                    backgroundColor: data.color,
+                                    color: data.textColor
+                                }
+                            },
+                            React.createElement(Tag, {
+                                className: botTagRegularClasses.botText,
+                                userType: data.userType,
+                                settings: _this.settings
+                            })
+                        );
+                        const size = res.props.children.length;
+                        res.props.children[size] = res.props.children[size - 1];
+                        res.props.children[size - 1] = element;
+                    }
+                    // res.props.children.unshift(element);
+                }
+
+                return res;
+            }
+        );
+    }
+
+    pluginWillUnload() {
+        // When the plugin is unloaded, we need to unregister/uninject anything we've registered/injected.
+        powercord.api.settings.unregisterSettings(this.entityID);
+        uninject('ownertag-members');
+        uninject('ownertag-messages');
+    }
+
+    /*
+     * Original code from https://github.com/powercord-community/rolecolor-everywhere.
+     */
+    _numberToTextColor(color) {
+        if (!color) {
+            return;
+        } // prevents errors from null colors which come from roles with no colors
+        const colorInt = parseInt(color.slice(1), 16);
+        const r = (colorInt & 0xff0000) >>> 16;
+        const g = (colorInt & 0xff00) >>> 8;
+        const b = colorInt & 0xff;
+        const bgDelta = r * 0.299 + g * 0.587 + b * 0.114;
+        return 255 - bgDelta < 105 ? '#000000' : '#ffffff';
+    }
+};
+
 },{"_powercord/global":"../../../moduleWrappers/powercord/global/index.js","powercord/entities":"../../../moduleWrappers/powercord/entities.js","powercord/components/settings":"../../../moduleWrappers/powercord/components/settings/index.js","powercord/webpack":"../../../moduleWrappers/powercord/webpack.js","powercord/injector":"../../../moduleWrappers/powercord/injector.js","powercord/util":"../../../moduleWrappers/powercord/util.js","./Components/Settings.jsx":"Components/Settings.jsx","./Components/Tag":"Components/Tag.jsx"}]},{},["index.js"], null);parcelRequire('index.js').default
