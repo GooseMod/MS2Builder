@@ -22,8 +22,9 @@ export default (manifestPath, repo) => {
 
   let content = readFileSync(pcManifest.main || 'index.js', 'utf8');//.replace(/\\/g, '\\\\').replace(/`/g, '\\`');
 
-  content = content.replace(`module.exports = `, `export default new `);
-  content = content.replace(/this\.loadStylesheet\(['"`](.*)['"`]\)/g, (_, relative) => {
+  content = content.replace(`module.exports = `, `export default new `); // CJS -> ESM, and use new to init class
+
+  content = content.replace(/this\.loadStylesheet\(['"`](.*)['"`]\)/g, (_, relative) => { // Replace Plugin.loadStylesheet(filename) -> Plugin.loadStylesheet(css_code) loaded from FS
     const path = manifestPath.split('/').slice(0, -1).concat('').join('/') + relative;
 
     let css;
@@ -38,6 +39,8 @@ export default (manifestPath, repo) => {
 
     return `this.loadStylesheet(\`${css}\`)`;
   });
+
+  content = content.replace(/[\( ]([0-9]+)n[\) ;]/g, (_, num) => _.replace(num + 'n', 'BigInt(' + num + ')')); // Replace new / modern BigInt format (10n) with constructor (BigInt(10))
 
   writeFileSync(join(baseDir, `index.js`), content);
 
