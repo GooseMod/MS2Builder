@@ -23,6 +23,7 @@ export default
   ['GooseMod-Modules/HardcodedColorFixer', '8c45dae017b7c907a4544bb4d3894c544832c61e'],
   ['GooseMod-Modules/SwitchErrorLookup', '80d7485654b951423c5f458cc2743879ab521f2a'],
   ['GooseMod-Modules/Fucklytics', 'c9aeed413b45c07236eb1ec243c09432365dac5b'],
+  ['GooseMod-Modules/WebRightClick', 'abeb3880762c17df77006cdbf34bb01d1426b44c'],
 
   ['mugman174/togoosestore', '577a1f564879290c50824756b8128bcf4455d796', '/mock'],
   ['mugman174/togoosestore', '577a1f564879290c50824756b8128bcf4455d796', '/rpc'],
