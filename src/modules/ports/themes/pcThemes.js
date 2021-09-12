@@ -342,4 +342,9 @@ export default [
     authors: ["224524143482241035"],
     images: ["https://cdn.discordapp.com/attachments/826113708957761556/878973579084062730/unknown.png"]
   }],
+
+  ['DogeSkii/CompactPlusTheme', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["320197542568656898"],
+    images: ["https://camo.githubusercontent.com/fe03eb9c75eb2f36d3ab97cb4c9f95319e5ede129cd793ecdaa6e17fea0b335b/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f3735353031353836393931343135323938312f3838363235373033343633333238313631362f756e6b6e6f776e2e706e67"]
+  }],
 ];
