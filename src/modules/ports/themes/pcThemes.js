@@ -70,7 +70,7 @@ export default [
     images: ['https://media.discordapp.net/attachments/755005710323941386/811325025025785886/2021-02-16_14-51.png']
   }],
 
-  ['Loremly/Nebula', '', '/powercord_manifest.json', 'pcTheme', {
+  ['Loremly/Nebula', 'c358751de8bc296f05a35cd40d3754507d577c90', '/powercord_manifest.json', 'pcTheme', {
     authors: ['597072695875600385'],
     images: ['https://i.imgur.com/NEPCkF2.png']
   }],
@@ -270,7 +270,7 @@ export default [
 
   ['PrincessAkira/Green-Akali', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["202740603790819328"],
-    images: ["https://host.snens.team/i/FcLwBnjmIqWo.png","https://host.snens.team/i/5EdBAjhcNzmk.png"]
+    images: []
   }],
 
   ['SlippingGitty/Cozy202K', '', '/powercord_manifest.json', 'pcTheme', {
@@ -310,7 +310,7 @@ export default [
 
   ['ilyBenny/bubblecord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["227009692646375424"],
-    images: ["https://images-ext-2.discordapp.net/external/twXX1wAKwkOFOGhYGsC-THEer08ueWoqSR0ZX75fhbU/https/hypixel.lol/raw/pvHqSfcO.png","https://media.discordapp.net/attachments/874338745862750248/875027849642401842/unknown.png","https://media.discordapp.net/attachments/874338745862750248/875028341885911090/unknown.png"]
+    images: ["https://cdn.discordapp.com/attachments/875027647858618432/875028569544339456/unknown.png","https://cdn.discordapp.com/attachments/875027647858618432/875028594320097349/unknown.png","https://cdn.discordapp.com/attachments/875027647858618432/875028605296603166/unknown.png"]
   }],
 
   ['mr-miner1/cooler-activity-status', '', '/powercord_manifest.json', 'pcTheme', {
@@ -345,6 +345,11 @@ export default [
 
   ['DogeSkii/CompactPlusTheme', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["320197542568656898"],
-    images: ["https://camo.githubusercontent.com/fe03eb9c75eb2f36d3ab97cb4c9f95319e5ede129cd793ecdaa6e17fea0b335b/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f3735353031353836393931343135323938312f3838363235373033343633333238313631362f756e6b6e6f776e2e706e67"]
+    images: ["https://cdn.discordapp.com/attachments/755015869914152981/886257034633281616/unknown.png"]
+  }],
+
+  ['Dedsd/DarkBlue-Ice-for-customdiscord', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["758034911641862304"],
+    images: ["https://raw.githubusercontent.com/Dedsd/DarkBlue-Ice-for-customdiscord/master/images/example.png"]
   }],
 ];
