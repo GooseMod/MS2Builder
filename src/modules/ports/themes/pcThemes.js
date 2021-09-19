@@ -352,4 +352,9 @@ export default [
     authors: ["758034911641862304"],
     images: ["https://raw.githubusercontent.com/Dedsd/DarkBlue-Ice-for-customdiscord/master/images/example.png"]
   }],
+
+  ['CorellanStoma/Friends-Grid', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["288362986991648778"],
+    images: ["https://media.discordapp.net/attachments/855450297781714964/889233587021426708/unknown.png"]
+  }],
 ];
