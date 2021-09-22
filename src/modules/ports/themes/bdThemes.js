@@ -84,12 +84,12 @@ export default [
 
   ['CommandCrafterHD/Fallout4TerminalTheme', '', '/css/Fallout4Terminal.theme.css', 'bdTheme', {
     authors: ["137259132305539072"],
-    images: ["https://cegledi.net/uploads/20-04-2021_368.png"]
+    images: ["https://betterdiscord.app/resources/thumbnails/329.png"]
   }, true],
 
   ['CommandCrafterHD/DiscordDarkNeon', '', '/css/DarkNeon.theme.css', 'bdTheme', {
     authors: ["137259132305539072"],
-    images: ["https://cegledi.net/uploads/ubynvF4imJ.gif"]
+    images: ["https://betterdiscord.app/resources/thumbnails/324.png"]
   }, true],
 
   ['codedotspectra/themes', '', '/themes-files/neutron.theme.css', 'bdTheme', {
@@ -172,7 +172,7 @@ export default [
     images: ["https://i.imgur.com/q7JajkC.jpg","https://cdn.discordapp.com/attachments/862688548187799565/863271688212840468/23.png","https://cdn.discordapp.com/attachments/862688548187799565/863063369765224498/unknown.png"]
   }],
 
-  ['kawaiizenbo/Roundrect', '', '/Roundrect-theme/Roundrect.theme.css', 'bdTheme', {
+  ['kawaiizenbo/Roundrect', '', '/Roundrect.theme.css', 'bdTheme', {
     authors: ["287197076150812673"],
     images: ["https://media.discordapp.net/attachments/755005710323941386/863907896156487680/DiscordCanary_wmswAfVaMJ.png"]
   }],

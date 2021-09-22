@@ -37,10 +37,10 @@ export default [
     images: ['https://raw.githubusercontent.com/Discord-Theme-Addons/modern-channel-indicators/main/screenshots/preview.png']
   }],
 
-  ['doggybootsy/NsfwSfwTags', '', '/powercord_manifest.json', 'pcTheme', {
+  /* ['doggybootsy/NsfwSfwTags', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['515780151791976453'],
     images: ['https://i.imgur.com/SCObryS.png']
-  }],
+  }], */
 
   ['doggybootsy/bubblecord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['515780151791976453'],
@@ -55,10 +55,10 @@ export default [
     ]
   }],
 
-  ['doggybootsy/Mobile_Messages', '', '/powercord_manifest.json', 'pcTheme', {
+  /* ['doggybootsy/Mobile_Messages', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['515780151791976453'],
     images: ['https://i.imgur.com/VBE49wL.png']
-  }],
+  }], */
 
   ['Fahrenheit/Semi-Stock-Discord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['239824092239233024'],
