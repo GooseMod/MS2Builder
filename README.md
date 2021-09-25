@@ -11,6 +11,6 @@ To run this yourself, you **need** to:
 ```js
 export default {
   github: '<your github pat>',
-  discord: '<your discord bot token>
+  discord: '<your discord bot token>'
 }
 ```
