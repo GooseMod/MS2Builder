@@ -118,7 +118,7 @@ export default [
   }],
 
   ['discord-addons/discord-addons', '', '/download-themes-here/OperaGxGamingTheme/OperaGxGamingTheme.theme.css', 'bdTheme', {
-    authors: ["703638166162112516"],
+    authors: ["875809253875671090"],
     images: ["https://discord-addons.github.io/screenshots/OperaGxGamingTheme.png"]
   }],
 
