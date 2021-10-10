@@ -117,9 +117,9 @@ export default [
     images: ["https://cdn.discordapp.com/attachments/560369937084973067/852549506298150922/unknown.png","https://cdn.discordapp.com/attachments/560369937084973067/852549509154471946/unknown.png"]
   }],
 
-  ['Tomrdh/discord-addons', '', '/download-themes-here/OperaGxGamingTheme/OperaGxGamingTheme.theme.css', 'bdTheme', {
+  ['discord-addons/discord-addons', '', '/download-themes-here/OperaGxGamingTheme/OperaGxGamingTheme.theme.css', 'bdTheme', {
     authors: ["703638166162112516"],
-    images: ["https://tomrdh.github.io/da-website/screenshots/OperaGxGamingTheme.png"]
+    images: ["https://discord-addons.github.io/screenshots/OperaGxGamingTheme.png"]
   }],
 
   ['LeafyLuigi/discord-themes', '', '/pyrite/pyrite.theme.css', 'bdTheme', {
