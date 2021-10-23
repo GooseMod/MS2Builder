@@ -263,10 +263,10 @@ export default [
     images: ["https://user-images.githubusercontent.com/58918358/122546272-14722f80-d02f-11eb-9025-f6f351d24fbe.png","https://user-images.githubusercontent.com/58918358/122546285-16d48980-d02f-11eb-86a7-0eee638561d3.png"]
   }],
 
-  ['mr-miner1/Deep-Dark', '', '/powercord_manifest.json', 'pcTheme', {
+  /* ['mr-miner1/Deep-Dark', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["678541597654253600"],
     images: ["https://i.imgur.com/erTtLUi.gif"]
-  }],
+  }], */
 
   ['PrincessAkira/Green-Akali', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["202740603790819328"],
@@ -328,9 +328,9 @@ export default [
     images: ["https://images-ext-2.discordapp.net/external/Cu3-pzVwI0zHrQ5PC7dHusRnQg5WjoxPc_DM9H_bhko/https/is.gd/6xWLPD%2A%2A"]
   }],
 
-  ['Pukimaa/Space-Cadet', '', '/powercord_manifest.json', 'pcTheme', {
+  ['phoenixcolors/phoenix-discord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["751092600890458203"],
-    images: ["https://raw.githubusercontent.com/Pukimaa/Space-Cadet/master/assets/preview.png"]
+    images: ["https://raw.githubusercontent.com/phoenixcolors/phoenix-discord/master/assets/preview.png"]
   }],
 
   ['Dyzean/Tokyo-Night', '', '/powercord_manifest.json', 'pcTheme', {
