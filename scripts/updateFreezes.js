@@ -39,11 +39,11 @@ for (const file of repoFiles) {
     const [ repo, hash ] = module;
     if (!hash) continue;
 
-    const [ { commit: { sha } } ] = await getGithubInfo(repo + '/branches');
+    const [ { sha } ] = await getGithubInfo(repo + '/commits');
 
     if (sha === hash) continue;
 
-    exec(`xdg-open https://github.com/${repo}`);
+    // exec(`xdg-open https://github.com/${repo}`);
 
     const ans = await ask(`${repo} is outdated - ${hash} -> ${sha}. update? (y/n) `);
 
