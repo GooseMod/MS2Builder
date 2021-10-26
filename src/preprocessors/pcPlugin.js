@@ -40,7 +40,7 @@ export default (manifestPath, repo) => {
     return `this.loadStylesheet(\`${css}\`)`;
   });
 
-  content = content.replace(/[\( ]([0-9]+)n[\) ;]/g, (_, num) => _.replace(num + 'n', 'BigInt(' + num + ')')); // Replace new / modern BigInt format (10n) with constructor (BigInt(10))
+  content = content.replace(/([\( \t]|^)([0-9]+)n([\) ;]|$)/gm, (_, _pre, num) => _.replace(num + 'n', 'BigInt(' + num + ')')); // Replace new / modern BigInt format (10n) with constructor (BigInt(10))
 
   writeFileSync(join(baseDir, `index.js`), content);
 

@@ -59,7 +59,7 @@ export default [
     images: ['https://cdn.discordapp.com/attachments/723241105323327581/792496211298353192/unknown.png']
   }],
 
-  ['TaiAurori/custom-timestamps', 'b2da3cbad71dbd06bd904853d9f01b755e00eebf', '/manifest.json', 'pcPlugin', {
+  ['TaiAurori/custom-timestamps', '87c870e4f802591109c0eb0a9a1215e2ce4dfab0', '/manifest.json', 'pcPlugin', {
     authors: ['334469240394481667'],
     images: ['https://raw.githubusercontent.com/TaiAurori/custom-timestamps/master/screenshots/preview-1.png']
   }],
@@ -77,7 +77,7 @@ export default [
     authors: ['331677911407132672']
   }],
 
-  ['Puyodead1/powercord-ownertag', 'e29a51d4ff6f50a0547dbf932ec2cf38fb8030f4', '/manifest.json', 'pcPlugin', {
+  ['Puyodead1/powercord-ownertag', '85f93e90b9f6b4e28b081f117981e76159283388', '/manifest.json', 'pcPlugin', {
     authors: ['213247101314924545'],
     images: ['https://i.imgur.com/4x8dnFA.png', 'https://i.imgur.com/6NwdauH.png']
   }],

@@ -30,5 +30,5 @@ export default
   ['mugman174/togoosestore', '577a1f564879290c50824756b8128bcf4455d796', '/sepia'],
 
   ['xirreal/GM-AuroraGSI', 'bbdb264807f976725af74a863f30d64f43fbfb6f'],
-  ['xirreal/GM-Emote-As-URL', '19d36aac905c293a487d9219da920e4f157f276d'],
+  ['xirreal/GM-Emote-As-URL', 'dfb50f2a8f6061792563c24fe324028602f05757'],
 ];
