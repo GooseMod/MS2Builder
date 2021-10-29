@@ -57,14 +57,14 @@ const discordVars = [
   '--deprecated-text-input-prefix'    
 ];
 
-const imagePaletteVars = [
+/* const imagePaletteVars = [
   '--background-primary',
   '--background-secondary',
   '--background-secondary-alt',
   '--background-tertiary',
   '--background-accent',
   '--background-floating',
-];
+]; */
 
 export default async (manifest, _content, repo) => {
   const content = _content.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$/g, '\\$');
@@ -104,7 +104,7 @@ export default async (manifest, _content, repo) => {
     return [name, val, type];
   });
 
-  const imagePalette = [];
+  /* const imagePalette = [];
 
   for (const wanted of imagePaletteVars) {
     const v = variables.find((x) => x[0] === wanted);
@@ -136,7 +136,7 @@ export default async (manifest, _content, repo) => {
   if (imagePalette.length === imagePaletteVars.length) {
     if (!repo[4].images) repo[4].images = [];
     repo[4].images.push(imagePalette);
-  }
+  } */
 
   // Filter out Discord standard vars, and duplicate names
   if (variables.length > 0) variables = variables.filter((x, i, s) => !discordVars.includes(x[0]) && !x[1].includes('var(') && !x[0].includes('glasscord') && s.indexOf(s.find((y) => y[0] === x[0])) === i);
