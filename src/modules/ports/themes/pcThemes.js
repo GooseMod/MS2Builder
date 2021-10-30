@@ -357,4 +357,9 @@ export default [
     authors: ["288362986991648778"],
     images: ["https://media.discordapp.net/attachments/855450297781714964/889233587021426708/unknown.png"]
   }],
+
+  ['Freeplayg/Discord-fullscreen-inbox', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["158296466119458816"],
+    images: ["https://raw.githubusercontent.com/Freeplayg/Discord-fullscreen-inbox/main/fullscreeninbox.png"]
+  }],
 ];

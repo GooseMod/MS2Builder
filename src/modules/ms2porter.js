@@ -31,7 +31,6 @@ export default
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/solarizedDarkTheme'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/betterNsfw'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/deNitro', undefined, { tags: ['ui', 'theme'] }],
-  ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/fullscreenInbox'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/hideClyde', undefined, { tags: ['ui', 'theme'] }],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/hideMessage'],
   ['GooseMod/MS2Porter', '2f7ef4e72aae58d620d71f0cd1c1c922c29429b6', '/modules/hideQuickReactions', undefined, { tags: ['ui', 'theme'] }],
