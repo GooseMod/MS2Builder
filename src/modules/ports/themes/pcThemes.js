@@ -372,4 +372,9 @@ export default [
     authors: ["174868361040232448"],
     images: ["https://i.imgur.com/E57gF3L.png","https://i.imgur.com/01NlcPc.png","https://i.imgur.com/nqgmfT0.png","https://i.imgur.com/KEC161G.png"]
   }],
+
+  ['GDKID69/gdkord', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["596481615253733408"],
+    images: ["https://i.vgy.me/IIFxjj.png","https://i.vgy.me/B8LEDD.png"]
+  }],
 ];
