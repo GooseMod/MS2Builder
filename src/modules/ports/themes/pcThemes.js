@@ -362,4 +362,9 @@ export default [
     authors: ["158296466119458816"],
     images: ["https://raw.githubusercontent.com/Freeplayg/Discord-fullscreen-inbox/main/fullscreeninbox.png"]
   }],
+
+  ['dante-nl/Darkcord', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["618082876730376202"],
+    images: ["https://raw.githubusercontent.com/dante-nl/Darkcord/main/images/niceimg.png"]
+  }],
 ];
