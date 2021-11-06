@@ -26,7 +26,7 @@ export default async (manifestPath, repo) => {
   if (pcManifest.theme.split('.').pop() === 'scss') {
     const cssPath = pcManifest.theme.split('.').slice(0, -1).concat('css').join('.');
 
-    const compiled = (sass.renderSync({ file: scssPath })).css;
+    const compiled = (sass.renderSync({ file: pcManifest.theme })).css;
     writeFileSync(cssPath, compiled);
 
     pcManifest.theme = cssPath;
