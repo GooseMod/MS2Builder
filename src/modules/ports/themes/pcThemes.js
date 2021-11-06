@@ -367,4 +367,9 @@ export default [
     authors: ["618082876730376202"],
     images: ["https://raw.githubusercontent.com/dante-nl/Darkcord/main/images/niceimg.png"]
   }],
+
+  ['DiscordStyles/SoftX', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["174868361040232448"],
+    images: ["https://i.imgur.com/E57gF3L.png","https://i.imgur.com/01NlcPc.png","https://i.imgur.com/nqgmfT0.png","https://i.imgur.com/KEC161G.png"]
+  }],
 ];
