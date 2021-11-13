@@ -24,8 +24,6 @@ const getUser = async (id) => {
 export default async (id) => {
   const user = await getUser(id);
 
-  console.log(user);
-
   return { // Use semi-minified keys as to avoid size
     i: id, // id
 
