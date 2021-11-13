@@ -32,10 +32,12 @@ const resetDir = (dir) => {
 };
 
 if (process.argv[2] === '-f') {
+  console.log('Clearing clones dir...');
   resetDir(clonesDir);
 
+  console.log('Clearing dist dir...');
   resetDir(distDir);
-  resetDir(modulesDir);
+  // resetDir(modulesDir);
 }
 
 let previous = [];
