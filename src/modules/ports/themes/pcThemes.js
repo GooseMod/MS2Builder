@@ -377,4 +377,9 @@ export default [
     authors: ["596481615253733408"],
     images: ["https://i.vgy.me/IIFxjj.png","https://i.vgy.me/B8LEDD.png"]
   }],
+
+  ['RockESV/Eris', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["196643951787114496"],
+    images: ["https://i.imgur.com/aN6XufW.png"]
+  }],
 ];
