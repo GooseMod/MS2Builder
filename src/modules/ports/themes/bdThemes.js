@@ -109,7 +109,7 @@ export default [
 
   ['NYRI4/Comfy', '', '/betterdiscord/comfy.theme.css', 'bdTheme', {
     authors: ["265924886461939712"],
-    images: ["https://i.ibb.co/5cWJGRP/Preview.png"]
+    images: ["https://nyri4.github.io/Comfy/assets/preview.png"]
   }, true],
 
   ['PlusInsta/discord-plus', '', '/DiscordPlus.theme.css', 'bdTheme', {

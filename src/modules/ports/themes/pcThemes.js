@@ -20,7 +20,7 @@ export default [
 
   ['Discord-Theme-Addons/bottom-bar', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['399416615742996480'],
-    images: ['https://raw.githubusercontent.com/Discord-Theme-Addons/bottom-bar/default/screenshots/preview.png']
+    images: ['https://raw.githubusercontent.com/Discord-Theme-Addons/bottom-bar/default/assets/preview.png']
   }],
 
   ['Discord-Theme-Addons/gradientbuttons-v2', '', '/powercord_manifest.json', 'pcTheme', {
@@ -34,7 +34,7 @@ export default [
 
   ['Discord-Theme-Addons/modern-channel-indicators', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['399416615742996480'],
-    images: ['https://raw.githubusercontent.com/Discord-Theme-Addons/modern-channel-indicators/main/screenshots/preview.png']
+    images: ['https://raw.githubusercontent.com/Discord-Theme-Addons/modern-channel-indicators/main/assets/preview.png']
   }],
 
   /* ['doggybootsy/NsfwSfwTags', '', '/powercord_manifest.json', 'pcTheme', {
@@ -205,7 +205,7 @@ export default [
 
   ['Discord-Theme-Addons/compact-userarea', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['399416615742996480'],
-    images: ['https://raw.githubusercontent.com/Discord-Theme-Addons/compact-userarea/main/screenshots/preview.png']
+    images: ['https://raw.githubusercontent.com/Discord-Theme-Addons/compact-userarea/main/assets/readme/preview.png']
   }],
 
   ['4n4hits/ForestFrost', '', '/powercord_manifest.json', 'pcTheme', {
@@ -305,7 +305,7 @@ export default [
 
   ['CITIZENSIXTYNINE/Drakula', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["452283991006117908"],
-    images: ["https://raw.githubusercontent.com/CITIZENSIXTYNINE/Drakula/mistress/ast/FrontPage-v2.png"]
+    images: ["https://raw.githubusercontent.com/CITIZENSIXTYNINE/Drakula/mistress/ast/FrontPage-v3.png"]
   }],
 
   ['ilyBenny/bubblecord', '', '/powercord_manifest.json', 'pcTheme', {
