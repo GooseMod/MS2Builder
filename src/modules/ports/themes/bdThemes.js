@@ -176,4 +176,9 @@ export default [
     authors: ["287197076150812673"],
     images: ["https://media.discordapp.net/attachments/755005710323941386/863907896156487680/DiscordCanary_wmswAfVaMJ.png"]
   }],
+
+  ['discord-addons/discord-addons', '', '/download-themes-here/AmoledDarkTheme/AmoledDarkTheme.theme.css', 'bdTheme', {
+    authors: ["Discord Addons"],
+    images: ["https://discord-addons.github.io/screenshots/AmoledDarkTheme.png"]
+  }],
 ];
