@@ -108,10 +108,10 @@ export default [
     ]
   }],
 
-  ['sneexy-boi/material-cord', '', '/powercord_manifest.json', 'pcTheme', {
+  /* ['sneexy-boi/material-cord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['468894601542107146', '452289159399342090'],
     images: ['https://raw.githubusercontent.com/sneexy-boi/material-cord/main/docs/screenshot.png']
-  }],
+  }], */
 
   ['leeprky/Naive', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['224524143482241035'],
@@ -125,7 +125,7 @@ export default [
 
   ['LuckFire/amoled-cord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["399416615742996480"],
-    images: ['https://raw.githubusercontent.com/LuckFire/amoled-cord/main/screenshots/main-preview.png']
+    images: ['https://raw.githubusercontent.com/LuckFire/amoled-cord/main/assets/readme/main-preview.png']
   }],
 
   ['Freeplayg/discord-serverlist-drawer', '', '/powercord_manifest.json', 'pcTheme', {
