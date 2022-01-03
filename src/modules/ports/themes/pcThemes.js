@@ -382,4 +382,9 @@ export default [
     authors: ["196643951787114496"],
     images: ["https://i.imgur.com/aN6XufW.png"]
   }],
+
+  ['spinfish/midnightcord', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["574870314928832533"],
+    images: ["https://media.discordapp.net/attachments/678012423067926539/838307888158081054/midnightcord_main_preview.png"]
+  }],
 ];
