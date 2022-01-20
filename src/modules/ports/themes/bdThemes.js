@@ -172,11 +172,6 @@ export default [
     images: ["https://i.imgur.com/q7JajkC.jpg","https://cdn.discordapp.com/attachments/862688548187799565/863271688212840468/23.png","https://cdn.discordapp.com/attachments/862688548187799565/863063369765224498/unknown.png"]
   }],
 
-  ['kawaiizenbo/Roundrect', '', '/Roundrect.theme.css', 'bdTheme', {
-    authors: ["287197076150812673"],
-    images: ["https://media.discordapp.net/attachments/755005710323941386/863907896156487680/DiscordCanary_wmswAfVaMJ.png"]
-  }],
-
   ['discord-addons/discord-addons', '', '/download-themes-here/AmoledDarkTheme/AmoledDarkTheme.theme.css', 'bdTheme', {
     authors: ["Discord Addons"],
     images: ["https://discord-addons.github.io/screenshots/AmoledDarkTheme.png"]

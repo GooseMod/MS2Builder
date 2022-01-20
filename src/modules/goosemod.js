@@ -8,12 +8,6 @@ export default
   ['Cynosphere/hjonk', 'b1c9bc1b9027efdcb4a72254e96ceb087ae65529', '/timeBarAllActivities'],
   ['Cynosphere/hjonk', 'b1c9bc1b9027efdcb4a72254e96ceb087ae65529', '/spotifyControls'],
 
-  ['Controlfreak707/GM-Copy-Raw', '91a235e09bbb3168c67bc535bdab2a03e88b2a98'],
-  ['Controlfreak707/GM-Send-Button', 'e5101713ddee325208b6fb190a07f3ec30373af4'],
-  ['Controlfreak707/GM-Relaunch', '75c838c352743becdef0d68a954cb5d4f43bce5b'],
-  ['Controlfreak707/GM-Better-Animations', '501ec6031ec2e559f1e3fce89237c043f6120c63', undefined, undefined, { tags: ['ui', 'theme'] }],
-  ['Controlfreak707/GM-Channel-Icons', '83049d7bf164e14e6322e55f5c17151e18ca5ec3'],
-
   ['TechnoJo4/GM-MessageClickActions', '91368c8ccbbbe0386584cc2ed789d6261153b26b'],
 
   ['GooseMod-Modules/CopyAvatarURL', '053dd5c8f8e2f7dcf00c57afb895ad62710ebfeb'],
@@ -30,5 +24,6 @@ export default
   ['mugman174/togoosestore', '577a1f564879290c50824756b8128bcf4455d796', '/sepia'],
 
   ['xirreal/GM-AuroraGSI', 'bbdb264807f976725af74a863f30d64f43fbfb6f'],
-  ['xirreal/GM-Emote-As-URL', '8b77a5866e44afdf86301ba671825f91d36fb6ea', undefined, undefined, { notice: 1 }],
+  // ['xirreal/GM-Emote-As-URL', '8b77a5866e44afdf86301ba671825f91d36fb6ea', undefined, undefined, { notice: 1 }],
+  ['luimu64/nitro-spoof', 'fcb22b7726263e083b06529dc3779759aaaf8d40', undefined, undefined, { notice: 1 }],
 ];

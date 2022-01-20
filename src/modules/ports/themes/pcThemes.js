@@ -375,7 +375,7 @@ export default [
 
   ['GDKID69/gdkord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["596481615253733408"],
-    images: ["https://i.vgy.me/IIFxjj.png","https://i.vgy.me/B8LEDD.png"]
+    images: []
   }],
 
   ['RockESV/Eris', '', '/powercord_manifest.json', 'pcTheme', {
@@ -386,5 +386,10 @@ export default [
   ['spinfish/midnightcord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["574870314928832533"],
     images: ["https://media.discordapp.net/attachments/678012423067926539/838307888158081054/midnightcord_main_preview.png"]
+  }],
+
+  ['kawaiizenbo/Roundrect', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["287197076150812673"],
+    images: ["https://media.discordapp.net/attachments/755005710323941386/863907896156487680/DiscordCanary_wmswAfVaMJ.png"]
   }],
 ];
