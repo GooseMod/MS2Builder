@@ -117,10 +117,10 @@ export default [
     images: ["https://cdn.discordapp.com/attachments/560369937084973067/852549506298150922/unknown.png","https://cdn.discordapp.com/attachments/560369937084973067/852549509154471946/unknown.png"]
   }],
 
-  ['discord-addons/discord-addons', '', '/download-themes-here/OperaGxGamingTheme/OperaGxGamingTheme.theme.css', 'bdTheme', {
+  /* ['discord-addons/discord-addons', '', '/download-themes-here/OperaGxGamingTheme/OperaGxGamingTheme.theme.css', 'bdTheme', {
     authors: ["Discord Addons"],
     images: ["https://discord-addons.github.io/screenshots/OperaGxGamingTheme.png"]
-  }],
+  }], */
 
   ['LeafyLuigi/discord-themes', '', '/pyrite/pyrite.theme.css', 'bdTheme', {
     authors: ["309976820109803520"],
@@ -172,8 +172,8 @@ export default [
     images: ["https://i.imgur.com/q7JajkC.jpg","https://cdn.discordapp.com/attachments/862688548187799565/863271688212840468/23.png","https://cdn.discordapp.com/attachments/862688548187799565/863063369765224498/unknown.png"]
   }],
 
-  ['discord-addons/discord-addons', '', '/download-themes-here/AmoledDarkTheme/AmoledDarkTheme.theme.css', 'bdTheme', {
+  /* ['discord-addons/discord-addons', '', '/download-themes-here/AmoledDarkTheme/AmoledDarkTheme.theme.css', 'bdTheme', {
     authors: ["Discord Addons"],
     images: ["https://discord-addons.github.io/screenshots/AmoledDarkTheme.png"]
-  }],
+  }], */
 ];

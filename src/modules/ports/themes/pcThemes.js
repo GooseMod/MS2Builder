@@ -258,7 +258,7 @@ export default [
     images: ["https://media.discordapp.net/attachments/828218219927306261/853635731581960192/Ovel_v1.0.0.png","https://i.imgur.com/3BMUuND.png","https://i.imgur.com/csW8EoK.png","https://i.imgur.com/Otv0JjS.png"]
   }],
 
-  ['CorellanStoma/CreArts', '', '/powercord_manifest.json', 'pcTheme', {
+  ['CorellanStoma/CreArts-Discord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["288362986991648778"],
     images: ["https://user-images.githubusercontent.com/58918358/122546272-14722f80-d02f-11eb-9025-f6f351d24fbe.png","https://user-images.githubusercontent.com/58918358/122546285-16d48980-d02f-11eb-86a7-0eee638561d3.png"]
   }],
