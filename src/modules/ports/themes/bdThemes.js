@@ -9,9 +9,9 @@ export default [
     images: ['https://media.discordapp.net/attachments/756146058924392545/808810958188314645/gm_pop.gif']
   }],
 
-  ['Conjuringil/Splendid', '', '/BetterDiscord/Splendid.theme.css', 'bdTheme', {
+  /* ['Conjuringil/Splendid', '', '/BetterDiscord/Splendid.theme.css', 'bdTheme', {
     authors: ['333310482482069514']
-  }],
+  }], */
 
   ['Giangamerino/protoncord', '', '/protoncord.theme.css', 'bdTheme', {
     authors: ['491262066813042698'],
