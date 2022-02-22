@@ -397,4 +397,9 @@ export default [
     authors: ["174868361040232448"],
     images: ["https://i.imgur.com/uFzGxKp.png","https://i.imgur.com/3uL8y2m.png"]
   }],
+
+  ['leeprky/MaterialYouTheme', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["224524143482241035"],
+    images: ["https://i.imgur.com/Xvwak97.png","https://i.imgur.com/0rFWFLs.png","https://i.imgur.com/011Q1yt.png"]
+  }],
 ];
