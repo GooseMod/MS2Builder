@@ -392,4 +392,9 @@ export default [
     authors: ["287197076150812673"],
     images: ["https://media.discordapp.net/attachments/755005710323941386/863907896156487680/DiscordCanary_wmswAfVaMJ.png"]
   }],
+
+  ['DiscordStyles/Fluent', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["174868361040232448"],
+    images: ["https://i.imgur.com/uFzGxKp.png","https://i.imgur.com/3uL8y2m.png"]
+  }],
 ];
