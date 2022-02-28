@@ -402,4 +402,9 @@ export default [
     authors: ["224524143482241035"],
     images: ["https://i.imgur.com/Xvwak97.png","https://i.imgur.com/0rFWFLs.png","https://i.imgur.com/011Q1yt.png"]
   }],
+
+  ['Obscure-Git/Lavender', '', '/powercord_manifest.json', 'pcTheme', {
+    authors: ["755436063828213821"],
+    images: ["https://raw.githubusercontent.com/Obscure-Git/Lavender/main/assets/1.png","https://raw.githubusercontent.com/Obscure-Git/Lavender/main/assets/2.png"]
+  }],
 ];
