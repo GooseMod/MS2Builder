@@ -18,7 +18,7 @@ export default
   ['GooseMod-Modules/SwitchErrorLookup', '80d7485654b951423c5f458cc2743879ab521f2a'],
   ['GooseMod-Modules/Fucklytics', 'c9aeed413b45c07236eb1ec243c09432365dac5b'],
   ['GooseMod-Modules/WebRightClick', 'abeb3880762c17df77006cdbf34bb01d1426b44c'],
-  ['GooseMod-Modules/SpecialPings', '6d956968c01da91d30223f581c9a1580e0624409'],
+  ['GooseMod-Modules/SpecialPings', 'e18fa5b2ab6288facc532f26b5971400519fd33f'],
 
   ['mugman174/togoosestore', '577a1f564879290c50824756b8128bcf4455d796', '/mock'],
   ['mugman174/togoosestore', '577a1f564879290c50824756b8128bcf4455d796', '/rpc'],
