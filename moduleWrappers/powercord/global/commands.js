@@ -9,8 +9,8 @@ export const registerCommand = ({ command, alias, description, usage, executor }
       // Don't just destructure as using without text arguments returns empty object ({})
 
       let textGiven = '';
-      if (ret[0]?.[0]?.value) {
-        const [[{ value: text }]] = ret;
+      if (ret[0]?.value) {
+        const [{ value: text }] = ret;
         textGiven = text;
       }
 
