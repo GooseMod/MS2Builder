@@ -26,7 +26,7 @@ export default
 
   ['xirreal/GM-AuroraGSI', 'bbdb264807f976725af74a863f30d64f43fbfb6f'],
   // ['xirreal/GM-Emote-As-URL', '8b77a5866e44afdf86301ba671825f91d36fb6ea', undefined, undefined, { notice: 1 }],
-  ['luimu64/nitro-spoof', '3dd175d83f46ee546b0ac2cf28df5af22a53d608', undefined, undefined, { notice: 1 }],
+  ['luimu64/nitro-spoof', 'b7cb2e51c55fa6b96ce180aaacada8d73022b4f9', undefined, undefined, { notice: 1 }],
 
   ['GlowingUmbreon/GooseMod-LinuxNav', '959c40acffc23190cc403935bd7306418044d313']
 ];
