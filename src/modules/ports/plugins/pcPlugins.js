@@ -32,7 +32,7 @@ export default [
     images: ['https://raw.githubusercontent.com/tuanbinhtran/voice-user-count/main/example.png']
   }],
 
-  ['jaimeadf/who-reacted', 'fa5391bc1791734f7a27d011ba82c37f4e455df4', '/manifest.json', 'pcPlugin', {
+  ['jaimeadf/who-reacted', '1f40f17c087e3564d14d68eed739ca6c43ae2dd5', '/manifest.json', 'pcPlugin', {
     authors: ['289112759948410881'],
     images: ['https://i.imgur.com/dvwN7qr_d.png']
   }],
