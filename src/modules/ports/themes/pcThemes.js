@@ -26,15 +26,14 @@ export default [
   ['Discord-Theme-Addons/gradientbuttons-v2', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['399416615742996480'],
     images: [
-      'https://raw.githubusercontent.com/Discord-Theme-Addons/gradientbuttons-v2/main/screenshots/message-menu.gif',
-      'https://raw.githubusercontent.com/Discord-Theme-Addons/gradientbuttons-v2/main/screenshots/server-menu.gif',
-      'https://raw.githubusercontent.com/Discord-Theme-Addons/gradientbuttons-v2/main/screenshots/statuspicker-menu.gif'
     ]
   }],
 
   ['Discord-Theme-Addons/modern-channel-indicators', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['399416615742996480'],
-    images: ['https://raw.githubusercontent.com/Discord-Theme-Addons/modern-channel-indicators/main/assets/preview.png']
+    images: [
+
+    ]
   }],
 
   /* ['doggybootsy/NsfwSfwTags', '', '/powercord_manifest.json', 'pcTheme', {
@@ -200,12 +199,16 @@ export default [
 
   ['Discord-Theme-Addons/refined-user-connections', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['399416615742996480'],
-    images: ['https://raw.githubusercontent.com/Discord-Theme-Addons/refined-user-connections/main/screenshots/preview.png']
+    images: [
+
+    ]
   }],
 
   ['Discord-Theme-Addons/compact-userarea', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['399416615742996480'],
-    images: ['https://raw.githubusercontent.com/Discord-Theme-Addons/compact-userarea/main/assets/readme/preview.png']
+    images: [
+      
+    ]
   }],
 
   ['4n4hits/ForestFrost', '', '/powercord_manifest.json', 'pcTheme', {

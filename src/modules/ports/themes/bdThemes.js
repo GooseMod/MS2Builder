@@ -13,10 +13,10 @@ export default [
     authors: ['333310482482069514']
   }], */
 
-  ['Giangamerino/protoncord', '', '/protoncord.theme.css', 'bdTheme', {
+  /* ['Giangamerino/protoncord', '', '/protoncord.theme.css', 'bdTheme', {
     authors: ['491262066813042698'],
     images: ['https://raw.githubusercontent.com/vaxx-y/protoncord/Release/Previews/ProtoncordPreview.png']
-  }],
+  }], */
 
   ['SlippingGitty/SlideToUnlock', '', '/SlideToUnlock.theme.css', 'bdTheme', {
     authors: ['359175647257690113']
