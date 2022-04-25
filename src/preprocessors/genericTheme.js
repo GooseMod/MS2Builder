@@ -159,7 +159,7 @@ export default async (manifest, _content, repo) => {
           )
         );
   
-        if (${toShowSettings} || (goosemodScope.settings.gmSettings.get().allThemeSettings)) goosemodScope.settings.createItem('${manifest.name}', [
+        if (${toShowSettings} || (goosemodScope.settings.gmSettings.allThemeSettings)) goosemodScope.settings.createItem('${manifest.name}', [
           '',
   
           ${variables.map((x) => (`{
