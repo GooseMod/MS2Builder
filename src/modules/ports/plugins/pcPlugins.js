@@ -27,7 +27,7 @@ export default [
     authors: ['500656746440949761']
   }],
 
-  ['tuanbinhtran/voice-user-count', 'd205dede3df25435760ad7fbe5f8cd6d8206df3e', '/manifest.json', 'pcPlugin', {
+  ['tuanbinhtran/voice-user-count', '3ba2c776ac8bed2589a7198c087c12c0cf03515c', '/manifest.json', 'pcPlugin', {
     authors: ['92181558949060608'],
     images: ['https://raw.githubusercontent.com/tuanbinhtran/voice-user-count/main/example.png']
   }],
@@ -37,7 +37,7 @@ export default [
     images: ['https://i.imgur.com/dvwN7qr_d.png']
   }],
 
-  ['RazerMoon/userNotifs', '4bb56a8410ba56d0c2ef8996ae186aad2e0eec02', '/manifest.json', 'pcPlugin', {
+  ['RazerMoon/userNotifs', '6a3b7e6cd367d3bd995d35db9b08218b4584c9aa', '/manifest.json', 'pcPlugin', {
     authors: ['162970149857656832']
   }],
 
@@ -54,21 +54,21 @@ export default [
     images: ['https://i.antonio32a.com/XAyU.png', 'https://i.antonio32a.com/hBPe.png']
   }],
 
-  ['BenSegal855/webhook-tag', '557613fb123fc0c7929d61bd31a15dfc7a004a4a', '/manifest.json', 'pcPlugin', {
+  ['BenSegal855/webhook-tag', '7f573b821006d070a3ea2ec92ca822b0a3980ea9', '/manifest.json', 'pcPlugin', {
     authors: ['465668689920917534'],
     images: ['https://cdn.discordapp.com/attachments/723241105323327581/792496211298353192/unknown.png']
   }],
 
-  ['TaiAurori/custom-timestamps', '87c870e4f802591109c0eb0a9a1215e2ce4dfab0', '/manifest.json', 'pcPlugin', {
+  ['TaiAurori/custom-timestamps', '207197e44bff06c14d91020d42511da15affe7d5', '/manifest.json', 'pcPlugin', {
     authors: ['334469240394481667'],
     images: ['https://raw.githubusercontent.com/TaiAurori/custom-timestamps/master/screenshots/preview-1.png']
   }],
 
-  ['Killerjet101/open-in-app', '0a509a769cbd5fd046c92d2da682e3e2c98db2d1', '/manifest.json', 'pcPlugin', {
+  ['Killerjet101/open-in-app', 'c46a4b9452bc23cd77493639ca16248d609ea276', '/manifest.json', 'pcPlugin', {
     authors: ['224207524411211777']
   }],
 
-  ['Killerjet101/quick-mention', 'acbe71758e798f4ab81da62cdb8d7505a70e6731', '/manifest.json', 'pcPlugin', {
+  ['Killerjet101/quick-mention', 'e7645ca4df7a29ad03ca16fda52c13bf17dfaf43', '/manifest.json', 'pcPlugin', {
     authors: ['224207524411211777'],
     images: ['https://media.discordapp.net/attachments/850787684670636038/850824574786207814/unknown.png']
   }],
@@ -77,7 +77,7 @@ export default [
     authors: ['331677911407132672']
   }],
 
-  ['Puyodead1/powercord-ownertag', '85f93e90b9f6b4e28b081f117981e76159283388', '/manifest.json', 'pcPlugin', {
+  ['Puyodead1/powercord-ownertag', '3fd7d4b242b044879fc077972c615af80522011a', '/manifest.json', 'pcPlugin', {
     authors: ['213247101314924545'],
     images: ['https://i.imgur.com/4x8dnFA.png', 'https://i.imgur.com/6NwdauH.png']
   }],
@@ -87,11 +87,11 @@ export default [
     images: ['https://cdn.discordapp.com/attachments/831036096962887720/833514474912743454/unknown.png']
   }], */
 
-  ['LoggeL/powercord-duckduckgo', '44dc75a25fbcdcda87d4423166deb1c978396f00', '/manifest.json', 'pcPlugin', {
+  ['LoggeL/powercord-duckduckgo', 'dbd1e26fa777de00e0ebad45405f20969e50cb47', '/manifest.json', 'pcPlugin', {
     authors: ['320909318767509505']
   }],
 
-  ['SammCheese/At-Someone', '761a83990366e9d7aabc45d6604c6b45a7e56637', '/manifest.json', 'pcPlugin', {
+  ['SammCheese/At-Someone', 'f2434913aa6a4970529624e7f085897661da0f5e', '/manifest.json', 'pcPlugin', {
     authors: ['372148345894076416']
   }],
 
