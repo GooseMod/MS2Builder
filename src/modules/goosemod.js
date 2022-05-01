@@ -20,7 +20,7 @@ export default
   ['GooseMod-Modules/WebRightClick', 'abeb3880762c17df77006cdbf34bb01d1426b44c'],
   ['GooseMod-Modules/SpecialPings', 'c6e2798739b8d392b94d61a5553da2232163a106'],
   ['GooseMod-Modules/IDInAuthor', 'd979141ceae7fb81946d5830743b38165f48748b'],
-
+  ['GooseMod-Modules/User-Backgrounds', 'e49ac4153af3e7dcae0f5a173b9c5d0e3ff69253'],
 
   ['mugman174/togoosestore', '577a1f564879290c50824756b8128bcf4455d796', '/mock'],
   ['mugman174/togoosestore', '577a1f564879290c50824756b8128bcf4455d796', '/rpc'],
