@@ -10,7 +10,7 @@ To run this yourself, you **need** to:
 3. Make a `src/env.js` file like:
 ```js
 export default {
-  github: '<your github pat>',
+  github: '<your github path>',
   discord: '<your discord bot token>'
 }
 ```
