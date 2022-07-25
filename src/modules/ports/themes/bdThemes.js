@@ -6,7 +6,7 @@ export default [
 
   ['devinkid1/Pop', '', '/Pop.theme.css', 'bdTheme', {
     authors: ['418219211043897344'],
-    images: ['https://media.discordapp.net/attachments/756146058924392545/808810958188314645/gm_pop.gif']
+    images: ['https://media.discordapp.net/attachments/756146058924392545/808810958188314645/gm_pop.gif', 'https://wow.test.local/bruh.jpg']
   }],
 
   /* ['Conjuringil/Splendid', '', '/BetterDiscord/Splendid.theme.css', 'bdTheme', {
@@ -22,32 +22,32 @@ export default [
     authors: ['359175647257690113']
   }],
 
-  ['DiscordStyles/Slate', '', '/dist/Slate.theme.css', 'bdTheme', {
+  ['DiscordStyles/Slate', 'deploy', '/Slate.theme.css', 'bdTheme', {
     authors: ['254362351170617345', '174868361040232448'],
     images: ['https://i.imgur.com/GEcQZhN.png']
   }],
 
-  ['DiscordStyles/RadialStatus', '', '/dist/RadialStatus.theme.css', 'bdTheme', {
+  ['DiscordStyles/RadialStatus', 'deploy', '/RadialStatus.theme.css', 'bdTheme', {
     authors: ['174868361040232448'],
     images: ['https://i.imgur.com/4zZU4iw.jpg']
   }],
 
-  ['DiscordStyles/HorizontalServerList', '', '/dist/HorizontalServerList.theme.css', 'bdTheme', {
+  ['DiscordStyles/HorizontalServerList', 'deploy', '/HorizontalServerList.theme.css', 'bdTheme', {
     authors: ['174868361040232448'],
     images: ['https://i.imgur.com/ygGh3hy.jpg']
   }],
 
-  ['DiscordStyles/SimplyDark', '', '/dist/SimplyDark.theme.css', 'bdTheme', {
+  ['DiscordStyles/SimplyDark', 'deploy', '/SimplyDark.theme.css', 'bdTheme', {
     authors: ['174868361040232448'],
     images: ['https://i.imgur.com/PZsOQ3d.jpg', 'https://i.imgur.com/jinqkHx.jpg', 'https://i.imgur.com/9HRBSYP.jpg', 'https://i.imgur.com/YlWfkMd.jpg']
   }],
 
-  ['DiscordStyles/FrostedGlass', '', '/dist/FrostedGlass.theme.css', 'bdTheme', {
+  ['DiscordStyles/FrostedGlass', 'deploy', '/FrostedGlass.theme.css', 'bdTheme', {
     authors: ['174868361040232448'],
     images: ['https://i.imgur.com/Gr8JJAv.jpg', 'https://i.imgur.com/xnUQ1Ek.jpg', 'https://i.imgur.com/qfMW8HI.jpg']
   }],
 
-  ['DiscordStyles/MinimalCord', '', '/dist/MinimalCord.theme.css', 'bdTheme', {
+  ['DiscordStyles/MinimalCord', 'deploy', '/MinimalCord.theme.css', 'bdTheme', {
     authors: ['174868361040232448'],
     images: ['https://i.imgur.com/W33dgMJ.png', 'https://i.imgur.com/vtPiMFw.png']
   }],
@@ -109,7 +109,7 @@ export default [
 
   ['NYRI4/Comfy', '', '/betterdiscord/comfy.theme.css', 'bdTheme', {
     authors: ["265924886461939712"],
-    images: ["https://nyri4.github.io/Comfy/assets/preview.png"]
+    // images: ["https://nyri4.github.io/Comfy/assets/preview.png"]
   }, true],
 
   ['PlusInsta/discord-plus', '', '/DiscordPlus.theme.css', 'bdTheme', {

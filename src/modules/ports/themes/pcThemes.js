@@ -14,9 +14,9 @@ export default [
     ]
   }],
 
-  ['j0lol/i-fixed-discord', '', '/powercord_manifest.json', 'pcTheme', {
+  /* ['j0lol/i-fixed-discord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['363437829507776513']
-  }],
+  }], */
 
   ['Discord-Theme-Addons/bottom-bar', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['399416615742996480'],
@@ -313,7 +313,7 @@ export default [
 
   ['ilyBenny/bubblecord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["227009692646375424"],
-    images: ["https://cdn.discordapp.com/attachments/875027647858618432/875028569544339456/unknown.png","https://cdn.discordapp.com/attachments/875027647858618432/875028594320097349/unknown.png","https://cdn.discordapp.com/attachments/875027647858618432/875028605296603166/unknown.png"]
+    images: []
   }],
 
   ['mr-miner1/cooler-activity-status', '', '/powercord_manifest.json', 'pcTheme', {
@@ -371,7 +371,7 @@ export default [
     images: ["https://raw.githubusercontent.com/dante-nl/Darkcord/main/images/niceimg.png"]
   }], */
 
-  ['DiscordStyles/SoftX', '', '/powercord_manifest.json', 'pcTheme', {
+  ['DiscordStyles/SoftX', 'deploy', '/powercord_manifest.json', 'pcTheme', {
     authors: ["174868361040232448"],
     images: ["https://i.imgur.com/E57gF3L.png","https://i.imgur.com/01NlcPc.png","https://i.imgur.com/nqgmfT0.png","https://i.imgur.com/KEC161G.png"]
   }],
@@ -396,7 +396,7 @@ export default [
     images: ["https://media.discordapp.net/attachments/755005710323941386/863907896156487680/DiscordCanary_wmswAfVaMJ.png"]
   }],
 
-  ['DiscordStyles/Fluent', '', '/powercord_manifest.json', 'pcTheme', {
+  ['DiscordStyles/Fluent', 'deploy', '/powercord_manifest.json', 'pcTheme', {
     authors: ["174868361040232448"],
     images: ["https://i.imgur.com/uFzGxKp.png","https://i.imgur.com/3uL8y2m.png"]
   }],
