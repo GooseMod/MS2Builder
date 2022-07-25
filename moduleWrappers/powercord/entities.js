@@ -15,6 +15,15 @@ export class Plugin {
     this.stylesheets.push(el); // Push to internal array so we can remove the elements on unload
   }
 
+  log() {
+    goosemodScope.logger.debug(`module.${this.name}`, ...arguments);
+  }
+
+  // Method not exactly used for anything, but plugins may access this anyway
+  get color() {
+    return "#7289da";
+  }
+
   // Supposed to return PC manifest, which we don't store so return a rough one based on GM metadata
   get manifest() {
     return {
