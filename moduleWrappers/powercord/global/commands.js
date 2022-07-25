@@ -1,5 +1,5 @@
 const sendMessage = goosemodScope.webpackModules.findByProps('sendMessage', 'receiveMessage').sendMessage;
-const getChannelId = goosemodScope.webpackModules.findByProps('getChannelId').getChannelId;
+const getChannelId = goosemodScope.webpackModules.findByProps('getLastSelectedChannelId', 'getChannelId').getChannelId;
 
 export const registerCommand = ({ command, alias, description, usage, executor }) => {
   // TODO: implement alias
