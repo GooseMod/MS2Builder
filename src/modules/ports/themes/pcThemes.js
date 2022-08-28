@@ -69,10 +69,10 @@ export default [
     images: ['https://media.discordapp.net/attachments/755005710323941386/811325025025785886/2021-02-16_14-51.png']
   }],
 
-  ['Loremly/Nebula', 'c358751de8bc296f05a35cd40d3754507d577c90', '/powercord_manifest.json', 'pcTheme', {
+  /* ['Loremly/Nebula', 'c358751de8bc296f05a35cd40d3754507d577c90', '/powercord_manifest.json', 'pcTheme', {
     authors: ['597072695875600385'],
     images: ['https://i.imgur.com/NEPCkF2.png']
-  }],
+  }], */
 
   ['cainy-a/LunaCord', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ['435026627907420161']
@@ -234,11 +234,6 @@ export default [
   ['schnensch0/zelk', '', '/powercord_manifest.json', 'pcTheme', {
     authors: ["652801938374656013"],
     images: ["https://raw.githubusercontent.com/schnensch0/zelk/main/preview/blue-dark-chat.png","https://raw.githubusercontent.com/schnensch0/zelk/main/preview/gray-dark-modal.png","https://raw.githubusercontent.com/schnensch0/zelk/main/preview/purple-dark-settings.png"]
-  }],
-
-  ['NYRI4/Couve', '', '/powercord_manifest.json', 'pcTheme', {
-    authors: ["264062457448759296","265924886461939712"],
-    images: ["https://cdn.discordapp.com/attachments/539180316447997974/725737819015872562/unknown.png"]
   }],
 
   ['PhoenixAceVFX/Aroma-White', '', '/powercord_manifest.json', 'pcTheme', {

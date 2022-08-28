@@ -112,6 +112,11 @@ export default [
     // images: ["https://nyri4.github.io/Comfy/assets/preview.png"]
   }, true],
 
+  ['NYRI4/Couve', '', '/betterdiscord/couve.theme.css', 'bdTheme', {
+    authors: ["264062457448759296","265924886461939712"],
+    images: ["https://cdn.discordapp.com/attachments/539180316447997974/725737819015872562/unknown.png"]
+  }],
+
   ['PlusInsta/discord-plus', '', '/DiscordPlus.theme.css', 'bdTheme', {
     authors: ['309931975102300160', '207335168430702602'],
     images: ["https://cdn.discordapp.com/attachments/560369937084973067/852549506298150922/unknown.png","https://cdn.discordapp.com/attachments/560369937084973067/852549509154471946/unknown.png"]
